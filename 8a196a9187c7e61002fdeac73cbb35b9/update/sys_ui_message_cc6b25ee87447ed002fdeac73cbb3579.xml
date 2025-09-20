@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>va:topic:65cef86e87007ed002fdeac73cbb35be:node:95d51348f8b24f07adfb9fde6db09df8:field:0</key>
+        <language>en</language>
+        <message>Would you like to update your personal details—such as your name, email address, mobile number, or income?
+Or would you prefer to review your profile status, including your risk score, risk band, days since last payment, last payment date, and credit behavior?</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-20 19:15:05</sys_created_on>
+        <sys_id>cc6b25ee87447ed002fdeac73cbb3579</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>va:topic:65cef86e87007ed002fdeac73cbb35be:node:95d51348f8b24f07adfb9fde6db09df8:field:0</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ui_message_cc6b25ee87447ed002fdeac73cbb3579</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-20 19:15:05</sys_updated_on>
+    </sys_ui_message>
+</record_update>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_topic_language">
+    <sys_cs_topic_language action="INSERT_OR_UPDATE">
+        <cs_topic_id display_value="_PRVW__0d6f916a8b047ed08cd0d4f2f46290d1">456f916a87047ed002fdeac73cbb35d3</cs_topic_id>
+        <language_code>en</language_code>
+        <nlu_entities>[{"variable_name":"customer_input","nlu_entity":"","nlu_entity_label":""},{"variable_name":"offer_choice1","nlu_entity":"","nlu_entity_label":""},{"variable_name":"choose_the_problem","nlu_entity":"","nlu_entity_label":""},{"variable_name":"choose_the_next_step","nlu_entity":"","nlu_entity_label":""}]</nlu_entities>
+        <nlu_intent>Suggest Payment Offer</nlu_intent>
+        <nlu_intent_label>Suggest Payment Offer</nlu_intent_label>
+        <nlu_model>ml_x_snc_global_global_dc7af50797dd511032123fb71153affe</nlu_model>
+        <nlu_model_label>Order Status Model</nlu_model_label>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <sys_class_name>sys_cs_topic_language</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-20 18:22:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>d96f996a87047ed002fdeac73cbb3556</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_cs_topic_language_d96f996a87047ed002fdeac73cbb3556</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-20 18:22:43</sys_updated_on>
+    </sys_cs_topic_language>
+</record_update>

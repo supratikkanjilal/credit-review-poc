@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__b5096deaf8447ed095850b6d1766a0ee">71096dea87447ed002fdeac73cbb35f0</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"2dffe55c2cae43089b631e92075c3e20","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"2dffe55c2cae43089b631e92075c3e20"}],"goals":[{"name":"primary","trigger_id":"2dffe55c2cae43089b631e92075c3e20","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:65cef86e87007ed002fdeac73cbb35be:node:1db42f469245414c9b7ca34e257a85f6:field:GreetingMsg\", vaContext.getRequesterLang())"},"id":"1db42f469245414c9b7ca34e257a85f6","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"24b728d26f2f4f7e9f2de2b0aa07cf91","name":"End","expert_mode":false},{"type":"InputPrompt","variable_id":"952046f5ea2541e7a5c2dd55eb0faa12","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Please enter the customer ID\", vaContext.getRequesterLang())"},"default_value":{"type":"String","mode":"string","value":""},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"id":"40dee72470ee4ea09f9470deaff36515","name":"Customer Input","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"Here are the details for {0}:\", vaContext.getRequesterLang(), [vaInputs.customer_input])"}],"request_feedback":true,"id":"c4e2606e35a84e5f910db4f9f17c5832","name":"Bot Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"RecordOutputPrompt","mode":"query","table":"x_cpszo_spoke_offer_tracker","fields":["number","offer_type","installment_amount","delinquency_status"],"request_feedback":true,"id":"24bf8171a20d4782bb198c46ad31c510","name":"Display Cards","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"reference_qualifier_condition":"number={{vaInputs.customer_input}}^ORnumberLIKE{{vaInputs.customer_input}}","condition":{"type":"Condition","mode":"glide_query","value":"number={{vaInputs.customer_input}}^ORnumberLIKE{{vaInputs.customer_input}}"}},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"54030b3fd0244a9182c031f8417a6cd3","name":"Offer Choice1","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"0a2fb22c0ff8451d821ab45093e1280b","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Click on the offer card above for accepting the offer.\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"RecordOutputPrompt","mode":"query","table":"x_cpszo_spoke_offer_tracker","fields":["number","acceptance_date","offer_status"],"request_feedback":true,"id":"fd72f3607b6a401a80c6c7f055e54baa","name":"Offer Status","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"reference_qualifier_condition":"number={{vaInputs.customer_input}}^ORnumberLIKE{{vaInputs.customer_input}}","condition":{"type":"Condition","mode":"glide_query","value":"number={{vaInputs.customer_input}}^ORnumberLIKE{{vaInputs.customer_input}}"}},{"type":"ScriptOutputPrompt","output_type":"single_part","id":"1a9a5efd77114ae9a9d3086e379fb3eb","name":"VA_GetOffers","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"value":{"type":"String","mode":"string","value":"// (() =&gt; {\n//     const cust = inputs.customer_Input || '';\n//     const result = [];\n \n//     if (!cust) {\n//         outputs.offers = [];\n//         return;\n//     }\n \n//     const gr = new GlideRecord('x_cpszo_spoke_offer_tracker');\n//     gr.addQuery('number', cust);\n//     gr.query();\n \n// while (gr.next()) {\n//         result.push({\n//             sys_id: gr.sys_id.toString(),\n//             customer_id: gr.number.toString(),\n//             offer_type: gr.offer_type.toString(),\n//             installment: gr.installment_amount.toString(),\n//             delinquency: gr.delinquency_status.toString(),\n//         });\n//     }\n \n//     outputs.offers = result;\n// })();"},"secure":false},{"type":"ScriptedAction","script":"// (function execute() {\n//     var updated = false;\n//     var customerId = vaInputs.customer_Input;\n//     var userChoice = vaInputs.offer_choice1;\n\n//     if (userChoice == 'Yes') {\n//         var gr = new GlideRecord('x_cpszo_spoke_offer_tracker');\n//         gr.addQuery('number', customerId); // Match by customer ID\n//         gr.query();\n\n//         while (gr.next()) {\n//             var acceptanceDate = new GlideDateTime();\n//             gr.acceptance_date = acceptanceDate;\n//             gr.offer_status = 'Accepted';\n//             gr.update();\n\n//             updated = true;\n//         }\n//     }\n\n//     vaVars.confirmation = updated\n//         ? 'Offer accepted successfully'\n//         : 'No offer was updated';\n\n//     vaVars.offer_status = updated ? 'Accepted' : 'Not Updated';\n//     vaVars.acceptance_date = updated ? acceptanceDate.getDisplayValue() : '';\n//     vaVars.number = customerId;\n//     vaVars.success = updated;\n// })();\n","id":"1c064e53577045e18029c4d0ab797079","name":"Accept Offer Script","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"Small image with text","cardFields":[{"name":"title","value":{"type":"String","mode":"string","value":"gs.getMessageLang(\"What would you like to do next?\", vaContext.getRequesterLang())"},"required":true},{"name":"description","value":{"type":"String","mode":"string","value":""},"required":false},{"name":"image","value":{"type":"String","mode":"script","value":"(function execute() { var url = gs.getProperty(\"glide.servlet.uri\"); return url + \"OIP (1)_1758387563091.jpg\";})()"},"required":true},{"name":"imageAlt","value":{"type":"String","mode":"string","value":""},"required":false}],"id":"23f87a958dc342278bce4cec5057ab26","name":"Choose the problem","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"d0b5bdd96cf841eabdb8b851c72fb0fa","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:65cef86e87007ed002fdeac73cbb35be:node:23f87a958dc342278bce4cec5057ab26:field:Message\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"Display Offers","expression":{"type":"Applicability","mode":"query","value":"choose_the_problem=Explore available offers and promotions"},"id":"b6fb970955fb4cd9b1d2548b3eb68378","name":"Display Offers","expert_mode":false},{"type":"Branch","label":"Recent Notification","expression":{"type":"Applicability","mode":"query","value":"choose_the_problem=Check recent notification"},"id":"668ea51a890a417798a713a6723f6cde","name":"Recent Notification","expert_mode":false},{"type":"Branch","label":"Customer Profile","expression":{"type":"Applicability","mode":"query","value":"choose_the_problem=View your account details and preferences"},"id":"e3a642aa3bda4d5b9d26e1617788233f","name":"Customer Profile","expert_mode":false}],"id":"54407e5ded044034abe2aca3a1ffdd15","goal_id":"primary","expert_mode":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"Would you like to view your Reminder?\", vaContext.getRequesterLang())"}],"request_feedback":true,"id":"ccaaf705e4c9451599ce0677f679b9f7","name":"Manage Reminder","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"Would you like to update your profile information, or review your recent account activity and status?\", vaContext.getRequesterLang())"}],"request_feedback":true,"id":"95d51348f8b24f07adfb9fde6db09df8","name":"manage your profile information","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"RecordOutputPrompt","mode":"query","table":"x_cpszo_spoke_reminder_log","fields":["reminder_type","reminder_status","reminder_message","preferred_channel","last_contact_date"],"request_feedback":true,"id":"11428e24b9374cc6947fb5f60ce14457","name":"User Reminder","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"reference_qualifier_condition":"number={{vaInputs.customer_input}}","condition":{"type":"Condition","mode":"glide_query","value":"number={{vaInputs.customer_input}}"}},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"942992bf04834046bd797a03d6564ad4","name":"Choose the next step","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"169240ba4f2a491b8b97d39abf4b9421","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:65cef86e87007ed002fdeac73cbb35be:node:942992bf04834046bd797a03d6564ad4:field:Message\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"Update Profile","expression":{"type":"Applicability","mode":"query","value":""},"id":"99096eb3efd54a5d8428919bd65776f6","name":"Update Profile","expert_mode":false},{"type":"Branch","label":"Check Credit Status","expression":{"type":"Applicability","mode":"query","value":""},"id":"d961172d2d664a689e27cff27998e31c","name":"Check Credit Status","expert_mode":false}],"id":"a36b210f63734e33a9b9e8552403166a","goal_id":"primary","expert_mode":false},{"type":"CRUDAction","mode":"read","read_mode":"variable","query":"numberISNOTEMPTY^number={{vaInputs.customer_input}}","variable_id":"b4c62406e1a7426d8b76b76738eb2574","id":"74ad3043a797413296bd9c3dd76e3d8a","name":"Check Credit Staus","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"condition":{"type":"Condition","mode":"glide_query","value":"numberISNOTEMPTY^number={{vaInputs.customer_input}}"}},{"type":"RecordOutputPrompt","mode":"variable","table":"x_cpszo_spoke_customer_profile","variable_id":"b4c62406e1a7426d8b76b76738eb2574","fields":["credit_behaviour","risk_band","risk_score","last_payment_date","days_since_last_payment"],"request_feedback":true,"id":"3b69a1385c154ded989b4a435c6b5366","name":"Display Credit Status","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"condition":{"type":"Condition","mode":"glide_query","value":""}}],"edges":[{"type":"Edge","source_node_id":"ccaaf705e4c9451599ce0677f679b9f7","target_node_id":"11428e24b9374cc6947fb5f60ce14457","id":"836ffc811be04574a486378bc10a5fe0"},{"type":"Edge","source_node_id":"a36b210f63734e33a9b9e8552403166a","target_node_id":"24b728d26f2f4f7e9f2de2b0aa07cf91","branch_id":"99096eb3efd54a5d8428919bd65776f6","id":"b1903394cddc4dc7940b9d13a6752f0a","name":"99096eb3efd54a5d8428919bd65776f6"},{"type":"Edge","source_node_id":"3b69a1385c154ded989b4a435c6b5366","target_node_id":"24b728d26f2f4f7e9f2de2b0aa07cf91","id":"0a82d282bdf549f8b8f11915c28a04bb"},{"type":"Edge","source_node_id":"c4e2606e35a84e5f910db4f9f17c5832","target_node_id":"1a9a5efd77114ae9a9d3086e379fb3eb","id":"41a176b7caa141379962f8c1d6f88e96"},{"type":"Edge","source_node_id":"1db42f469245414c9b7ca34e257a85f6","target_node_id":"40dee72470ee4ea09f9470deaff36515","id":"631cbc17e7004f8bb0ea5d50fd226467"},{"type":"Edge","source_node_id":"24bf8171a20d4782bb198c46ad31c510","target_node_id":"54030b3fd0244a9182c031f8417a6cd3","id":"a6ba3d03299f41b0ac675f10bd9f202e"},{"type":"Edge","source_node_id":"fd72f3607b6a401a80c6c7f055e54baa","target_node_id":"24b728d26f2f4f7e9f2de2b0aa07cf91","id":"01a84f57e09e4bdfb3dbc565640c2ef1"},{"type":"Edge","source_node_id":"1a9a5efd77114ae9a9d3086e379fb3eb","target_node_id":"24bf8171a20d4782bb198c46ad31c510","id":"99a0269b38c1419399275af566eb2f73"},{"type":"Edge","source_node_id":"54030b3fd0244a9182c031f8417a6cd3","target_node_id":"1c064e53577045e18029c4d0ab797079","id":"ccf2ac7994514028a0fcc500c27e7bc4"},{"type":"Edge","source_node_id":"1c064e53577045e18029c4d0ab797079","target_node_id":"fd72f3607b6a401a80c6c7f055e54baa","id":"8178a4e452b340faac122802b83cc72f"},{"type":"Edge","source_node_id":"40dee72470ee4ea09f9470deaff36515","target_node_id":"23f87a958dc342278bce4cec5057ab26","id":"37e5be3b952e415da1d13921e905b19b"},{"type":"Edge","source_node_id":"23f87a958dc342278bce4cec5057ab26","target_node_id":"54407e5ded044034abe2aca3a1ffdd15","id":"f6398a6a927d439aa278f89bcc985dc1"},{"type":"Edge","source_node_id":"54407e5ded044034abe2aca3a1ffdd15","target_node_id":"c4e2606e35a84e5f910db4f9f17c5832","branch_id":"b6fb970955fb4cd9b1d2548b3eb68378","id":"5bded2a2015c44d8b2ddcd92d199a7e0","name":"b6fb970955fb4cd9b1d2548b3eb68378"},{"type":"Edge","source_node_id":"54407e5ded044034abe2aca3a1ffdd15","target_node_id":"ccaaf705e4c9451599ce0677f679b9f7","branch_id":"668ea51a890a417798a713a6723f6cde","id":"789ab92c79fa41528211330ca652a442","name":"668ea51a890a417798a713a6723f6cde"},{"type":"Edge","source_node_id":"54407e5ded044034abe2aca3a1ffdd15","target_node_id":"95d51348f8b24f07adfb9fde6db09df8","branch_id":"e3a642aa3bda4d5b9d26e1617788233f","id":"ac497e5b1ee74d44b0aa7756b02750eb","name":"e3a642aa3bda4d5b9d26e1617788233f"},{"type":"Edge","source_node_id":"11428e24b9374cc6947fb5f60ce14457","target_node_id":"24b728d26f2f4f7e9f2de2b0aa07cf91","id":"6f0d3d9d54d44ed6978d4a005069ccf9"},{"type":"Edge","source_node_id":"95d51348f8b24f07adfb9fde6db09df8","target_node_id":"942992bf04834046bd797a03d6564ad4","id":"697121e8cc0e44c0821b98c37ec1f2df"},{"type":"Edge","source_node_id":"942992bf04834046bd797a03d6564ad4","target_node_id":"a36b210f63734e33a9b9e8552403166a","id":"754b26001fc2484aa0ae801c654212c9"},{"type":"Edge","source_node_id":"a36b210f63734e33a9b9e8552403166a","target_node_id":"74ad3043a797413296bd9c3dd76e3d8a","branch_id":"d961172d2d664a689e27cff27998e31c","id":"777bb75288a04b2fab8272b12257b74a","name":"d961172d2d664a689e27cff27998e31c"},{"type":"Edge","source_node_id":"74ad3043a797413296bd9c3dd76e3d8a","target_node_id":"3b69a1385c154ded989b4a435c6b5366","id":"8ae952f594f04189b1eca3b5ea23e43b"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"ce24b124475b49dfbc49534c3b174c40","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"customer_input","list":false,"id":"952046f5ea2541e7a5c2dd55eb0faa12","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"Choice","choices":[{"name":"Done","element":"Done"},{"name":"Not Done","element":"Not Done"}],"id":"0a2fb22c0ff8451d821ab45093e1280b","name":"offer_choice1","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"Offer Choice1"},{"type":"Choice","choices":[{"name":"View your account details and preferences","element":"View your account details and preferences"},{"name":"Check recent notification","element":"Check recent notification"},{"name":"Explore available offers and promotions","element":"Explore available offers and promotions"}],"id":"d0b5bdd96cf841eabdb8b851c72fb0fa","name":"choose_the_problem","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"Choose The Problem"},{"type":"Choice","choices":[{"name":"Update Profile Details","element":"Update Profile"},{"name":"Check Reminder Details","element":"Check Reminder Details"}],"id":"169240ba4f2a491b8b97d39abf4b9421","name":"choose_the_next_step","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"Choose The Next Step"},{"type":"Reference","table":"x_cpszo_spoke_customer_profile","auto_select":false,"id":"b4c62406e1a7426d8b76b76738eb2574","name":"check_credit_staus","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"8a196a9187c7e61002fdeac73cbb35b9","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"65cef86e87007ed002fdeac73cbb35be","name":"_PRVW__b5096deaf8447ed095850b6d1766a0ee","key_phrases":["Agentic Browsing Chat","Suggest Payment Offer","Need help with payment","Show payment options","Suggest a payment plan","payment offers","show offers","offer for payment","Show me reminder","reminder","show me notifications","show me notification","notification","last payment date","income","mobile number","risk band","risk score","day since last payement","last payment date","credit behavior","update my profile","payment ratio","profile change","update phone number","how is my credit behavior","when did I make my last payment","what is my risk score","Do I have any pending payments","how is my credit health","email","change email","profile change"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"Helps users discover available payment offers based on their profile or request.","model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Agentic Browsing Chat","library":false,"csTopicId":"6ded85aa87807ed002fdeac73cbb35cd","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>65cef86e87007ed002fdeac73cbb35be</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.73",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "1db42f469245414c9b7ca34e257a85f6": {
+          "id": "1db42f469245414c9b7ca34e257a85f6",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hi!"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Welcome to Agentic Browsing Chat"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "24b728d26f2f4f7e9f2de2b0aa07cf91": {
+          "id": "24b728d26f2f4f7e9f2de2b0aa07cf91",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "40dee72470ee4ea09f9470deaff36515": {
+          "id": "40dee72470ee4ea09f9470deaff36515",
+          "stepType": "TextPrompt",
+          "name": "Customer Input",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Please enter the customer ID"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "952046f5ea2541e7a5c2dd55eb0faa12",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "c4e2606e35a84e5f910db4f9f17c5832": {
+          "id": "c4e2606e35a84e5f910db4f9f17c5832",
+          "stepType": "TextOutput",
+          "name": "Bot Response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Here are the details for "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_input}}",
+                        "displayValue": "Input Variables➛Customer Input"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ": "
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "116889f5c3db45ee833447299b50599f"
+            }
+          ],
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "24bf8171a20d4782bb198c46ad31c510": {
+          "id": "24bf8171a20d4782bb198c46ad31c510",
+          "stepType": "RecordOutput",
+          "name": "Display Cards",
+          "variableId": "",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "script",
+          "tableName": "x_cpszo_spoke_offer_tracker",
+          "fields": [
+            "number",
+            "offer_type",
+            "installment_amount",
+            "delinquency_status"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.customer_input}}^ORnumberLIKE{{vaInputs.customer_input}}"
+          }
+        },
+        "54030b3fd0244a9182c031f8417a6cd3": {
+          "name": "Offer Choice1",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Click on the offer card above for accepting the offer."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "0a2fb22c0ff8451d821ab45093e1280b",
+          "detailDescription": "",
+          "id": "54030b3fd0244a9182c031f8417a6cd3",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "fd72f3607b6a401a80c6c7f055e54baa": {
+          "id": "fd72f3607b6a401a80c6c7f055e54baa",
+          "stepType": "RecordOutput",
+          "name": "Offer Status",
+          "variableId": "",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "script",
+          "tableName": "x_cpszo_spoke_offer_tracker",
+          "fields": [
+            "number",
+            "acceptance_date",
+            "offer_status"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.customer_input}}^ORnumberLIKE{{vaInputs.customer_input}}"
+          }
+        },
+        "1a9a5efd77114ae9a9d3086e379fb3eb": {
+          "id": "1a9a5efd77114ae9a9d3086e379fb3eb",
+          "stepType": "ScriptOutput",
+          "name": "VA_GetOffers",
+          "output_type": "single_part",
+          "script": "// (() =&gt; {\n//     const cust = inputs.customer_Input || '';\n//     const result = [];\n \n//     if (!cust) {\n//         outputs.offers = [];\n//         return;\n//     }\n \n//     const gr = new GlideRecord('x_cpszo_spoke_offer_tracker');\n//     gr.addQuery('number', cust);\n//     gr.query();\n \n// while (gr.next()) {\n//         result.push({\n//             sys_id: gr.sys_id.toString(),\n//             customer_id: gr.number.toString(),\n//             offer_type: gr.offer_type.toString(),\n//             installment: gr.installment_amount.toString(),\n//             delinquency: gr.delinquency_status.toString(),\n//         });\n//     }\n \n//     outputs.offers = result;\n// })();",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "1c064e53577045e18029c4d0ab797079": {
+          "id": "1c064e53577045e18029c4d0ab797079",
+          "name": "Accept Offer Script",
+          "script": "// (function execute() {\n//     var updated = false;\n//     var customerId = vaInputs.customer_Input;\n//     var userChoice = vaInputs.offer_choice1;\n\n//     if (userChoice == 'Yes') {\n//         var gr = new GlideRecord('x_cpszo_spoke_offer_tracker');\n//         gr.addQuery('number', customerId); // Match by customer ID\n//         gr.query();\n\n//         while (gr.next()) {\n//             var acceptanceDate = new GlideDateTime();\n//             gr.acceptance_date = acceptanceDate;\n//             gr.offer_status = 'Accepted';\n//             gr.update();\n\n//             updated = true;\n//         }\n//     }\n\n//     vaVars.confirmation = updated\n//         ? 'Offer accepted successfully'\n//         : 'No offer was updated';\n\n//     vaVars.offer_status = updated ? 'Accepted' : 'Not Updated';\n//     vaVars.acceptance_date = updated ? acceptanceDate.getDisplayValue() : '';\n//     vaVars.number = customerId;\n//     vaVars.success = updated;\n// })();\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "23f87a958dc342278bce4cec5057ab26": {
+          "name": "Choose the problem",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Thanks for sharing your Customer ID!"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "How can I assist you today? Please choose one of the following options:"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "d0b5bdd96cf841eabdb8b851c72fb0fa",
+          "detailDescription": "",
+          "id": "23f87a958dc342278bce4cec5057ab26",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": true,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "Small image with text",
+            "cardFields": {
+              "1cf75c317313101081e06502edf6a738_image": {
+                "value": "OIP (1)_1758387563091.jpg",
+                "mode": "db_image"
+              },
+              "1cf75c317313101081e06502edf6a738_title": {
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "text": "What would you like to do next?"
+                      }
+                    ]
+                  }
+                ],
+                "mode": "simple"
+              }
+            },
+            "cardDefinition": {
+              "sys_id": "1cf75c317313101081e06502edf6a738",
+              "name": "Small image with text",
+              "sys_name": "Small image with text",
+              "thumbnail.name": "Small image with text.svg",
+              "fields": [
+                {
+                  "label": "Title",
+                  "position": "1",
+                  "mandatory": true,
+                  "name": "title",
+                  "id": "1cf75c317313101081e06502edf6a738_title"
+                },
+                {
+                  "label": "Description",
+                  "position": "2",
+                  "mandatory": false,
+                  "name": "description",
+                  "id": "1cf75c317313101081e06502edf6a738_description"
+                },
+                {
+                  "label": "Image URL link",
+                  "position": "3",
+                  "mandatory": true,
+                  "type": "image",
+                  "name": "image",
+                  "id": "1cf75c317313101081e06502edf6a738_image"
+                },
+                {
+                  "label": "Image alt text",
+                  "position": "4",
+                  "mandatory": false,
+                  "name": "imageAlt",
+                  "id": "1cf75c317313101081e06502edf6a738_imageAlt"
+                }
+              ],
+              "value": "Small image with text",
+              "hasTemplateError": false
+            }
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "54407e5ded044034abe2aca3a1ffdd15": {
+          "id": "54407e5ded044034abe2aca3a1ffdd15",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "ccaaf705e4c9451599ce0677f679b9f7": {
+          "id": "ccaaf705e4c9451599ce0677f679b9f7",
+          "stepType": "TextOutput",
+          "name": "Manage Reminder",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Would you like to view your Reminder?"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "7318cb89c4f941f1a36238fe0da147d2"
+            }
+          ],
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "95d51348f8b24f07adfb9fde6db09df8": {
+          "id": "95d51348f8b24f07adfb9fde6db09df8",
+          "stepType": "TextOutput",
+          "name": "manage your profile information",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Would you like to update your profile information, or review your recent account activity and status?"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "b17e527660e54593a5040019dd2daadc"
+            }
+          ],
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "11428e24b9374cc6947fb5f60ce14457": {
+          "id": "11428e24b9374cc6947fb5f60ce14457",
+          "stepType": "RecordOutput",
+          "name": "User Reminder",
+          "variableId": "53ac6db043de4d938e29b12244d5af79",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "script",
+          "tableName": "x_cpszo_spoke_reminder_log",
+          "fields": [
+            "reminder_type",
+            "reminder_status",
+            "reminder_message",
+            "preferred_channel",
+            "last_contact_date"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.customer_input}}"
+          }
+        },
+        "942992bf04834046bd797a03d6564ad4": {
+          "name": "Choose the next step",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Would you like to update your personal details—such as your name, email address, mobile number, or income?"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Or would you prefer to review your profile status, including your risk score, risk band, days since last payment, last payment date, and credit behavior?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "169240ba4f2a491b8b97d39abf4b9421",
+          "detailDescription": "",
+          "id": "942992bf04834046bd797a03d6564ad4",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "a36b210f63734e33a9b9e8552403166a": {
+          "id": "a36b210f63734e33a9b9e8552403166a",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "74ad3043a797413296bd9c3dd76e3d8a": {
+          "id": "74ad3043a797413296bd9c3dd76e3d8a",
+          "stepType": "LookupRecord",
+          "name": "Check Credit Staus",
+          "condition": {
+            "mode": "glide_query",
+            "value": "numberISNOTEMPTY^number={{vaInputs.customer_input}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "b4c62406e1a7426d8b76b76738eb2574"
+        },
+        "3b69a1385c154ded989b4a435c6b5366": {
+          "id": "3b69a1385c154ded989b4a435c6b5366",
+          "stepType": "RecordOutput",
+          "name": "Display Credit Status",
+          "variableId": "b4c62406e1a7426d8b76b76738eb2574",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "variable",
+          "tableName": "x_cpszo_spoke_customer_profile",
+          "fields": [
+            "credit_behaviour",
+            "risk_band",
+            "risk_score",
+            "last_payment_date",
+            "days_since_last_payment"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "836ffc811be04574a486378bc10a5fe0",
+          "edgeType": "Edge",
+          "source": "ccaaf705e4c9451599ce0677f679b9f7",
+          "target": "11428e24b9374cc6947fb5f60ce14457",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b1903394cddc4dc7940b9d13a6752f0a",
+          "edgeType": "Branch",
+          "source": "a36b210f63734e33a9b9e8552403166a",
+          "target": "24b728d26f2f4f7e9f2de2b0aa07cf91",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Update Profile"
+        },
+        {
+          "id": "0a82d282bdf549f8b8f11915c28a04bb",
+          "edgeType": "Edge",
+          "source": "3b69a1385c154ded989b4a435c6b5366",
+          "target": "24b728d26f2f4f7e9f2de2b0aa07cf91",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "41a176b7caa141379962f8c1d6f88e96",
+          "edgeType": "Edge",
+          "source": "c4e2606e35a84e5f910db4f9f17c5832",
+          "target": "1a9a5efd77114ae9a9d3086e379fb3eb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "631cbc17e7004f8bb0ea5d50fd226467",
+          "edgeType": "Edge",
+          "source": "1db42f469245414c9b7ca34e257a85f6",
+          "target": "40dee72470ee4ea09f9470deaff36515",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a6ba3d03299f41b0ac675f10bd9f202e",
+          "edgeType": "Edge",
+          "source": "24bf8171a20d4782bb198c46ad31c510",
+          "target": "54030b3fd0244a9182c031f8417a6cd3",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "01a84f57e09e4bdfb3dbc565640c2ef1",
+          "edgeType": "Edge",
+          "source": "fd72f3607b6a401a80c6c7f055e54baa",
+          "target": "24b728d26f2f4f7e9f2de2b0aa07cf91",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "99a0269b38c1419399275af566eb2f73",
+          "edgeType": "Edge",
+          "source": "1a9a5efd77114ae9a9d3086e379fb3eb",
+          "target": "24bf8171a20d4782bb198c46ad31c510",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ccf2ac7994514028a0fcc500c27e7bc4",
+          "edgeType": "Edge",
+          "source": "54030b3fd0244a9182c031f8417a6cd3",
+          "target": "1c064e53577045e18029c4d0ab797079",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8178a4e452b340faac122802b83cc72f",
+          "edgeType": "Edge",
+          "source": "1c064e53577045e18029c4d0ab797079",
+          "target": "fd72f3607b6a401a80c6c7f055e54baa",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "37e5be3b952e415da1d13921e905b19b",
+          "edgeType": "Edge",
+          "source": "40dee72470ee4ea09f9470deaff36515",
+          "target": "23f87a958dc342278bce4cec5057ab26",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f6398a6a927d439aa278f89bcc985dc1",
+          "edgeType": "Edge",
+          "source": "23f87a958dc342278bce4cec5057ab26",
+          "target": "54407e5ded044034abe2aca3a1ffdd15",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5bded2a2015c44d8b2ddcd92d199a7e0",
+          "edgeType": "Branch",
+          "source": "54407e5ded044034abe2aca3a1ffdd15",
+          "target": "c4e2606e35a84e5f910db4f9f17c5832",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.choose_the_problem=Explore available offers and promotions",
+            "mode": "query"
+          },
+          "label": "Display Offers"
+        },
+        {
+          "id": "789ab92c79fa41528211330ca652a442",
+          "edgeType": "Branch",
+          "source": "54407e5ded044034abe2aca3a1ffdd15",
+          "target": "ccaaf705e4c9451599ce0677f679b9f7",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.choose_the_problem=Check recent notification",
+            "mode": "query"
+          },
+          "label": "Recent Notification"
+        },
+        {
+          "id": "ac497e5b1ee74d44b0aa7756b02750eb",
+          "edgeType": "Branch",
+          "source": "54407e5ded044034abe2aca3a1ffdd15",
+          "target": "95d51348f8b24f07adfb9fde6db09df8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.choose_the_problem=View your account details and preferences",
+            "mode": "query"
+          },
+          "label": "Customer Profile"
+        },
+        {
+          "id": "6f0d3d9d54d44ed6978d4a005069ccf9",
+          "edgeType": "Edge",
+          "source": "11428e24b9374cc6947fb5f60ce14457",
+          "target": "24b728d26f2f4f7e9f2de2b0aa07cf91",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "697121e8cc0e44c0821b98c37ec1f2df",
+          "edgeType": "Edge",
+          "source": "95d51348f8b24f07adfb9fde6db09df8",
+          "target": "942992bf04834046bd797a03d6564ad4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "754b26001fc2484aa0ae801c654212c9",
+          "edgeType": "Edge",
+          "source": "942992bf04834046bd797a03d6564ad4",
+          "target": "a36b210f63734e33a9b9e8552403166a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "777bb75288a04b2fab8272b12257b74a",
+          "edgeType": "Branch",
+          "source": "a36b210f63734e33a9b9e8552403166a",
+          "target": "74ad3043a797413296bd9c3dd76e3d8a",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "",
+            "mode": "query"
+          },
+          "label": "Check Credit Status"
+        },
+        {
+          "id": "8ae952f594f04189b1eca3b5ea23e43b",
+          "edgeType": "Edge",
+          "source": "74ad3043a797413296bd9c3dd76e3d8a",
+          "target": "3b69a1385c154ded989b4a435c6b5366",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "ce24b124475b49dfbc49534c3b174c40": {
+      "category": "vaInputs",
+      "id": "ce24b124475b49dfbc49534c3b174c40",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "952046f5ea2541e7a5c2dd55eb0faa12": {
+      "id": "952046f5ea2541e7a5c2dd55eb0faa12",
+      "name": "customer_input",
+      "label": "Customer Input",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc1NTA2MTYzMjg1MiBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "40dee72470ee4ea09f9470deaff36515",
+      "isHidden": false
+    },
+    "0a2fb22c0ff8451d821ab45093e1280b": {
+      "id": "0a2fb22c0ff8451d821ab45093e1280b",
+      "name": "offer_choice1",
+      "label": "Offer Choice1",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Done",
+          "value": "Done"
+        },
+        {
+          "label": "Not Done",
+          "value": "Not Done",
+          "checked": true,
+          "meta": {}
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "54030b3fd0244a9182c031f8417a6cd3",
+      "isHidden": false
+    },
+    "d0b5bdd96cf841eabdb8b851c72fb0fa": {
+      "id": "d0b5bdd96cf841eabdb8b851c72fb0fa",
+      "name": "choose_the_problem",
+      "label": "Choose The Problem",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "View your account details and preferences",
+          "value": "View your account details and preferences"
+        },
+        {
+          "label": "Check recent notification",
+          "value": "Check recent notification"
+        },
+        {
+          "label": "Explore available offers and promotions",
+          "value": "Explore available offers and promotions",
+          "checked": true,
+          "meta": {}
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "23f87a958dc342278bce4cec5057ab26",
+      "isHidden": false
+    },
+    "169240ba4f2a491b8b97d39abf4b9421": {
+      "id": "169240ba4f2a491b8b97d39abf4b9421",
+      "name": "choose_the_next_step",
+      "label": "Choose The Next Step",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Update Profile Details",
+          "value": "Update Profile"
+        },
+        {
+          "label": "Check Reminder Details",
+          "value": "Check Reminder Details"
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "942992bf04834046bd797a03d6564ad4",
+      "isHidden": false
+    },
+    "b4c62406e1a7426d8b76b76738eb2574": {
+      "id": "b4c62406e1a7426d8b76b76738eb2574",
+      "name": "check_credit_staus",
+      "label": "Check Credit Staus",
+      "varType": "reference",
+      "table": "x_cpszo_spoke_customer_profile",
+      "category": "vaInputs",
+      "nodeId": "3b69a1385c154ded989b4a435c6b5366",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>_PRVW__b5096deaf8447ed095850b6d1766a0ee</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-20 19:04:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>35096dea87447ed002fdeac73cbb35f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_cb_design_topic_35096dea87447ed002fdeac73cbb35f4</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-20 19:04:49</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>
