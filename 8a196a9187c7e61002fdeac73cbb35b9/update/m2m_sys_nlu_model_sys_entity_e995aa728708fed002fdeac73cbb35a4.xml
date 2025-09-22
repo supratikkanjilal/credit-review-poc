@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_model_sys_entity">
+    <m2m_sys_nlu_model_sys_entity action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <entity>DURATION</entity>
+        <model display_value="Agentic Browsing Model">9195aa728708fed002fdeac73cbb357e</model>
+        <sys_class_name>m2m_sys_nlu_model_sys_entity</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-21 18:07:53</sys_created_on>
+        <sys_entity/>
+        <sys_id>e995aa728708fed002fdeac73cbb35a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Agentic Browsing Model.</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>m2m_sys_nlu_model_sys_entity_e995aa728708fed002fdeac73cbb35a4</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-21 18:07:53</sys_updated_on>
+    </m2m_sys_nlu_model_sys_entity>
+</record_update>
