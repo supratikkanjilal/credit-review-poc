@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>offerClient</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+const customerNumber = state.selectedCustomerNumber;
+  if (!customerNumber) return;
+  const ga = new GlideAjax('CustomerOfferHelper');
+  ga.addParam('sysparm_name', 'getOfferDefaults');
+  ga.addParam('sysparm_customer_number', customerNumber);
+  ga.getXMLAnswer(function (response) {
+    const data = JSON.parse(response);
+    if (data.error) {
+      console.error(data.error);
+      return;
+    }
+ 
+    // Bind these to your modal form fields
+    state.offerType = data.offer_type;
+    state.delinquencyStatus = data.delinquency_status;
+    state.customerNumber = data.customer_number;
+    state.delinquencyCount = data.delinquency_count;
+  });
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 15:07:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>76f7aeec87243210b3fb021a0cbb35d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>offerClient</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_client_76f7aeec87243210b3fb021a0cbb35d4</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 15:07:46</sys_updated_on>
+        <table>x_cpszo_spoke_offer_tracker</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

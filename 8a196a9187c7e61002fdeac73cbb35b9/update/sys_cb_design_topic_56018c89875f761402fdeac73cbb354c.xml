@@ -1,0 +1,1806 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__8556cb577b9d47438bd4b83b642fd984">4a018c89875f761402fdeac73cbb352b</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"104fc24bb16d4805ae4f7d42d2c48087","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"104fc24bb16d4805ae4f7d42d2c48087"}],"goals":[{"name":"primary","trigger_id":"104fc24bb16d4805ae4f7d42d2c48087","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:7a97e2768708fed002fdeac73cbb35f6:node:4e2a7127b02242278ee77b406d45c656:field:GreetingMsg\", vaContext.getRequesterLang())"},"id":"4e2a7127b02242278ee77b406d45c656","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Thank you for using our Virtual Agent !!!\", vaContext.getRequesterLang())"},"id":"537035c1b0af4218948531910b8e162e","name":"End","expert_mode":false},{"type":"InputPrompt","variable_id":"87ec94ff32a6400980f124897e60977d","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Please enter the customer ID\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"ae3de7b246e24429ba7edd5884f6985c","name":"Customer Number","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"Small image with text","cardFields":[{"name":"title","value":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Select an Option to Continue\", vaContext.getRequesterLang())"},"required":true},{"name":"description","value":{"type":"String","mode":"string","value":""},"required":false},{"name":"image","value":{"type":"String","mode":"script","value":"(function execute() { var url = gs.getProperty(\"glide.servlet.uri\"); return url + \"OIP (1)_1758479068139.jpg\";})()"},"required":true},{"name":"imageAlt","value":{"type":"String","mode":"string","value":""},"required":false}],"id":"86f1afcc0d52401588f20d962145d3d3","name":"Customer Choice","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"7c971c38a672431486e56e69bb272363","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"What would you like to do next?\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"Here are the details for {0}:\", vaContext.getRequesterLang(), [vaInputs.customer_number])"}],"request_feedback":true,"isCollapsible":true,"id":"c705a2f175734795b15013b32366a398","name":"Bot Response 1","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"Check Notification","expression":{"type":"Applicability","mode":"query","value":"customer_choice=Check Notfictation"},"id":"acca4140512146b7b5cf98ad55dabe7e","name":"Check Notification","expert_mode":false},{"type":"Branch","label":"Check Profile Details","expression":{"type":"Applicability","mode":"query","value":"customer_choice=Check Profile Details"},"id":"cbc559726f44425c83b84bec16f98eb5","name":"Check Profile Details","expert_mode":false},{"type":"Branch","label":"Always","expression":{"type":"Applicability","mode":"query","value":""},"id":"0ede34c6b14e450e8e450973d2428d30","name":"Always","expert_mode":false}],"id":"165485e34f2f4b738beea378329ed729","goal_id":"primary","expert_mode":false},{"type":"RecordOutputPrompt","mode":"query","table":"x_cpszo_spoke_customer_profile","fields":["name","email","mobile_number","last_payment_date","risk_score","risk_band","days_since_last_payment","credit_behaviour"],"request_feedback":true,"id":"f0cb0f77f3cf49a9aa93ded5907e21b8","name":"Customer Profile Details","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"reference_qualifier_condition":"name={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}","condition":{"type":"Condition","mode":"glide_query","value":"name={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"}},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:7a97e2768708fed002fdeac73cbb35f6:node:7bb600b3c4eb41a9b74ae5bdc43817eb:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"7bb600b3c4eb41a9b74ae5bdc43817eb","name":"Gretting","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TableOutput","mode":"glide_record","conditionType":"simple","query":"NQnumber={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}","sortBy":"^ORDERBYsys_created_on","table":"x_cpszo_spoke_reminder_log","title":{"type":"String","mode":"string","value":""},"columns":[{"name":"last_contact_date","label":"Last Contact Date"},{"name":"reminder_schedule","label":"Reminder Schedule"},{"name":"reminder_message","label":"Reminder Message"},{"name":"reminder_type","label":"Reminder Type"}],"showColumnHeaders":true,"noResultsMessage":{"type":"String","mode":"string","value":"There are currently no reminders associated with this customer."},"showLink":false,"id":"5b0b7f9916bf4866890ab057acf4f688","name":"Customer Reminder","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"RecordOutputPrompt","mode":"query","table":"x_cpszo_spoke_offer_tracker","fields":["number","offer_type","delinquency_status","installment_amount"],"request_feedback":true,"id":"4e08341d36764bfd9dffa05736bf6189","name":"Suggest Offers Card","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"reference_qualifier_condition":"number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}","condition":{"type":"Condition","mode":"glide_query","value":"number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"}},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"c8d24b43ae404e0ebc730df998d01eb9","name":"Offer Choose","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"1bbde9820d064968b8ba92d28da25321","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"After seeing the offer card above, do you want to go with the offer ?\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"RecordOutputPrompt","mode":"query","table":"x_cpszo_spoke_offer_tracker","fields":["number","acceptance_date","offer_status"],"request_feedback":true,"id":"8d2b91dfbe0146b6a98727e56edf6a3b","name":"Display Offer Cards","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"reference_qualifier_condition":"number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}","condition":{"type":"Condition","mode":"glide_query","value":"number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"}},{"type":"Decision","name":"Offer Accept Decision","branches":[{"type":"Branch","label":"Accept","expression":{"type":"Applicability","mode":"query","value":"offer_choose=Accept"},"id":"2fa9809654044c22a326f1dcf6638d08","name":"Accept","expert_mode":false},{"type":"Branch","label":"Reject","expression":{"type":"Applicability","mode":"query","value":"offer_choose=Reject"},"id":"a9a2222a881f45c9ac05b2ecfe1dc89d","name":"Reject","expert_mode":false}],"id":"2e0cfc239643407198457470e9a2a2e0","goal_id":"primary","expert_mode":false},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"b53812675c5f48eaa926e46fb8a51c64","name":"Do you want to check anything else?","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"138ae9c2512a433cadecdebeb15938a0","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Do you want to check anything else?\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"Decision","name":"Want anything else","branches":[{"type":"Branch","label":"No","expression":{"type":"Applicability","mode":"query","value":"do_you_want_to_check_anything_else_=No"},"id":"9c8c20a77bf946fbae48f79d57bc03ad","name":"No","expert_mode":false},{"type":"Branch","label":"Yes","expression":{"type":"Applicability","mode":"query","value":"do_you_want_to_check_anything_else_=Yes"},"id":"ee2121ef85b347e3a0eee5d88d6b2068","name":"Yes","expert_mode":false}],"id":"e9eb1b684a5d4bc78ea0cf905e7de7ff","goal_id":"primary","expert_mode":false},{"type":"CRUDAction","mode":"read","read_mode":"variable","query":"number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}","variable_id":"17f9f6f5f60b470bb1b226f4b489fab2","id":"c95ff468b2cf45928110303677b9d341","name":"Lookup Offer Table","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"condition":{"type":"Condition","mode":"glide_query","value":"number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"}},{"type":"CRUDAction","mode":"update","query":"offer_status=Accepted","variable_id":"17f9f6f5f60b470bb1b226f4b489fab2","id":"6dba11dd7d9942c7ba14b7f4f9121810","name":"Accept Offers Status","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"attachments":[{"type":"String","mode":"string","value":""}]},{"type":"CRUDAction","mode":"update","query":"offer_status=Rejected","variable_id":"17f9f6f5f60b470bb1b226f4b489fab2","id":"c79db8d3737643c38e727b2f89678f90","name":"Reject Offer Status","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"attachments":[{"type":"String","mode":"string","value":""}]},{"type":"CRUDAction","mode":"read","read_mode":"variable","query":"number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}","variable_id":"871fa74675fb4ba2aaf23ec60b72dd9e","id":"109384a8a4fc4d359780f731b41bcf2e","name":"Customer Profile Details","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"condition":{"type":"Condition","mode":"glide_query","value":"number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"}},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:7a97e2768708fed002fdeac73cbb35f6:node:f0a5e732a4f5486dad2dee0e3f85ed66:field:0 {0} {1} {2}\", vaContext.getRequesterLang(), [vaInputs.customer_profile_details.name.getDisplayValue(),vaInputs.customer_profile_details.credit_behaviour.getDisplayValue(),vaInputs.customer_profile_details.risk_band.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"f0a5e732a4f5486dad2dee0e3f85ed66","name":"Low Risk Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"FDIHInvocation","name":"Risk Band Distribution","kind":"subflow","mode":"sync","inputs":[{"supported_input_modes":[],"name":"customer_id","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaInputs.customer_number}}"}],"is_list_data_entry":false}],"outputs":[{"name":"risk_band","order":0,"value":[],"is_list_data_entry":false,"topicVariableName":"risk_band"}],"id":"8409f4a47bd8429797bfdc14b6373957","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"sys_id":"a0e4ad2b87dc321002fdeac73cbb3576","scope":"8a196a9187c7e61002fdeac73cbb35b9"},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"Low","expression":{"type":"Applicability","mode":"query","value":"risk_band=low"},"id":"4c1158c2db6d433d92008f01ccc46cf0","name":"Low","expert_mode":false},{"type":"Branch","label":"High","expression":{"type":"Applicability","mode":"query","value":"risk_band=high"},"id":"b28d9c4ea3a24cfc85b742e205a51428","name":"High","expert_mode":false},{"type":"Branch","label":"Medium","expression":{"type":"Applicability","mode":"query","value":"risk_band=medium"},"id":"b69d50a567734a4ebd4e9a007e77fe34","name":"Medium","expert_mode":false}],"id":"27c27cb954a84dc4802019e5734f3088","goal_id":"primary","expert_mode":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:7a97e2768708fed002fdeac73cbb35f6:node:b514606fd90d4a2ab013613af9cfb1c2:field:0 {0} {1} {2} {3}\", vaContext.getRequesterLang(), [vaInputs.customer_profile_details.name.getDisplayValue(),vaInputs.customer_profile_details.credit_behaviour.getDisplayValue(),vaInputs.customer_profile_details.risk_band.getDisplayValue(),vaInputs.customer_profile_details.last_payment_date.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"b514606fd90d4a2ab013613af9cfb1c2","name":"High risk response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:7a97e2768708fed002fdeac73cbb35f6:node:f52e525c06614fbaa5c448ad71143d54:field:0 {0} {1} {2}\", vaContext.getRequesterLang(), [vaInputs.customer_profile_details.name.getDisplayValue(),vaInputs.customer_profile_details.credit_behaviour.getDisplayValue(),vaInputs.customer_profile_details.risk_band.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"f52e525c06614fbaa5c448ad71143d54","name":"Medium Risk Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"RecordOutputPrompt","mode":"variable","table":"x_cpszo_spoke_customer_profile","variable_id":"871fa74675fb4ba2aaf23ec60b72dd9e","fields":["risk_score","u_delinquency_count","days_since_last_payment","reminder_log"],"request_feedback":true,"id":"5606819bc5d14fd29808bc35dd1ef0f4","name":"High Risk customer profile","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"condition":{"type":"Condition","mode":"glide_query","value":""}}],"edges":[{"type":"Edge","source_node_id":"c705a2f175734795b15013b32366a398","target_node_id":"109384a8a4fc4d359780f731b41bcf2e","id":"1d3f022de3874429a4731d5249e04238"},{"type":"Edge","source_node_id":"ae3de7b246e24429ba7edd5884f6985c","target_node_id":"c705a2f175734795b15013b32366a398","id":"0b2ba4f1f2ed42ebb4bc460884d10e77"},{"type":"Edge","source_node_id":"165485e34f2f4b738beea378329ed729","target_node_id":"5b0b7f9916bf4866890ab057acf4f688","branch_id":"acca4140512146b7b5cf98ad55dabe7e","id":"cba5b5235cb24b3b9160232663272dbd","name":"acca4140512146b7b5cf98ad55dabe7e"},{"type":"Edge","source_node_id":"4e2a7127b02242278ee77b406d45c656","target_node_id":"ae3de7b246e24429ba7edd5884f6985c","id":"8993db9cb07c47d18053ee94645fd4f6"},{"type":"Edge","source_node_id":"86f1afcc0d52401588f20d962145d3d3","target_node_id":"165485e34f2f4b738beea378329ed729","id":"9cc79dfdb0c24c578c63ae911f486b44"},{"type":"Edge","source_node_id":"165485e34f2f4b738beea378329ed729","target_node_id":"f0cb0f77f3cf49a9aa93ded5907e21b8","branch_id":"cbc559726f44425c83b84bec16f98eb5","id":"c6345493b6144eefab604e8955c2480a","name":"cbc559726f44425c83b84bec16f98eb5"},{"type":"Edge","source_node_id":"f0cb0f77f3cf49a9aa93ded5907e21b8","target_node_id":"7bb600b3c4eb41a9b74ae5bdc43817eb","id":"41dc40521719469c9dfef2cb32fe39ea"},{"type":"Edge","source_node_id":"5b0b7f9916bf4866890ab057acf4f688","target_node_id":"7bb600b3c4eb41a9b74ae5bdc43817eb","id":"6bab40d6eb734eafa3b0bf3963a49175"},{"type":"Edge","source_node_id":"165485e34f2f4b738beea378329ed729","target_node_id":"4e08341d36764bfd9dffa05736bf6189","branch_id":"0ede34c6b14e450e8e450973d2428d30","id":"8ec3bdb2d7ef40a4bc6937943d0bf987","name":"0ede34c6b14e450e8e450973d2428d30"},{"type":"Edge","source_node_id":"8d2b91dfbe0146b6a98727e56edf6a3b","target_node_id":"7bb600b3c4eb41a9b74ae5bdc43817eb","id":"7f97d23130fc4bcebfaa11efb5a4dfca"},{"type":"Edge","source_node_id":"c8d24b43ae404e0ebc730df998d01eb9","target_node_id":"2e0cfc239643407198457470e9a2a2e0","id":"4acf752275e24397a949d25cdc96cef7"},{"type":"Edge","source_node_id":"7bb600b3c4eb41a9b74ae5bdc43817eb","target_node_id":"b53812675c5f48eaa926e46fb8a51c64","id":"9a4d6919e39c454d9a5dc370331ddb78"},{"type":"Edge","source_node_id":"b53812675c5f48eaa926e46fb8a51c64","target_node_id":"e9eb1b684a5d4bc78ea0cf905e7de7ff","id":"26d42e4eb7554bc4b64f2abab926ba40"},{"type":"Edge","source_node_id":"e9eb1b684a5d4bc78ea0cf905e7de7ff","target_node_id":"537035c1b0af4218948531910b8e162e","branch_id":"9c8c20a77bf946fbae48f79d57bc03ad","id":"44af0e52fcb44e7f8f9057fccbee307b","name":"9c8c20a77bf946fbae48f79d57bc03ad"},{"type":"Edge","source_node_id":"e9eb1b684a5d4bc78ea0cf905e7de7ff","target_node_id":"86f1afcc0d52401588f20d962145d3d3","branch_id":"ee2121ef85b347e3a0eee5d88d6b2068","id":"5700e63d1eac46189f8ff91ea47a63c7","name":"ee2121ef85b347e3a0eee5d88d6b2068"},{"type":"Edge","source_node_id":"4e08341d36764bfd9dffa05736bf6189","target_node_id":"c95ff468b2cf45928110303677b9d341","id":"264b0af173144e2a94235b30241f0411"},{"type":"Edge","source_node_id":"c95ff468b2cf45928110303677b9d341","target_node_id":"c8d24b43ae404e0ebc730df998d01eb9","id":"9fcd8448a4f1451a81f0f9eeb20a1d4f"},{"type":"Edge","source_node_id":"2e0cfc239643407198457470e9a2a2e0","target_node_id":"6dba11dd7d9942c7ba14b7f4f9121810","branch_id":"2fa9809654044c22a326f1dcf6638d08","id":"f5d258828dcb4900a3be904cde8b03b2","name":"2fa9809654044c22a326f1dcf6638d08"},{"type":"Edge","source_node_id":"6dba11dd7d9942c7ba14b7f4f9121810","target_node_id":"8d2b91dfbe0146b6a98727e56edf6a3b","id":"1a806b9c5fa0426b9260fdd1c8494ba7"},{"type":"Edge","source_node_id":"2e0cfc239643407198457470e9a2a2e0","target_node_id":"c79db8d3737643c38e727b2f89678f90","branch_id":"a9a2222a881f45c9ac05b2ecfe1dc89d","id":"0e50fca0baf548c69cfe84a6054139f5","name":"a9a2222a881f45c9ac05b2ecfe1dc89d"},{"type":"Edge","source_node_id":"c79db8d3737643c38e727b2f89678f90","target_node_id":"8d2b91dfbe0146b6a98727e56edf6a3b","id":"30ecc5ce9782499491159a9c9b4a34d8"},{"type":"Edge","source_node_id":"f0a5e732a4f5486dad2dee0e3f85ed66","target_node_id":"86f1afcc0d52401588f20d962145d3d3","id":"5f793c0af10442768d4def196d1c8ed3"},{"type":"Edge","source_node_id":"109384a8a4fc4d359780f731b41bcf2e","target_node_id":"8409f4a47bd8429797bfdc14b6373957","id":"ab68ef45b78140ebb00cd83d0df306fc"},{"type":"Edge","source_node_id":"8409f4a47bd8429797bfdc14b6373957","target_node_id":"27c27cb954a84dc4802019e5734f3088","id":"6121cd4018f54b1886b86257bea357a8"},{"type":"Edge","source_node_id":"27c27cb954a84dc4802019e5734f3088","target_node_id":"f0a5e732a4f5486dad2dee0e3f85ed66","branch_id":"4c1158c2db6d433d92008f01ccc46cf0","id":"979e02c5e7914af3af115122560f54a5","name":"4c1158c2db6d433d92008f01ccc46cf0"},{"type":"Edge","source_node_id":"27c27cb954a84dc4802019e5734f3088","target_node_id":"b514606fd90d4a2ab013613af9cfb1c2","branch_id":"b28d9c4ea3a24cfc85b742e205a51428","id":"693929140d474dbfa271e76b38fb1a58","name":"b28d9c4ea3a24cfc85b742e205a51428"},{"type":"Edge","source_node_id":"27c27cb954a84dc4802019e5734f3088","target_node_id":"f52e525c06614fbaa5c448ad71143d54","branch_id":"b69d50a567734a4ebd4e9a007e77fe34","id":"9cb201039d21492fa6d74398790ca8f6","name":"b69d50a567734a4ebd4e9a007e77fe34"},{"type":"Edge","source_node_id":"f52e525c06614fbaa5c448ad71143d54","target_node_id":"86f1afcc0d52401588f20d962145d3d3","id":"0b5cfdb19f734ea3a928dc3e8eb0af3a"},{"type":"Edge","source_node_id":"b514606fd90d4a2ab013613af9cfb1c2","target_node_id":"5606819bc5d14fd29808bc35dd1ef0f4","id":"39de02db3cd64d66bac7f503ca85d80b"},{"type":"Edge","source_node_id":"5606819bc5d14fd29808bc35dd1ef0f4","target_node_id":"537035c1b0af4218948531910b8e162e","id":"5fe2a9db167941209054073b34512b41"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"customer_number","list":false,"id":"87ec94ff32a6400980f124897e60977d","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"Choice","choices":[{"name":"Check Profile Details","element":"Check Profile Details"},{"name":"Check Notifications","element":"Check Notfictation"},{"name":"Suggest Offers","element":"Suggest Offers"}],"id":"7c971c38a672431486e56e69bb272363","name":"customer_choice","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"Customer Choice"},{"type":"Choice","choices":[{"name":"Accept","element":"Accept"},{"name":"Reject","element":"Reject"}],"id":"1bbde9820d064968b8ba92d28da25321","name":"offer_choose","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"Offer Choose"},{"type":"Choice","choices":[{"name":"Yes","element":"Yes"},{"name":"No","element":"No"}],"id":"138ae9c2512a433cadecdebeb15938a0","name":"do_you_want_to_check_anything_else_","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"Do You Want To Check Anything Else?"},{"type":"Reference","table":"x_cpszo_spoke_offer_tracker","auto_select":false,"id":"17f9f6f5f60b470bb1b226f4b489fab2","name":"lookup_offer_table","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"Reference","table":"","auto_select":false,"id":"ac5f065fdc6f4b518a8f7d685c6fb0f7","name":"accept_offers_status","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"Reference","table":"","auto_select":false,"id":"32977d8f3b374637bc40d3245ae839fc","name":"reject_offer_status","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"Reference","table":"x_cpszo_spoke_customer_profile","auto_select":false,"id":"871fa74675fb4ba2aaf23ec60b72dd9e","name":"customer_profile_details","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"risk_band","description":"","list":false,"id":"a9dff9ca5381427ebd494daf32e2008c","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"8a196a9187c7e61002fdeac73cbb35b9","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":true,"id":"7a97e2768708fed002fdeac73cbb35f6","name":"_PRVW__8556cb577b9d47438bd4b83b642fd984","key_phrases":["Agentic Browsing Chat"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":true,"context_profiles":[],"title":"Agentic Browsing Chat","library":false,"csTopicId":"0b2b2afa8708fed002fdeac73cbb355c","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>7a97e2768708fed002fdeac73cbb35f6</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "4e2a7127b02242278ee77b406d45c656": {
+          "id": "4e2a7127b02242278ee77b406d45c656",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hi!"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Welcome to Agentic Browsing"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "537035c1b0af4218948531910b8e162e": {
+          "id": "537035c1b0af4218948531910b8e162e",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Thank you for using our Virtual Agent !!!"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "ae3de7b246e24429ba7edd5884f6985c": {
+          "id": "ae3de7b246e24429ba7edd5884f6985c",
+          "stepType": "TextPrompt",
+          "name": "Customer Number",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Please enter the customer ID"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "87ec94ff32a6400980f124897e60977d",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "hasCardHeader": false
+        },
+        "86f1afcc0d52401588f20d962145d3d3": {
+          "name": "Customer Choice",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "What would you like to do next?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "7c971c38a672431486e56e69bb272363",
+          "detailDescription": "",
+          "id": "86f1afcc0d52401588f20d962145d3d3",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": true,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "Small image with text",
+            "cardFields": {
+              "1cf75c317313101081e06502edf6a738_title": {
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "text": "Select an Option to Continue"
+                      }
+                    ]
+                  }
+                ],
+                "mode": "simple"
+              },
+              "1cf75c317313101081e06502edf6a738_image": {
+                "value": "OIP (1)_1758479068139.jpg",
+                "mode": "db_image"
+              }
+            },
+            "cardDefinition": {
+              "sys_id": "1cf75c317313101081e06502edf6a738",
+              "name": "Small image with text",
+              "sys_name": "Small image with text",
+              "thumbnail.name": "Small image with text.svg",
+              "fields": [
+                {
+                  "label": "Title",
+                  "position": "1",
+                  "mandatory": true,
+                  "name": "title",
+                  "id": "1cf75c317313101081e06502edf6a738_title"
+                },
+                {
+                  "label": "Description",
+                  "position": "2",
+                  "mandatory": false,
+                  "name": "description",
+                  "id": "1cf75c317313101081e06502edf6a738_description"
+                },
+                {
+                  "label": "Image URL link",
+                  "position": "3",
+                  "mandatory": true,
+                  "type": "image",
+                  "name": "image",
+                  "id": "1cf75c317313101081e06502edf6a738_image"
+                },
+                {
+                  "label": "Image alt text",
+                  "position": "4",
+                  "mandatory": false,
+                  "name": "imageAlt",
+                  "id": "1cf75c317313101081e06502edf6a738_imageAlt"
+                }
+              ],
+              "value": "Small image with text",
+              "hasTemplateError": false
+            }
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "c705a2f175734795b15013b32366a398": {
+          "id": "c705a2f175734795b15013b32366a398",
+          "stepType": "TextOutput",
+          "name": "Bot Response 1",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Here are the details for "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_number}}",
+                        "displayValue": "Input Variables➛Customer Number"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ":"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "8314d149fca9442d8c3a839b2b3d756f"
+            }
+          ],
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "isCollapsible": true
+        },
+        "165485e34f2f4b738beea378329ed729": {
+          "id": "165485e34f2f4b738beea378329ed729",
+          "stepType": "Decision",
+          "name": "Decision",
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "f0cb0f77f3cf49a9aa93ded5907e21b8": {
+          "id": "f0cb0f77f3cf49a9aa93ded5907e21b8",
+          "stepType": "RecordOutput",
+          "name": "Customer Profile Details",
+          "variableId": "",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "script",
+          "tableName": "x_cpszo_spoke_customer_profile",
+          "fields": [
+            "name",
+            "email",
+            "mobile_number",
+            "last_payment_date",
+            "risk_score",
+            "risk_band",
+            "days_since_last_payment",
+            "credit_behaviour"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "name={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"
+          },
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "7bb600b3c4eb41a9b74ae5bdc43817eb": {
+          "id": "7bb600b3c4eb41a9b74ae5bdc43817eb",
+          "stepType": "TextOutput",
+          "name": "Gretting",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Thank you for using our virtual assistant."
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "If you need further assistance, feel free to reach out anytime."
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Have a great day!"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "9c400d42e18245c1befc0f641511a079"
+            }
+          ],
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "isCollapsible": true
+        },
+        "5b0b7f9916bf4866890ab057acf4f688": {
+          "id": "5b0b7f9916bf4866890ab057acf4f688",
+          "stepType": "TableOutput",
+          "name": "Customer Reminder",
+          "header": {
+            "value": "",
+            "mode": "simple"
+          },
+          "displayColumnHeaders": true,
+          "dataSourceType": "table",
+          "script": "",
+          "tableName": "x_cpszo_spoke_reminder_log",
+          "sortByColumns": [
+            {
+              "column": "sys_created_on",
+              "sortDirection": "ASC"
+            }
+          ],
+          "tableCondition": {
+            "mode": "glide_query",
+            "value": "NQnumber={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"
+          },
+          "columns": [
+            {
+              "key": "last_contact_date",
+              "value": "Last Contact Date",
+              "label": "Last Contact Date"
+            },
+            {
+              "key": "reminder_schedule",
+              "value": "Reminder Schedule",
+              "label": "Reminder Schedule"
+            },
+            {
+              "key": "reminder_message",
+              "value": "Reminder Message",
+              "label": "Reminder Message"
+            },
+            {
+              "key": "reminder_type",
+              "value": "Reminder Type",
+              "label": "Reminder Type"
+            }
+          ],
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "There are currently no reminders associated with this customer."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "showLink": false
+        },
+        "4e08341d36764bfd9dffa05736bf6189": {
+          "id": "4e08341d36764bfd9dffa05736bf6189",
+          "stepType": "RecordOutput",
+          "name": "Suggest Offers Card",
+          "variableId": "",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "script",
+          "tableName": "x_cpszo_spoke_offer_tracker",
+          "fields": [
+            "number",
+            "offer_type",
+            "delinquency_status",
+            "installment_amount"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"
+          },
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "c8d24b43ae404e0ebc730df998d01eb9": {
+          "name": "Offer Choose",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "After seeing the offer card above, do you want to go with the offer ?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "1bbde9820d064968b8ba92d28da25321",
+          "detailDescription": "",
+          "id": "c8d24b43ae404e0ebc730df998d01eb9",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "8d2b91dfbe0146b6a98727e56edf6a3b": {
+          "id": "8d2b91dfbe0146b6a98727e56edf6a3b",
+          "stepType": "RecordOutput",
+          "name": "Display Offer Cards",
+          "variableId": "",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "script",
+          "tableName": "x_cpszo_spoke_offer_tracker",
+          "fields": [
+            "number",
+            "acceptance_date",
+            "offer_status"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"
+          },
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "2e0cfc239643407198457470e9a2a2e0": {
+          "id": "2e0cfc239643407198457470e9a2a2e0",
+          "stepType": "Decision",
+          "name": "Offer Accept Decision",
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "b53812675c5f48eaa926e46fb8a51c64": {
+          "name": "Do you want to check anything else?",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do you want to check anything else?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "138ae9c2512a433cadecdebeb15938a0",
+          "detailDescription": "",
+          "id": "b53812675c5f48eaa926e46fb8a51c64",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "e9eb1b684a5d4bc78ea0cf905e7de7ff": {
+          "id": "e9eb1b684a5d4bc78ea0cf905e7de7ff",
+          "stepType": "Decision",
+          "name": "Want anything else",
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "c95ff468b2cf45928110303677b9d341": {
+          "id": "c95ff468b2cf45928110303677b9d341",
+          "stepType": "LookupRecord",
+          "name": "Lookup Offer Table",
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "17f9f6f5f60b470bb1b226f4b489fab2",
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "6dba11dd7d9942c7ba14b7f4f9121810": {
+          "id": "6dba11dd7d9942c7ba14b7f4f9121810",
+          "stepType": "CrudAction",
+          "name": "Accept Offers Status",
+          "template": {
+            "query": {
+              "terms": [
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "offer_status",
+                  "expression": "Accepted",
+                  "id": "f0aaaa943a244f2a99c91690de2014f6"
+                }
+              ]
+            },
+            "queryString": "offer_status=Accepted"
+          },
+          "mode": "update",
+          "record": "17f9f6f5f60b470bb1b226f4b489fab2",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "attachments": [
+            {
+              "value": "",
+              "mode": "simple"
+            }
+          ],
+          "variableId": "ac5f065fdc6f4b518a8f7d685c6fb0f7",
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "c79db8d3737643c38e727b2f89678f90": {
+          "id": "c79db8d3737643c38e727b2f89678f90",
+          "stepType": "CrudAction",
+          "name": "Reject Offer Status",
+          "template": {
+            "query": {
+              "terms": [
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "offer_status",
+                  "expression": "Rejected",
+                  "id": "551cf5633e784d1cba862bd6e6df37d0"
+                }
+              ]
+            },
+            "queryString": "offer_status=Rejected"
+          },
+          "mode": "update",
+          "record": "17f9f6f5f60b470bb1b226f4b489fab2",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "attachments": [
+            {
+              "value": "",
+              "mode": "simple"
+            }
+          ],
+          "variableId": "32977d8f3b374637bc40d3245ae839fc",
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          }
+        },
+        "109384a8a4fc4d359780f731b41bcf2e": {
+          "id": "109384a8a4fc4d359780f731b41bcf2e",
+          "stepType": "LookupRecord",
+          "name": "Customer Profile Details",
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.customer_number}}^ORnumberLIKE{{vaInputs.customer_number}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "871fa74675fb4ba2aaf23ec60b72dd9e"
+        },
+        "f0a5e732a4f5486dad2dee0e3f85ed66": {
+          "id": "f0a5e732a4f5486dad2dee0e3f85ed66",
+          "stepType": "TextOutput",
+          "name": "Low Risk Response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Dear "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.name}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Name"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ","
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.credit_behaviour}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Credit Behaviour"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " credit behavior and "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.risk_band}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Risk Band"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " risk profile, we are pleased to inform you that you qualify for exclusive offers tailored to your financial standing."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "d0d94729c6524d5891ee6c68812d23cb"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "8409f4a47bd8429797bfdc14b6373957": {
+          "id": "8409f4a47bd8429797bfdc14b6373957",
+          "name": "Risk Band Distribution",
+          "invocationType": "subflow",
+          "stepType": "FlowAction",
+          "actionRunAs": "session_user",
+          "permissionsNote": "By default, the Action executes based on the permissions of the user who initiated the conversation. For elevated privileges, you can set to System User.",
+          "actionSecureField": false,
+          "actionSelectSecureField": "",
+          "actionPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "actionConfirmPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "actionNonSecureChannelMessage": {
+            "mode": "simple",
+            "value": "This action is not supported on this channel."
+          },
+          "subflowSpoke": "8a196a9187c7e61002fdeac73cbb35b9",
+          "subflowSpokeSubflow": "a0e4ad2b87dc321002fdeac73cbb3576",
+          "subflowWaitType": "sync",
+          "subflowSecureField": false,
+          "subflowSelectSecureField": "",
+          "subflowPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowConfirmPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowNonSecureChannelMessage": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowInputs": {
+            "input-customer_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_number}}",
+                        "displayValue": "Input Variables➛Customer Number"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            }
+          },
+          "subflowOutputs": {
+            "output-delinquency_count": [
+              {
+                "id": "ee5f18e0caef454b9596fd5fb3ba5866",
+                "mapping": "",
+                "disabled": true,
+                "type": "integer",
+                "value": "Delinquency Count",
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": "",
+                "variable": "",
+                "variableName": ""
+              }
+            ],
+            "output-risk_band": [
+              {
+                "id": "a9dff9ca5381427ebd494daf32e2008c",
+                "mapping": "Risk Band",
+                "disabled": false,
+                "type": "choice",
+                "value": "Risk Band",
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": "",
+                "choices": [
+                  {
+                    "label": "Low",
+                    "value": "low",
+                    "order": 1
+                  },
+                  {
+                    "label": "Medium",
+                    "value": "medium",
+                    "order": 2
+                  },
+                  {
+                    "label": "High",
+                    "value": "high",
+                    "order": 3
+                  }
+                ],
+                "variable": "Risk Band",
+                "variableName": "risk_band"
+              }
+            ],
+            "output-credit_behavior": [
+              {
+                "id": "9ea1fcfe7e7e4e1aa91ad6a54c631cba",
+                "mapping": "",
+                "disabled": true,
+                "type": "choice",
+                "value": "Credit Behavior",
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": "",
+                "choices": [
+                  {
+                    "label": "Good",
+                    "value": "good",
+                    "order": 1
+                  },
+                  {
+                    "label": "Average",
+                    "value": "average",
+                    "order": 2
+                  },
+                  {
+                    "label": "Bad",
+                    "value": "bad",
+                    "order": 3
+                  }
+                ],
+                "variable": "",
+                "variableName": ""
+              }
+            ]
+          },
+          "subflowDefinition": {
+            "id": "a0e4ad2b87dc321002fdeac73cbb3576",
+            "latest_snapshot_id": "1682b8e88764b210b3fb021a0cbb3548",
+            "parent_id": null,
+            "type": "subflow",
+            "name": "customer_risk_details",
+            "label": "Customer Risk Details",
+            "scope_id": "8a196a9187c7e61002fdeac73cbb35b9",
+            "description": "",
+            "category": null,
+            "parameters_have_loaded": true,
+            "input_parameters": [
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "customer_id",
+                "label": "Customer ID",
+                "type": "string",
+                "order": 1,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              }
+            ],
+            "output_parameters": [
+              {
+                "name": "delinquency_count",
+                "label": "Delinquency Count",
+                "type": "integer",
+                "order": 1,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "name": "risk_band",
+                "label": "Risk Band",
+                "type": "choice",
+                "order": 2,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": "",
+                "choices": [
+                  {
+                    "label": "Low",
+                    "value": "low",
+                    "order": 1
+                  },
+                  {
+                    "label": "Medium",
+                    "value": "medium",
+                    "order": 2
+                  },
+                  {
+                    "label": "High",
+                    "value": "high",
+                    "order": 3
+                  }
+                ]
+              },
+              {
+                "name": "credit_behavior",
+                "label": "Credit Behavior",
+                "type": "choice",
+                "order": 3,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": "",
+                "choices": [
+                  {
+                    "label": "Good",
+                    "value": "good",
+                    "order": 1
+                  },
+                  {
+                    "label": "Average",
+                    "value": "average",
+                    "order": 2
+                  },
+                  {
+                    "label": "Bad",
+                    "value": "bad",
+                    "order": 3
+                  }
+                ]
+              }
+            ]
+          },
+          "variableIds": [
+            "a9dff9ca5381427ebd494daf32e2008c"
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "27c27cb954a84dc4802019e5734f3088": {
+          "id": "27c27cb954a84dc4802019e5734f3088",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "b514606fd90d4a2ab013613af9cfb1c2": {
+          "id": "b514606fd90d4a2ab013613af9cfb1c2",
+          "stepType": "TextOutput",
+          "name": "High risk response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Dear "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.name}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Name"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ","
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.credit_behaviour}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Credit Behaviour"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " credit behavior and "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.risk_band}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Risk Band"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " risk profile, It seems that your risk score is quite high and unfortunately we would have to terminate your service if the reminder due is not paid. Please observe your last payment date:"
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.last_payment_date}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Last Payment Date"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "4a185c57170345a3949f56c881fb9987"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "f52e525c06614fbaa5c448ad71143d54": {
+          "id": "f52e525c06614fbaa5c448ad71143d54",
+          "stepType": "TextOutput",
+          "name": "Medium Risk Response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Dear "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.name}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Name"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ","
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.credit_behaviour}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Credit Behaviour"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " credit behavior and "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.customer_profile_details.risk_band}}",
+                        "displayValue": "Input Variables➛Customer Profile Details➛Risk Band"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " risk profile, it seems that you still have some payment due. Please allow us to show you an waiver offer to mitigate the issue"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "b51da62ca2ca4f1ba497f58e6ee1566c"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "5606819bc5d14fd29808bc35dd1ef0f4": {
+          "id": "5606819bc5d14fd29808bc35dd1ef0f4",
+          "stepType": "RecordOutput",
+          "name": "High Risk customer profile",
+          "variableId": "871fa74675fb4ba2aaf23ec60b72dd9e",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "variable",
+          "tableName": "x_cpszo_spoke_customer_profile",
+          "fields": [
+            "risk_score",
+            "u_delinquency_count",
+            "days_since_last_payment",
+            "reminder_log"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "1d3f022de3874429a4731d5249e04238",
+          "edgeType": "Edge",
+          "source": "c705a2f175734795b15013b32366a398",
+          "target": "109384a8a4fc4d359780f731b41bcf2e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0b2ba4f1f2ed42ebb4bc460884d10e77",
+          "edgeType": "Edge",
+          "source": "ae3de7b246e24429ba7edd5884f6985c",
+          "target": "c705a2f175734795b15013b32366a398",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "cba5b5235cb24b3b9160232663272dbd",
+          "edgeType": "Branch",
+          "source": "165485e34f2f4b738beea378329ed729",
+          "target": "5b0b7f9916bf4866890ab057acf4f688",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.customer_choice=Check Notfictation",
+            "mode": "query"
+          },
+          "label": "Check Notification"
+        },
+        {
+          "id": "8993db9cb07c47d18053ee94645fd4f6",
+          "edgeType": "Edge",
+          "source": "4e2a7127b02242278ee77b406d45c656",
+          "target": "ae3de7b246e24429ba7edd5884f6985c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9cc79dfdb0c24c578c63ae911f486b44",
+          "edgeType": "Edge",
+          "source": "86f1afcc0d52401588f20d962145d3d3",
+          "target": "165485e34f2f4b738beea378329ed729",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c6345493b6144eefab604e8955c2480a",
+          "edgeType": "Branch",
+          "source": "165485e34f2f4b738beea378329ed729",
+          "target": "f0cb0f77f3cf49a9aa93ded5907e21b8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.customer_choice=Check Profile Details",
+            "mode": "query"
+          },
+          "label": "Check Profile Details"
+        },
+        {
+          "id": "41dc40521719469c9dfef2cb32fe39ea",
+          "edgeType": "Edge",
+          "source": "f0cb0f77f3cf49a9aa93ded5907e21b8",
+          "target": "7bb600b3c4eb41a9b74ae5bdc43817eb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6bab40d6eb734eafa3b0bf3963a49175",
+          "edgeType": "Edge",
+          "source": "5b0b7f9916bf4866890ab057acf4f688",
+          "target": "7bb600b3c4eb41a9b74ae5bdc43817eb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8ec3bdb2d7ef40a4bc6937943d0bf987",
+          "edgeType": "Branch",
+          "source": "165485e34f2f4b738beea378329ed729",
+          "target": "4e08341d36764bfd9dffa05736bf6189",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Always"
+        },
+        {
+          "id": "7f97d23130fc4bcebfaa11efb5a4dfca",
+          "edgeType": "Edge",
+          "source": "8d2b91dfbe0146b6a98727e56edf6a3b",
+          "target": "7bb600b3c4eb41a9b74ae5bdc43817eb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "4acf752275e24397a949d25cdc96cef7",
+          "edgeType": "Edge",
+          "source": "c8d24b43ae404e0ebc730df998d01eb9",
+          "target": "2e0cfc239643407198457470e9a2a2e0",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9a4d6919e39c454d9a5dc370331ddb78",
+          "edgeType": "Edge",
+          "source": "7bb600b3c4eb41a9b74ae5bdc43817eb",
+          "target": "b53812675c5f48eaa926e46fb8a51c64",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "26d42e4eb7554bc4b64f2abab926ba40",
+          "edgeType": "Edge",
+          "source": "b53812675c5f48eaa926e46fb8a51c64",
+          "target": "e9eb1b684a5d4bc78ea0cf905e7de7ff",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "44af0e52fcb44e7f8f9057fccbee307b",
+          "edgeType": "Branch",
+          "source": "e9eb1b684a5d4bc78ea0cf905e7de7ff",
+          "target": "537035c1b0af4218948531910b8e162e",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.do_you_want_to_check_anything_else_=No",
+            "mode": "query"
+          },
+          "label": "No"
+        },
+        {
+          "id": "5700e63d1eac46189f8ff91ea47a63c7",
+          "edgeType": "Branch",
+          "source": "e9eb1b684a5d4bc78ea0cf905e7de7ff",
+          "target": "86f1afcc0d52401588f20d962145d3d3",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.do_you_want_to_check_anything_else_=Yes",
+            "mode": "query"
+          },
+          "label": "Yes"
+        },
+        {
+          "id": "264b0af173144e2a94235b30241f0411",
+          "edgeType": "Edge",
+          "source": "4e08341d36764bfd9dffa05736bf6189",
+          "target": "c95ff468b2cf45928110303677b9d341",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9fcd8448a4f1451a81f0f9eeb20a1d4f",
+          "edgeType": "Edge",
+          "source": "c95ff468b2cf45928110303677b9d341",
+          "target": "c8d24b43ae404e0ebc730df998d01eb9",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f5d258828dcb4900a3be904cde8b03b2",
+          "edgeType": "Branch",
+          "source": "2e0cfc239643407198457470e9a2a2e0",
+          "target": "6dba11dd7d9942c7ba14b7f4f9121810",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.offer_choose=Accept",
+            "mode": "query"
+          },
+          "label": "Accept"
+        },
+        {
+          "id": "1a806b9c5fa0426b9260fdd1c8494ba7",
+          "edgeType": "Edge",
+          "source": "6dba11dd7d9942c7ba14b7f4f9121810",
+          "target": "8d2b91dfbe0146b6a98727e56edf6a3b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0e50fca0baf548c69cfe84a6054139f5",
+          "edgeType": "Branch",
+          "source": "2e0cfc239643407198457470e9a2a2e0",
+          "target": "c79db8d3737643c38e727b2f89678f90",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.offer_choose=Reject",
+            "mode": "query"
+          },
+          "label": "Reject"
+        },
+        {
+          "id": "30ecc5ce9782499491159a9c9b4a34d8",
+          "edgeType": "Edge",
+          "source": "c79db8d3737643c38e727b2f89678f90",
+          "target": "8d2b91dfbe0146b6a98727e56edf6a3b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5f793c0af10442768d4def196d1c8ed3",
+          "edgeType": "Edge",
+          "source": "f0a5e732a4f5486dad2dee0e3f85ed66",
+          "target": "86f1afcc0d52401588f20d962145d3d3",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ab68ef45b78140ebb00cd83d0df306fc",
+          "edgeType": "Edge",
+          "source": "109384a8a4fc4d359780f731b41bcf2e",
+          "target": "8409f4a47bd8429797bfdc14b6373957",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6121cd4018f54b1886b86257bea357a8",
+          "edgeType": "Edge",
+          "source": "8409f4a47bd8429797bfdc14b6373957",
+          "target": "27c27cb954a84dc4802019e5734f3088",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "979e02c5e7914af3af115122560f54a5",
+          "edgeType": "Branch",
+          "source": "27c27cb954a84dc4802019e5734f3088",
+          "target": "f0a5e732a4f5486dad2dee0e3f85ed66",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.risk_band=low",
+            "mode": "query"
+          },
+          "label": "Low"
+        },
+        {
+          "id": "693929140d474dbfa271e76b38fb1a58",
+          "edgeType": "Branch",
+          "source": "27c27cb954a84dc4802019e5734f3088",
+          "target": "b514606fd90d4a2ab013613af9cfb1c2",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.risk_band=high",
+            "mode": "query"
+          },
+          "label": "High"
+        },
+        {
+          "id": "9cb201039d21492fa6d74398790ca8f6",
+          "edgeType": "Branch",
+          "source": "27c27cb954a84dc4802019e5734f3088",
+          "target": "f52e525c06614fbaa5c448ad71143d54",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.risk_band=medium",
+            "mode": "query"
+          },
+          "label": "Medium"
+        },
+        {
+          "id": "0b5cfdb19f734ea3a928dc3e8eb0af3a",
+          "edgeType": "Edge",
+          "source": "f52e525c06614fbaa5c448ad71143d54",
+          "target": "86f1afcc0d52401588f20d962145d3d3",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "39de02db3cd64d66bac7f503ca85d80b",
+          "edgeType": "Edge",
+          "source": "b514606fd90d4a2ab013613af9cfb1c2",
+          "target": "5606819bc5d14fd29808bc35dd1ef0f4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5fe2a9db167941209054073b34512b41",
+          "edgeType": "Edge",
+          "source": "5606819bc5d14fd29808bc35dd1ef0f4",
+          "target": "537035c1b0af4218948531910b8e162e",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "87ec94ff32a6400980f124897e60977d": {
+      "id": "87ec94ff32a6400980f124897e60977d",
+      "name": "customer_number",
+      "label": "Customer Number",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc1ODQ3ODY4MzE3MSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "ae3de7b246e24429ba7edd5884f6985c",
+      "isHidden": false
+    },
+    "7c971c38a672431486e56e69bb272363": {
+      "id": "7c971c38a672431486e56e69bb272363",
+      "name": "customer_choice",
+      "label": "Customer Choice",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Check Profile Details",
+          "value": "Check Profile Details"
+        },
+        {
+          "label": "Check Notifications",
+          "value": "Check Notfictation"
+        },
+        {
+          "label": "Suggest Offers",
+          "value": "Suggest Offers",
+          "checked": true,
+          "meta": {}
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "86f1afcc0d52401588f20d962145d3d3",
+      "isHidden": false
+    },
+    "1bbde9820d064968b8ba92d28da25321": {
+      "id": "1bbde9820d064968b8ba92d28da25321",
+      "name": "offer_choose",
+      "label": "Offer Choose",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Accept",
+          "value": "Accept"
+        },
+        {
+          "label": "Reject",
+          "value": "Reject"
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "c8d24b43ae404e0ebc730df998d01eb9",
+      "isHidden": false
+    },
+    "138ae9c2512a433cadecdebeb15938a0": {
+      "id": "138ae9c2512a433cadecdebeb15938a0",
+      "name": "do_you_want_to_check_anything_else_",
+      "label": "Do You Want To Check Anything Else?",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Yes",
+          "value": "Yes"
+        },
+        {
+          "label": "No",
+          "value": "No"
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "b53812675c5f48eaa926e46fb8a51c64",
+      "isHidden": false
+    },
+    "17f9f6f5f60b470bb1b226f4b489fab2": {
+      "id": "17f9f6f5f60b470bb1b226f4b489fab2",
+      "name": "lookup_offer_table",
+      "label": "Lookup Offer Table",
+      "varType": "reference",
+      "table": "x_cpszo_spoke_offer_tracker",
+      "category": "vaInputs",
+      "nodeId": "c95ff468b2cf45928110303677b9d341",
+      "isHidden": false
+    },
+    "ac5f065fdc6f4b518a8f7d685c6fb0f7": {
+      "id": "ac5f065fdc6f4b518a8f7d685c6fb0f7",
+      "name": "accept_offers_status",
+      "label": "Accept Offers Status",
+      "varType": "reference",
+      "table": "",
+      "inactive": true,
+      "category": "vaInputs",
+      "nodeId": "6dba11dd7d9942c7ba14b7f4f9121810",
+      "isHidden": false
+    },
+    "32977d8f3b374637bc40d3245ae839fc": {
+      "id": "32977d8f3b374637bc40d3245ae839fc",
+      "name": "reject_offer_status",
+      "label": "Reject Offer Status",
+      "varType": "reference",
+      "table": "",
+      "inactive": true,
+      "category": "vaInputs",
+      "nodeId": "c79db8d3737643c38e727b2f89678f90",
+      "isHidden": false
+    },
+    "871fa74675fb4ba2aaf23ec60b72dd9e": {
+      "id": "871fa74675fb4ba2aaf23ec60b72dd9e",
+      "name": "customer_profile_details",
+      "label": "Customer Profile Details",
+      "varType": "reference",
+      "table": "x_cpszo_spoke_customer_profile",
+      "category": "vaInputs",
+      "nodeId": "5606819bc5d14fd29808bc35dd1ef0f4",
+      "isHidden": false
+    },
+    "a9dff9ca5381427ebd494daf32e2008c": {
+      "id": "a9dff9ca5381427ebd494daf32e2008c",
+      "name": "risk_band",
+      "label": "Risk Band",
+      "defaultValue": "Risk Band",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "description": "",
+      "is_list_data_entry": false,
+      "dependent_on_field": "",
+      "choices": [
+        {
+          "label": "Low",
+          "value": "low",
+          "order": 1
+        },
+        {
+          "label": "Medium",
+          "value": "medium",
+          "order": 2
+        },
+        {
+          "label": "High",
+          "value": "high",
+          "order": 3
+        }
+      ],
+      "variable": "Risk Band",
+      "variableName": "risk_band",
+      "nodeId": "8409f4a47bd8429797bfdc14b6373957",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>_PRVW__8556cb577b9d47438bd4b83b642fd984</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2026-02-24 09:03:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>56018c89875f761402fdeac73cbb354c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_cb_design_topic_56018c89875f761402fdeac73cbb354c</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2026-02-24 09:03:39</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

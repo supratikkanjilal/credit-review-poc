@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_cpszo_spoke.DemoHelpers</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>DemoHelpers</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[/*var DemoHelpers = Class.create();
+ DemoHelpers.prototype = {
+     initialize: function() {},
+
+     getCustomerById: function(number) {
+         var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+         if (gr.get('u_number', number)) {
+             return gr;
+       }
+         return null;
+     },
+
+    logIntegration: function(interfaceName, payload, response, status) {
+         var il = new GlideRecord('x_cpszo_spoke_integration_log');
+         il.initialize();
+         il.u_timestamp=new GlideDateTime();
+         il.u_interface=  interfaceName;
+         il.u_payload = JSON.stringify(payload);
+         il.u_status= status || 'OK';
+         il.u_response=JSON.stringify(response);
+         il.insert();
+     },
+
+  sendMockNotification: function(customerId, channel, message) {
+      
+   var notif = new GlideRecord('x_cpszo_spoke_notification_preview'); 
+
+        notif.initialize(); 
+		
+		var custSysId=customerId;
+		if(custSysId && custSysId.length!==32){
+			var cp=new GlideRecord('x_cpszo_spoke_customer_profile');
+			cp.addQuery('u_number',customerId);
+			cp.query();
+			if(cp.next()) custSysId=cp.getUniqueValue();
+		}
+        notif.u_number = custSysId; 
+        notif.u_channel = channel; 
+        notif.u_message = message; 
+        notif.u_status = 'Sent'; 
+        notif.u_sent_at = new GlideDateTime(); 
+         var nid = notif.insert();
+
+         this.logIntegration('Mock Notification send', {number: customerId, channel: channel, message: message}, {id: nid}, 'OK');
+         return nid;
+     },
+
+     type: 'DemoHelpers'
+ }*/
+
+/*const DemoHelpers = Class.create();
+DemoHelpers.prototype = {
+  initialize: function () {},
+ 
+  // (optional) fetch a customer by Number from your Customer Profile table
+  getCustomerById: function (number) {
+    var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+    if (gr.get('number', number)) return gr;
+    return null;
+  },
+ 
+  // write one line into Integration Log
+  logIntegration: function (interfaceName, payload, response, status) {
+    var il = new GlideRecord('x_cpszo_spoke_integration_log');
+    il.initialize();
+    il.timestamp = new GlideDateTime();
+    il.interface = interfaceName;
+    il.payload   = JSON.stringify(payload);
+    il.status    = status || 'OK';
+    il.response  = JSON.stringify(response);
+    il.insert();
+  },
+ 
+  // insert a row into Notification Preview
+  sendMockNotification: function (customerId, channel, message) {
+    var notif = new GlideRecord('x_cpszo_spoke_notification_preview');
+    notif.initialize();
+ 
+    // Figure out the API name of the "Number" field without using setValue
+    var numberField = 'number';
+    if (!notif.isValidField(numberField) && notif.isValidField('u_number')) {
+      numberField = 'u_number';
+    } else if (!notif.isValidField(numberField) && notif.isValidField('cust_number')) {
+      numberField = 'cust_number';
+    }
+ 
+    // Assign fields (dot-notation only)
+    if (customerId) {
+      if (numberField === 'number')       notif.number       = String(customerId);
+      else if (numberField === 'u_number') notif.u_number    = String(customerId);
+      else if (numberField === 'cust_number') notif.cust_number = String(customerId);
+    }
+notif.channel = String(channel);      // must match a defined Choice value
+    notif.message = String(message);
+    notif.status  = 'Sent';               // make sure 'Sent' exists as a Choice
+    notif.sent_at = new GlideDateTime();
+ 
+    var nid = notif.insert();
+ 
+    // log
+    this.logIntegration(
+      'Mock Notification Send',
+      { number: customerId, channel: channel, message: message },
+      { id: nid },
+      'OK'
+    );
+ 
+    return nid; // sys_id
+  },
+ 
+  type: 'DemoHelpers'
+};*/
+
+/*
+var DemoHelpers = Class.create();
+DemoHelpers.prototype = {
+    initialize: function () {},
+ 
+    // tiny helper: set the first field that actually exists on the table (no setValue)
+    _put: function (gr, candidates, value) {
+        for (var i = 0; i < candidates.length; i++) {
+            var f = candidates[i];
+            if (gr.isValidField(f)) { gr[f] = value; return f; }
+        }
+        return null;
+    },
+ 
+    getCustomerById: function (number) {
+        var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+        // try u_number or number, depending on how the field was created
+        if (gr.isValidField('u_number') && gr.get('u_number', number)) return gr;
+        if (gr.isValidField('number')   && gr.get('number',   number)) return gr;
+        return null;
+    },
+ 
+    logIntegration: function (interfaceName, payload, response, status) {
+        var il = new GlideRecord('x_cpszo_spoke_integration_log');
+        il.initialize();
+        this._put(il, ['u_timestamp','timestamp'], new GlideDateTime());
+        this._put(il, ['u_interface','interface'], interfaceName);
+        this._put(il, ['u_payload','payload'], JSON.stringify(payload));
+        this._put(il, ['u_status','status'], status || 'OK');
+        this._put(il, ['u_response','response'], JSON.stringify(response));
+        il.insert();
+    },
+ 
+    // ← this writes the Notification Preview row
+    sendMockNotification: function (customerId, channel, message) {
+        var notif = new GlideRecord('x_cpszo_spoke_notification_preview');
+        notif.initialize();
+ 
+        // works whether your table uses u_* or plain names
+        this._put(notif, ['u_number','number'],  customerId);
+        this._put(notif, ['u_channel','channel'], channel);
+        this._put(notif, ['u_message','message'], message);
+        this._put(notif, ['u_status','status'],   'Sent');
+        this._put(notif, ['u_sent_at','sent_at','u_sent_on','sent_on'], new GlideDateTime());
+ 
+        var nid = notif.insert();
+ 
+        this.logIntegration('Mock Notification send',
+            { number: customerId, channel: channel, message: message },
+            { id: nid }, 'OK');
+ 
+        return nid;
+    },
+ 
+    type: 'DemoHelpers'
+};*/
+
+
+/*
+var DemoHelpers = Class.create();
+ DemoHelpers.prototype = {
+     initialize: function() {},
+
+     getCustomerById: function(number) {
+         var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+         if (gr.get('u_number', number)) {
+             return gr;
+       }
+	if(gr.get(number)){
+		return gr;
+	   }
+         return null;
+     },
+
+    logIntegration: function(interfaceName, payload, response, status) {
+         var il = new GlideRecord('x_cpszo_spoke_integration_log');
+         il.initialize();
+         il.timestamp=new GlideDateTime();
+         il.interface=  interfaceName;
+         il.payload = JSON.stringify(payload);
+         il.status= status || 'OK';
+         il.response=JSON.stringify(response);
+         il.insert();
+     },
+
+  sendMockNotification: function(customerIdOrSysId, channel, message) {
+   var notif = new GlideRecord('x_cpszo_spoke_notification_preview'); 
+        notif.initialize(); 
+		
+		var cp=this.getCustomerById(customerIdOrSysId);
+		if(cp){
+			notif.number=cp.getUniqueValue();
+		}else{
+			notif.number=customerIdOrSysId+'';
+		}
+    
+        notif.channel = channel; 
+        notif.message = message; 
+        notif.status = 'Sent'; 
+        notif.sent_at = new GlideDateTime(); 
+         var nid = notif.insert();
+
+         this.logIntegration('Mock Notification send', {number: customerIdOrSysId, channel: channel, message: message}, {id: nid}, 'OK');
+         return nid;
+     },
+
+     type: 'DemoHelpers'
+ }*/
+
+
+
+var DemoHelpers = Class.create();
+DemoHelpers.prototype = {
+    initialize: function() {},
+
+    // Try to resolve whatever "n" is (sys_id or display number) to a Customer Profile
+    _resolveCustomer: function(n) {
+        if (!n) return null;
+        n = String(n);
+
+        var c = new GlideRecord('x_cpszo_spoke_customer_profile');
+
+        // Case 1: looks like a sys_id
+        if (n.length === 32 && n.indexOf('-') === -1) {
+            if (c.get(n)) {
+                return {
+                    sys_id: c.getUniqueValue(),
+                    number: String(c.number)
+                };
+            }
+        }
+
+        // Case 2: it's a display number (e.g., CUST0001024)
+        c.initialize();
+        c.addQuery('number', n);
+        c.setLimit(1);
+        c.query();
+        if (c.next()) {
+            return {
+                sys_id: c.getUniqueValue(),
+                number: String(c.number)
+            };
+        }
+
+        return null;
+    },
+
+    // Insert the preview row; if the column is a Reference, assign the customer sys_id.
+    // If it’s a String column, the assignment stores the text.
+    sendMockNotification: function(n, ch, msg) {
+        var cust = this._resolveCustomer(n);
+
+        var np = new GlideRecord('x_cpszo_spoke_notification_preview');
+        np.initialize();
+
+        if (cust) {
+            try {
+                np.number = cust.sys_id; // works when Number is a reference
+            } catch (e) {
+                np.number = cust.number; // fallback if Number is a string field
+            }
+        } else if (n) {
+            np.number = String(n); // last resort, store whatever came in
+        }
+
+        np.channel = ch || '';
+        np.message = msg || '';
+        np.sent_at = new GlideDateTime();
+        np.status = 'Sent';
+
+        return np.insert();
+    },
+
+    // (optional helper if you use it elsewhere) — FIXED bug: use the parameter 'number'
+    getCustomerById: function(number) {
+        var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+        gr.addQuery('number', number);
+        gr.setLimit(1);
+        gr.query();
+        if (gr.next()) return gr;
+        return null;
+    },
+
+    logIntegration: function(interfaceName, payload, response, status, level, context) {
+        var il = new GlideRecord('x_cpszo_spoke_integration_log');
+        il.initialize();
+        il.timestamp = new GlideDateTime();
+        il.interface = String(interfaceName || '');
+        il.payload = JSON.stringify(payload || {});
+        il.response = JSON.stringify(response || {});
+        il.status = status || 'OK';
+        il.u_level = level || (il.status == 'Failed' ? 'Error' : 'Info');
+        il.u_context = context || 'notification';
+        il.insert();
+    },
+
+    type: 'DemoHelpers'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-10 15:23:14</sys_created_on>
+        <sys_id>d938e5dd87d3e290b3fb021a0cbb3513</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>DemoHelpers</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_include_d938e5dd87d3e290b3fb021a0cbb3513</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 16:22:35</sys_updated_on>
+    </sys_script_include>
+</record_update>

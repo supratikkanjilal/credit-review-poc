@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>number</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Set Offer Type Based on Risk Band</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+    var custid = g_form.getValue('number');
+    //alert(custid);
+
+	//Script include
+    var ga = new GlideAjax('x_cpszo_spoke.OfferTypeHelper');
+    ga.addParam('sysparm_name', 'getOfferDefaults');
+    ga.addParam('sys_parm_cust', custid);
+    ga.getXMLAnswer(function(response) {
+        var result = JSON.parse(response);
+        //alert(result.offer_type);
+
+        var amount = result.installment_amount;
+        var formatted = amount.toLocaleString('en', {
+            type: 'currency',
+            currency: 'USD'
+        });
+
+        // var amount = parseFloat(g_form.getValue('installment_amount')) || 0;
+
+        // // Format the amount as currency
+        // var formatted = amount.toLocaleString('en', {
+        //     type: 'currency',
+        //     currency: 'USD'
+        // });
+
+
+
+        g_form.setValue('offer_type', result.offer_type);
+        g_form.setValue('delinquency_status', result.delinquency_status);
+        g_form.setValue('installment_amount', formatted);
+		g_form.setValue('acceptance_date', g_scratchpad.acceptance_date);
+
+
+        //Credit Card Upsell
+        if (result.valid_offer_types) {
+            g_form.clearOptions('offer_type');
+            result.valid_offer_types.forEach(function(opt) {
+                g_form.addOption('offer_type', opt.value, opt.label);
+            });
+
+            // Optionally re-set the selected value after repopulating
+            g_form.setValue('offer_type', result.offer_type);
+        }
+        ////Credit Card Upsell ends here
+
+        /*
+            if (result.risk=="high") {
+                g_form.setValue('u_offer_type', waiver);
+            } else if(result.risk=="medium") {
+                g_form.setValue('u_offer_type',extension);
+            } else{
+        		g_form.setValue('u_offer_type',emi adjustment);
+        	}*/
+
+    });
+
+    //Type appropriate comment here, and begin script below
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 15:27:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>62146ea487243210b3fb021a0cbb35b9</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_name>Set Offer Type Based on Risk Band</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_client_62146ea487243210b3fb021a0cbb35b9</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-30 06:24:38</sys_updated_on>
+        <table>x_cpszo_spoke_offer_tracker</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

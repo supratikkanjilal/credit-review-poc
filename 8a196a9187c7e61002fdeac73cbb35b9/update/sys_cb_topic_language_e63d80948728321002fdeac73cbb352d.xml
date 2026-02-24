@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic_language">
+    <sys_cb_topic_language action="INSERT_OR_UPDATE">
+        <cb_topic_id display_value="Customer Risk Band Greeting.2">713dcc548728321002fdeac73cbb35d4</cb_topic_id>
+        <language_code>en</language_code>
+        <nlu_entities>[]</nlu_entities>
+        <nlu_intent>Suggest Payment Offer</nlu_intent>
+        <nlu_intent_label>Suggest Payment Offer</nlu_intent_label>
+        <nlu_model>ml_x_cpszo_x_cpszo_spoke_global_9195aa728708fed002fdeac73cbb357e</nlu_model>
+        <nlu_model_label>Agentic Browsing Model</nlu_model_label>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <sys_class_name>sys_cb_topic_language</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-08 09:08:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>e63d80948728321002fdeac73cbb352d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_cb_topic_language_e63d80948728321002fdeac73cbb352d</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-08 09:08:49</sys_updated_on>
+    </sys_cb_topic_language>
+</record_update>

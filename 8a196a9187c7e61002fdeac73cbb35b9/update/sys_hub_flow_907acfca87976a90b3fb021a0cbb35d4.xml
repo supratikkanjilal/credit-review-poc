@@ -1,0 +1,2603 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=3460283000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>25000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category display_value="">{}</category>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>scheduled_reminder</internal_name>
+        <label_cache>[{"name":"ff0a5784-f752-4f36-867f-1a39695bcc38.message","label":"3 - Render Notification Message➛Message","reference_display":"Message","type":"string","base_type":"string","usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["message"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"12ae0229-fac7-4761-926e-68d885047490"}},{"name":"f3818dee-490e-4649-8986-5a6afdd189da.Record.status","label":"4 - Look Up Record➛Notification Preview Record➛Status","reference":"","reference_display":"Status","type":"choice","base_type":"choice","parent_table_name":"x_cpszo_spoke_notification_preview","column_name":"status","choices":[{"label":"-- None --","used":false,"image":"","reference":false,"missing":false,"rawLabel":"-- None --","selected":false,"value":""},{"label":"Sent","used":false,"image":"","reference":false,"missing":false,"rawLabel":"Sent","selected":false,"value":"sent","parameters":{"name":"x_cpszo_spoke_notification_preview"}},{"label":"Pending","used":false,"image":"","reference":false,"missing":false,"rawLabel":"Pending","selected":false,"value":"pending","parameters":{"name":"x_cpszo_spoke_notification_preview"}},{"label":"Failed","used":false,"image":"","reference":false,"missing":false,"rawLabel":"Failed","selected":false,"value":"failed","parameters":{"name":"x_cpszo_spoke_notification_preview"}}],"usedInstances":{"d854a4b7-e8bf-465b-9669-e41f88d4b2a9":["condition"]}},{"name":"f3818dee-490e-4649-8986-5a6afdd189da.status","label":"5 - Look Up Record➛Status","reference_display":"Status","type":"choice","base_type":"choice","choices":[{"label":"Error","value":"1","order":0.0},{"label":"Success","value":"0","order":1.0}],"usedInstances":{},"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e478657-3a84-4a60-a92b-d3e80005ad34"}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.status","label":"1 - Look Up Record➛Status","reference_display":"Status","type":"choice","base_type":"choice","choices":[{"label":"Error","value":"1","order":0.0},{"label":"Success","value":"0","order":1.0}],"usedInstances":{},"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e478657-3a84-4a60-a92b-d3e80005ad34"}},{"name":"054ba464-6505-4b8f-8256-89cc6125c2dc.notification_sys_id","label":"4 - Send Mock Notification➛Notification Sys ID","reference_display":"Notification Sys ID","type":"string","base_type":"string","usedInstances":{"f3818dee-490e-4649-8986-5a6afdd189da":["conditions"],"d03d8d82-a750-4d74-ae11-a162aa507e19":["notification_sys_id"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"aeba66f6-39f2-490c-87a3-3f1e2fd443a9"}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.sys_id","label":"1 - Look Up Record➛Reminder Log Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_cpszo_spoke_reminder_log","column_name":"sys_id","usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["reminder_sys_id"],"487add12-9092-4034-a897-179030734198":["reminder_sys_id"],"33bacad7-9294-4723-9e86-3da2279e2bee":["reminder_sys_id"],"7e37269d-e99b-4fa8-af43-e0640655436f":["reminder_sys_id"],"ff0a5784-f752-4f36-867f-1a39695bcc38":["reminder_sys_id"]}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.reminder_message","label":"1 - Look Up Record➛Reminder Log Record➛Reminder Message","reference":"","reference_display":"Reminder Message","type":"string","base_type":"string","parent_table_name":"x_cpszo_spoke_reminder_log","column_name":"reminder_message","usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["message"],"487add12-9092-4034-a897-179030734198":["message"],"33bacad7-9294-4723-9e86-3da2279e2bee":["message"],"7e37269d-e99b-4fa8-af43-e0640655436f":["message"],"ff0a5784-f752-4f36-867f-1a39695bcc38":["fallback_message"]}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.preferred_channel","label":"1 - Look Up Record➛Reminder Log Record➛Preferred Channel","reference":"","reference_display":"Preferred Channel","type":"choice","base_type":"choice","parent_table_name":"x_cpszo_spoke_reminder_log","column_name":"preferred_channel","choices":[{"label":"-- None --","used":false,"image":"","reference":false,"missing":false,"rawLabel":"-- None --","selected":false,"value":""},{"label":"SMS","used":false,"image":"","reference":false,"missing":false,"rawLabel":"SMS","selected":false,"value":"sms","parameters":{"name":"x_cpszo_spoke_reminder_log"}},{"label":"Email","used":false,"image":"","reference":false,"missing":false,"rawLabel":"Email","selected":false,"value":"email","parameters":{"name":"x_cpszo_spoke_reminder_log"}},{"label":"WhatsApp","used":false,"image":"","reference":false,"missing":false,"rawLabel":"WhatsApp","selected":false,"value":"whatsapp","parameters":{"name":"x_cpszo_spoke_reminder_log"}}],"usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["channel"],"487add12-9092-4034-a897-179030734198":["channel"],"33bacad7-9294-4723-9e86-3da2279e2bee":["channel"],"7e37269d-e99b-4fa8-af43-e0640655436f":["channel"],"ff0a5784-f752-4f36-867f-1a39695bcc38":["channel"]}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.number.number","label":"1 - Look Up Record➛Reminder Log Record➛Number➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_cpszo_spoke_customer_profile","column_name":"number","usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["number"],"487add12-9092-4034-a897-179030734198":["number"],"33bacad7-9294-4723-9e86-3da2279e2bee":["number"],"7e37269d-e99b-4fa8-af43-e0640655436f":["number"]}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record","label":"1 - Look Up Record➛Reminder Log Record","reference":"x_cpszo_spoke_reminder_log","reference_display":"Reminder Log","type":"reference","base_type":"reference","usedInstances":{"e70b25ec-1066-4e93-b257-415969126181":["record"],"d03d8d82-a750-4d74-ae11-a162aa507e19":["record"],"c6597820-709a-41cb-b6df-34a8327b277d":["record"],"49b8beed-48ce-4e05-91b2-fd8167e1a155":["record"],"fb185c49-f2ae-4bd0-8038-8f052083d634":["record"],"c14febb9-3eca-40f0-973b-fef87bf62ca5":["record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.reminder_sys_id","label":"Input➛Reminder Sys ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","usedInstances":{"bedd8be6-2553-4641-a871-f278401a0b22":["conditions"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2db75685-e4d8-4859-a494-b8fcaeccffde","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.retry_count","label":"1 - Look Up Record➛Reminder Log Record➛Retry Count","reference":"","reference_display":"Retry Count","type":"integer","base_type":"integer","parent_table_name":"x_cpszo_spoke_reminder_log","column_name":"retry_count","usedInstances":{"61748c26-2a33-4867-a34e-8a014926735b":["condition"]}}]</label_cache>
+        <master_snapshot>4aaec12387d7e2d0b3fb021a0cbb3558</master_snapshot>
+        <name>Scheduled Reminder</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-13 06:06:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>907acfca87976a90b3fb021a0cbb35d4</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_name>Scheduled Reminder</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_hub_flow_907acfca87976a90b3fb021a0cbb35d4</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <type>subflow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_variable_value action="delete_multiple" query="document_key=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=907acfca87976a90b3fb021a0cbb35d4^sys_idNOT IN507acfca87976a90b3fb021a0cbb35d5"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>907acfca87976a90b3fb021a0cbb35d4</id>
+        <name>Scheduled Reminder</name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-13 06:06:23</sys_created_on>
+        <sys_id>507acfca87976a90b3fb021a0cbb35d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-13 06:06:23</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=507acfca87976a90b3fb021a0cbb35d5"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=907acfca87976a90b3fb021a0cbb35d4^sys_idNOT IN94ba430e87976a90b3fb021a0cbb3582"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=2db75685-e4d8-4859-a494-b8fcaeccffde</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>reminder_sys_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Reminder Sys ID</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</model>
+        <model_id>907acfca87976a90b3fb021a0cbb35d4</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_907acfca87976a90b3fb021a0cbb35d4</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-13 06:07:28</sys_created_on>
+        <sys_id>94ba430e87976a90b3fb021a0cbb3582</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-13 06:07:28</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=94ba430e87976a90b3fb021a0cbb3582"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=907acfca87976a90b3fb021a0cbb35d4^sys_idNOT IN2f1f8ff38793a6d0b3fb021a0cbb356e,408c092f8797e2d0b3fb021a0cbb35e0,888c092f8797e2d0b3fb021a0cbb35ea,8c8c492f8797e2d0b3fb021a0cbb350f,988d03738793a6d0b3fb021a0cbb35a8,a10d5c7487632ed0b3fb021a0cbb3568,ebf960418723aed0b3fb021a0cbb3505,ec8d03738793a6d0b3fb021a0cbb35b9,ff75acf887a32ed0b3fb021a0cbb3598"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>9</order>
+        <parent_ui_id>ed3ae791-0cd9-456b-bad1-d2e7438fc937</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:56:11</sys_created_on>
+        <sys_id>2f1f8ff38793a6d0b3fb021a0cbb356e</sys_id>
+        <sys_mod_count>68</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>49b8beed-48ce-4e05-91b2-fd8167e1a155</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=2f1f8ff38793a6d0b3fb021a0cbb356e"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2f1f8ff38793a6d0b3fb021a0cbb356e</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:56:11</sys_created_on>
+        <sys_id>a31f8ff38793a6d0b3fb021a0cbb3571</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <value>last_attempt_at=fd-scripted^retry_count=1</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2f1f8ff38793a6d0b3fb021a0cbb356e</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:56:11</sys_created_on>
+        <sys_id>ab1f8ff38793a6d0b3fb021a0cbb3571</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:56:11</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=2f1f8ff38793a6d0b3fb021a0cbb356e"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>2f1f8ff38793a6d0b3fb021a0cbb356e</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:56:11</sys_created_on>
+        <sys_id>231f8ff38793a6d0b3fb021a0cbb3571</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:56:11</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>2f1f8ff38793a6d0b3fb021a0cbb356e</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:56:11</sys_created_on>
+        <sys_id>a71f8ff38793a6d0b3fb021a0cbb3570</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:56:11</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>2f1f8ff38793a6d0b3fb021a0cbb356e</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:56:11</sys_created_on>
+        <sys_id>6f1f8ff38793a6d0b3fb021a0cbb3570</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:56:11</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=2f1f8ff38793a6d0b3fb021a0cbb356e^sys_idNOT INd90d5c7487632ed0b3fb021a0cbb3548"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>values</input_name>
+        <instance>2f1f8ff38793a6d0b3fb021a0cbb356e</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"last_attempt_at":{"scriptActive":true,"script":"/*\n**Access Flow/Action data using the fd_data object. Script must return a value. \n**Order number is offset by +1 in Error Handling Section.\n**Available options display upon pressing \".\" after fd_data\n**example: var shortDesc \u003d fd_data.trigger.current.short_description;\n**return shortDesc;\n*/\n\nreturn new GlideDateTime();","savedValue":""}}</script>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>d90d5c7487632ed0b3fb021a0cbb3548</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=2f1f8ff38793a6d0b3fb021a0cbb356e"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>408c092f8797e2d0b3fb021a0cbb35e0</sys_id>
+        <sys_mod_count>86</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:52</sys_updated_on>
+        <ui_id>bedd8be6-2553-4641-a871-f278401a0b22</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=408c092f8797e2d0b3fb021a0cbb35e0"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>408c092f8797e2d0b3fb021a0cbb35e0</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>048c092f8797e2d0b3fb021a0cbb35e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:01</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">d909f99587003300663ca1bb36cb0ba4</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=408c092f8797e2d0b3fb021a0cbb35e0"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>408c092f8797e2d0b3fb021a0cbb35e0</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>c88c092f8797e2d0b3fb021a0cbb35e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value>sys_id={{subflow.reminder_sys_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>408c092f8797e2d0b3fb021a0cbb35e0</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>808c092f8797e2d0b3fb021a0cbb35e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=408c092f8797e2d0b3fb021a0cbb35e0"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=408c092f8797e2d0b3fb021a0cbb35e0"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Wait For Condition">89ce8a4187120010663ca1bb36cb0be3</action_type>
+        <action_type_parent display_value="Wait For Condition">8bb9a8160b10030085c083eb37673aec</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>888c092f8797e2d0b3fb021a0cbb35ea</sys_id>
+        <sys_mod_count>86</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>e70b25ec-1066-4e93-b257-415969126181</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=888c092f8797e2d0b3fb021a0cbb35ea"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>888c092f8797e2d0b3fb021a0cbb35ea</document_key>
+        <order>4</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 05:52:03</sys_created_on>
+        <sys_id>054d502787ffee90b3fb021a0cbb35da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:03</sys_updated_on>
+        <value>1</value>
+        <variable display_value="Enable timeout">0dce8a4187120010663ca1bb36cb0bf4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>888c092f8797e2d0b3fb021a0cbb35ea</document_key>
+        <order>5</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 05:52:03</sys_created_on>
+        <sys_id>4d4d502787ffee90b3fb021a0cbb35da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:03</sys_updated_on>
+        <value>1970-01-01 00:01:00</value>
+        <variable display_value="Duration">cdce8a4187120010663ca1bb36cb0bf9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>888c092f8797e2d0b3fb021a0cbb35ea</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>808c092f8797e2d0b3fb021a0cbb35ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:01</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">45ce8a4187120010663ca1bb36cb0bea</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>888c092f8797e2d0b3fb021a0cbb35ea</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>cc8c092f8797e2d0b3fb021a0cbb35ec</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:03</sys_updated_on>
+        <value>reminder_schedule&lt;=javascript:gs.endOfCurrentMinute()</value>
+        <variable display_value="Conditions">49ce8a4187120010663ca1bb36cb0bef</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>888c092f8797e2d0b3fb021a0cbb35ea</document_key>
+        <order>6</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 06:04:25</sys_created_on>
+        <sys_id>d6102cab87ffee90b3fb021a0cbb35b8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 06:04:25</sys_updated_on>
+        <value>38fa64edc0a8016400f4a5724b0434b8</value>
+        <variable display_value="Schedule">81ce8a4187120010663ca1bb36cb0bff</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=888c092f8797e2d0b3fb021a0cbb35ea"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>888c092f8797e2d0b3fb021a0cbb35ea</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>888c092f8797e2d0b3fb021a0cbb35ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>888c092f8797e2d0b3fb021a0cbb35ea</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>c48c092f8797e2d0b3fb021a0cbb35ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>888c092f8797e2d0b3fb021a0cbb35ea</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:01</sys_created_on>
+        <sys_id>4c8c092f8797e2d0b3fb021a0cbb35ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>timeout_duration</field>
+        <id>888c092f8797e2d0b3fb021a0cbb35ea</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 05:52:03</sys_created_on>
+        <sys_id>014d502787ffee90b3fb021a0cbb35da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:03</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>timeout_flag</field>
+        <id>888c092f8797e2d0b3fb021a0cbb35ea</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 05:52:03</sys_created_on>
+        <sys_id>494d502787ffee90b3fb021a0cbb35d9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:03</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>timeout_schedule</field>
+        <id>888c092f8797e2d0b3fb021a0cbb35ea</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 06:04:25</sys_created_on>
+        <sys_id>52102cab87ffee90b3fb021a0cbb35b8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 06:04:25</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=888c092f8797e2d0b3fb021a0cbb35ea"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=888c092f8797e2d0b3fb021a0cbb35ea"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Mock Notification">a0a9fe69879b6690b3fb021a0cbb358b</action_type>
+        <action_type_parent display_value="Send Mock Notification">9d2fb5998797e290b3fb021a0cbb3583</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>4</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:02</sys_created_on>
+        <sys_id>8c8c492f8797e2d0b3fb021a0cbb350f</sys_id>
+        <sys_mod_count>86</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>054ba464-6505-4b8f-8256-89cc6125c2dc</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=8c8c492f8797e2d0b3fb021a0cbb350f"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>8c8c492f8797e2d0b3fb021a0cbb350f</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:02</sys_created_on>
+        <sys_id>408c492f8797e2d0b3fb021a0cbb3512</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:02</sys_updated_on>
+        <value/>
+        <variable display_value="Channel">24a9fe69879b6690b3fb021a0cbb3595</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=8c8c492f8797e2d0b3fb021a0cbb350f"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>channel</field>
+        <id>8c8c492f8797e2d0b3fb021a0cbb350f</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:02</sys_created_on>
+        <sys_id>848c492f8797e2d0b3fb021a0cbb3511</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.preferred_channel}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>message</field>
+        <id>8c8c492f8797e2d0b3fb021a0cbb350f</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:02</sys_created_on>
+        <sys_id>cc8c492f8797e2d0b3fb021a0cbb3511</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-22 02:07:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.reminder_message}}{{ff0a5784-f752-4f36-867f-1a39695bcc38.message}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>number</field>
+        <id>8c8c492f8797e2d0b3fb021a0cbb350f</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:02</sys_created_on>
+        <sys_id>488c492f8797e2d0b3fb021a0cbb3511</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.number.number}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>reminder_sys_id</field>
+        <id>8c8c492f8797e2d0b3fb021a0cbb350f</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:47:02</sys_created_on>
+        <sys_id>0c8c492f8797e2d0b3fb021a0cbb3511</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:47:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=8c8c492f8797e2d0b3fb021a0cbb350f"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=8c8c492f8797e2d0b3fb021a0cbb350f"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>5</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:08</sys_created_on>
+        <sys_id>988d03738793a6d0b3fb021a0cbb35a8</sys_id>
+        <sys_mod_count>70</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>f3818dee-490e-4649-8986-5a6afdd189da</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=988d03738793a6d0b3fb021a0cbb35a8"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>988d03738793a6d0b3fb021a0cbb35a8</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:08</sys_created_on>
+        <sys_id>d08d03738793a6d0b3fb021a0cbb35ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:08</sys_updated_on>
+        <value>x_cpszo_spoke_notification_preview</value>
+        <variable display_value="Table">d909f99587003300663ca1bb36cb0ba4</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=988d03738793a6d0b3fb021a0cbb35a8"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>988d03738793a6d0b3fb021a0cbb35a8</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:08</sys_created_on>
+        <sys_id>988d03738793a6d0b3fb021a0cbb35aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value>sys_id={{054ba464-6505-4b8f-8256-89cc6125c2dc.notification_sys_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>988d03738793a6d0b3fb021a0cbb35a8</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:08</sys_created_on>
+        <sys_id>508d03738793a6d0b3fb021a0cbb35ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=988d03738793a6d0b3fb021a0cbb35a8"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=988d03738793a6d0b3fb021a0cbb35a8"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>14</order>
+        <parent_ui_id>a23f9165-867d-4fa5-b145-76cf8064f576</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>a10d5c7487632ed0b3fb021a0cbb3568</sys_id>
+        <sys_mod_count>64</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>fb185c49-f2ae-4bd0-8038-8f052083d634</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=a10d5c7487632ed0b3fb021a0cbb3568"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>a10d5c7487632ed0b3fb021a0cbb3568</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>ad0d5c7487632ed0b3fb021a0cbb3569</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>a10d5c7487632ed0b3fb021a0cbb3568</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>e90d5c7487632ed0b3fb021a0cbb3569</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <value>reminder_status=failed</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=a10d5c7487632ed0b3fb021a0cbb3568"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>a10d5c7487632ed0b3fb021a0cbb3568</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>690d5c7487632ed0b3fb021a0cbb3569</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>a10d5c7487632ed0b3fb021a0cbb3568</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>e10d5c7487632ed0b3fb021a0cbb3569</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>a10d5c7487632ed0b3fb021a0cbb3568</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>a50d5c7487632ed0b3fb021a0cbb3569</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=a10d5c7487632ed0b3fb021a0cbb3568"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=a10d5c7487632ed0b3fb021a0cbb3568"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Render Notification Message">b47960018723aed0b3fb021a0cbb3525</action_type>
+        <action_type_parent display_value="Render Notification Message">1927e0c987ef6ed0b3fb021a0cbb35bf</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-22 02:07:09</sys_created_on>
+        <sys_id>ebf960418723aed0b3fb021a0cbb3505</sys_id>
+        <sys_mod_count>46</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>ff0a5784-f752-4f36-867f-1a39695bcc38</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=ebf960418723aed0b3fb021a0cbb3505"/>
+    <sys_element_mapping action="delete_multiple" query="id=ebf960418723aed0b3fb021a0cbb3505"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>channel</field>
+        <id>ebf960418723aed0b3fb021a0cbb3505</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-22 02:07:09</sys_created_on>
+        <sys_id>2bf960418723aed0b3fb021a0cbb3507</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-22 02:07:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_b47960018723aed0b3fb021a0cbb3525</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.preferred_channel}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>fallback_message</field>
+        <id>ebf960418723aed0b3fb021a0cbb3505</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-22 02:07:09</sys_created_on>
+        <sys_id>a3f960418723aed0b3fb021a0cbb3508</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-22 02:07:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_b47960018723aed0b3fb021a0cbb3525</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.reminder_message}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>reminder_sys_id</field>
+        <id>ebf960418723aed0b3fb021a0cbb3505</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-22 02:07:09</sys_created_on>
+        <sys_id>eff960418723aed0b3fb021a0cbb3507</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-22 02:07:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_b47960018723aed0b3fb021a0cbb3525</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=ebf960418723aed0b3fb021a0cbb3505"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=ebf960418723aed0b3fb021a0cbb3505"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>7</order>
+        <parent_ui_id>d854a4b7-e8bf-465b-9669-e41f88d4b2a9</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>ec8d03738793a6d0b3fb021a0cbb35b9</sys_id>
+        <sys_mod_count>70</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>d03d8d82-a750-4d74-ae11-a162aa507e19</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=ec8d03738793a6d0b3fb021a0cbb35b9"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>ec8d03738793a6d0b3fb021a0cbb35b9</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>ac8d03738793a6d0b3fb021a0cbb35bb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:09</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=ec8d03738793a6d0b3fb021a0cbb35b9"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>ec8d03738793a6d0b3fb021a0cbb35b9</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>2c8d03738793a6d0b3fb021a0cbb35bb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>ec8d03738793a6d0b3fb021a0cbb35b9</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>a48d03738793a6d0b3fb021a0cbb35bb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>ec8d03738793a6d0b3fb021a0cbb35b9</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>688d03738793a6d0b3fb021a0cbb35bb</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>reminder_status=sent^notification_sys_id={{054ba464-6505-4b8f-8256-89cc6125c2dc.notification_sys_id}}^last_contact_date=fd-scripted</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=ec8d03738793a6d0b3fb021a0cbb35b9^sys_idNOT IN990d5c7487632ed0b3fb021a0cbb3528"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>values</input_name>
+        <instance>ec8d03738793a6d0b3fb021a0cbb35b9</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"last_contact_date":{"scriptActive":true,"script":"/*\n**Access Flow/Action data using the fd_data object. Script must return a value. \n**Order number is offset by +1 in Error Handling Section.\n**Available options display upon pressing \".\" after fd_data\n**example: var shortDesc \u003d fd_data.trigger.current.short_description;\n**return shortDesc;\n*/\n\nreturn new GlideDateTime();","savedValue":""}}</script>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>990d5c7487632ed0b3fb021a0cbb3528</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=ec8d03738793a6d0b3fb021a0cbb35b9"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Mock Notification">a0a9fe69879b6690b3fb021a0cbb358b</action_type>
+        <action_type_parent display_value="Send Mock Notification">9d2fb5998797e290b3fb021a0cbb3583</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <generation_source/>
+        <order>12</order>
+        <parent_ui_id>61748c26-2a33-4867-a34e-8a014926735b</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>ff75acf887a32ed0b3fb021a0cbb3598</sys_id>
+        <sys_mod_count>58</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>7e37269d-e99b-4fa8-af43-e0640655436f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=ff75acf887a32ed0b3fb021a0cbb3598"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>ff75acf887a32ed0b3fb021a0cbb3598</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>b775acf887a32ed0b3fb021a0cbb359b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 07:09:01</sys_updated_on>
+        <value/>
+        <variable display_value="Channel">24a9fe69879b6690b3fb021a0cbb3595</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=ff75acf887a32ed0b3fb021a0cbb3598"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>channel</field>
+        <id>ff75acf887a32ed0b3fb021a0cbb3598</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>fb75acf887a32ed0b3fb021a0cbb359a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 07:09:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.preferred_channel}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>message</field>
+        <id>ff75acf887a32ed0b3fb021a0cbb3598</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>3775acf887a32ed0b3fb021a0cbb359b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 07:09:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.reminder_message}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>number</field>
+        <id>ff75acf887a32ed0b3fb021a0cbb3598</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>bf75acf887a32ed0b3fb021a0cbb359a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 07:09:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.number.number}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>reminder_sys_id</field>
+        <id>ff75acf887a32ed0b3fb021a0cbb3598</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>7375acf887a32ed0b3fb021a0cbb359b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 07:09:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=ff75acf887a32ed0b3fb021a0cbb3598"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=ff75acf887a32ed0b3fb021a0cbb3598"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=907acfca87976a90b3fb021a0cbb35d4^sys_idNOT IN1c8d03738793a6d0b3fb021a0cbb35ac,2c8d03738793a6d0b3fb021a0cbb35bc,3f75acf887a32ed0b3fb021a0cbb358a,910d5c7487632ed0b3fb021a0cbb354b,d90d5c7487632ed0b3fb021a0cbb3560"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">dc8d03738793a6d0b3fb021a0cbb35ab</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>6</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:08</sys_created_on>
+        <sys_id>1c8d03738793a6d0b3fb021a0cbb35ac</sys_id>
+        <sys_mod_count>34</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>d854a4b7-e8bf-465b-9669-e41f88d4b2a9</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=1c8d03738793a6d0b3fb021a0cbb35ac"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>1c8d03738793a6d0b3fb021a0cbb35ac</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>ec8d03738793a6d0b3fb021a0cbb35b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:09</sys_updated_on>
+        <value>Notification Sent</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=1c8d03738793a6d0b3fb021a0cbb35ac"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>1c8d03738793a6d0b3fb021a0cbb35ac</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>6c8d03738793a6d0b3fb021a0cbb35b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:09</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{f3818dee-490e-4649-8986-5a6afdd189da.Record.status}}=sent</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>1c8d03738793a6d0b3fb021a0cbb35ac</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>a88d03738793a6d0b3fb021a0cbb35b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-18 16:49:09</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=1c8d03738793a6d0b3fb021a0cbb35ac"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=1c8d03738793a6d0b3fb021a0cbb35ac"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">248d03738793a6d0b3fb021a0cbb35bc</block>
+        <comment/>
+        <connected_to>d854a4b7-e8bf-465b-9669-e41f88d4b2a9</connected_to>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>8</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-18 16:49:09</sys_created_on>
+        <sys_id>2c8d03738793a6d0b3fb021a0cbb35bc</sys_id>
+        <sys_mod_count>34</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>ed3ae791-0cd9-456b-bad1-d2e7438fc937</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=2c8d03738793a6d0b3fb021a0cbb35bc"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=2c8d03738793a6d0b3fb021a0cbb35bc"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=2c8d03738793a6d0b3fb021a0cbb35bc"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">ff75acf887a32ed0b3fb021a0cbb3589</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <logic_definition display_value="Wait for a duration of time">fdb2541473031300b61e66476bf6a70e</logic_definition>
+        <order>11</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>61748c26-2a33-4867-a34e-8a014926735b</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>3f75acf887a32ed0b3fb021a0cbb358a</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>9157b2de-a2f5-4390-95f0-e4ef0e80efa7</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=3f75acf887a32ed0b3fb021a0cbb358a"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>3f75acf887a32ed0b3fb021a0cbb358a</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>b375acf887a32ed0b3fb021a0cbb358f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 07:09:01</sys_updated_on>
+        <value/>
+        <variable display_value="Timer relative duration operator">dca4105473031300b61e66476bf6a726</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>3f75acf887a32ed0b3fb021a0cbb358a</document_key>
+        <order>500</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 06:04:26</sys_created_on>
+        <sys_id>e2106cab87ffee90b3fb021a0cbb3526</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 06:04:26</sys_updated_on>
+        <value>38fa64edc0a8016400f4a5724b0434b8</value>
+        <variable display_value="During the following schedule">fb55145473031300b61e66476bf6a762</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>3f75acf887a32ed0b3fb021a0cbb358a</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 07:09:01</sys_created_on>
+        <sys_id>fb75acf887a32ed0b3fb021a0cbb358f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-10 06:08:56</sys_updated_on>
+        <value>1970-01-01 00:05:00</value>
+        <variable display_value="Duration">ef145c1473031300b61e66476bf6a7be</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_logic_input_fdb2541473031300b61e66476bf6a70e^id=3f75acf887a32ed0b3fb021a0cbb358a"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=3f75acf887a32ed0b3fb021a0cbb358a"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=3f75acf887a32ed0b3fb021a0cbb358a"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">550d5c7487632ed0b3fb021a0cbb354a</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>10</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>910d5c7487632ed0b3fb021a0cbb354b</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>61748c26-2a33-4867-a34e-8a014926735b</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=910d5c7487632ed0b3fb021a0cbb354b"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>910d5c7487632ed0b3fb021a0cbb354b</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>190d5c7487632ed0b3fb021a0cbb354e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <value>Retry remaining?</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=910d5c7487632ed0b3fb021a0cbb354b"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>910d5c7487632ed0b3fb021a0cbb354b</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>950d5c7487632ed0b3fb021a0cbb354e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.retry_count}}&lt;3</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>910d5c7487632ed0b3fb021a0cbb354b</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>dd0d5c7487632ed0b3fb021a0cbb354d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:31:59</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=910d5c7487632ed0b3fb021a0cbb354b"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=910d5c7487632ed0b3fb021a0cbb354b"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">d10d5c7487632ed0b3fb021a0cbb3560</block>
+        <comment/>
+        <connected_to>61748c26-2a33-4867-a34e-8a014926735b</connected_to>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>13</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:31:59</sys_created_on>
+        <sys_id>d90d5c7487632ed0b3fb021a0cbb3560</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:53</sys_updated_on>
+        <ui_id>a23f9165-867d-4fa5-b145-76cf8064f576</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=d90d5c7487632ed0b3fb021a0cbb3560"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=d90d5c7487632ed0b3fb021a0cbb3560"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=d90d5c7487632ed0b3fb021a0cbb3560"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_907acfca87976a90b3fb021a0cbb35d4^sys_idNOT INd0ba430e87976a90b3fb021a0cbb3586"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>reminder_sys_id</element>
+        <help/>
+        <hint/>
+        <label>Reminder Sys ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_907acfca87976a90b3fb021a0cbb35d4</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-13 06:07:28</sys_created_on>
+        <sys_id>d0ba430e87976a90b3fb021a0cbb3586</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-13 06:07:28</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>25000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category display_value="">{}</category>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>scheduled_reminder</internal_name>
+        <label_cache>[{"name":"ff0a5784-f752-4f36-867f-1a39695bcc38.message","label":"3 - Render Notification Message➛Message","reference_display":"Message","type":"string","base_type":"string","usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["message"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"12ae0229-fac7-4761-926e-68d885047490"}},{"name":"f3818dee-490e-4649-8986-5a6afdd189da.Record.status","label":"4 - Look Up Record➛Notification Preview Record➛Status","reference":"","reference_display":"Status","type":"choice","base_type":"choice","parent_table_name":"x_cpszo_spoke_notification_preview","column_name":"status","choices":[{"label":"-- None --","used":false,"image":"","reference":false,"missing":false,"rawLabel":"-- None --","selected":false,"value":""},{"label":"Sent","used":false,"image":"","reference":false,"missing":false,"rawLabel":"Sent","selected":false,"value":"sent","parameters":{"name":"x_cpszo_spoke_notification_preview"}},{"label":"Pending","used":false,"image":"","reference":false,"missing":false,"rawLabel":"Pending","selected":false,"value":"pending","parameters":{"name":"x_cpszo_spoke_notification_preview"}},{"label":"Failed","used":false,"image":"","reference":false,"missing":false,"rawLabel":"Failed","selected":false,"value":"failed","parameters":{"name":"x_cpszo_spoke_notification_preview"}}],"usedInstances":{"d854a4b7-e8bf-465b-9669-e41f88d4b2a9":["condition"]}},{"name":"f3818dee-490e-4649-8986-5a6afdd189da.status","label":"5 - Look Up Record➛Status","reference_display":"Status","type":"choice","base_type":"choice","choices":[{"label":"Error","value":"1","order":0.0},{"label":"Success","value":"0","order":1.0}],"usedInstances":{},"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e478657-3a84-4a60-a92b-d3e80005ad34"}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.status","label":"1 - Look Up Record➛Status","reference_display":"Status","type":"choice","base_type":"choice","choices":[{"label":"Error","value":"1","order":0.0},{"label":"Success","value":"0","order":1.0}],"usedInstances":{},"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e478657-3a84-4a60-a92b-d3e80005ad34"}},{"name":"054ba464-6505-4b8f-8256-89cc6125c2dc.notification_sys_id","label":"4 - Send Mock Notification➛Notification Sys ID","reference_display":"Notification Sys ID","type":"string","base_type":"string","usedInstances":{"f3818dee-490e-4649-8986-5a6afdd189da":["conditions"],"d03d8d82-a750-4d74-ae11-a162aa507e19":["notification_sys_id"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"aeba66f6-39f2-490c-87a3-3f1e2fd443a9"}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.sys_id","label":"1 - Look Up Record➛Reminder Log Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_cpszo_spoke_reminder_log","column_name":"sys_id","usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["reminder_sys_id"],"487add12-9092-4034-a897-179030734198":["reminder_sys_id"],"33bacad7-9294-4723-9e86-3da2279e2bee":["reminder_sys_id"],"7e37269d-e99b-4fa8-af43-e0640655436f":["reminder_sys_id"],"ff0a5784-f752-4f36-867f-1a39695bcc38":["reminder_sys_id"]}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.reminder_message","label":"1 - Look Up Record➛Reminder Log Record➛Reminder Message","reference":"","reference_display":"Reminder Message","type":"string","base_type":"string","parent_table_name":"x_cpszo_spoke_reminder_log","column_name":"reminder_message","usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["message"],"487add12-9092-4034-a897-179030734198":["message"],"33bacad7-9294-4723-9e86-3da2279e2bee":["message"],"7e37269d-e99b-4fa8-af43-e0640655436f":["message"],"ff0a5784-f752-4f36-867f-1a39695bcc38":["fallback_message"]}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.preferred_channel","label":"1 - Look Up Record➛Reminder Log Record➛Preferred Channel","reference":"","reference_display":"Preferred Channel","type":"choice","base_type":"choice","parent_table_name":"x_cpszo_spoke_reminder_log","column_name":"preferred_channel","choices":[{"label":"-- None --","used":false,"image":"","reference":false,"missing":false,"rawLabel":"-- None --","selected":false,"value":""},{"label":"SMS","used":false,"image":"","reference":false,"missing":false,"rawLabel":"SMS","selected":false,"value":"sms","parameters":{"name":"x_cpszo_spoke_reminder_log"}},{"label":"Email","used":false,"image":"","reference":false,"missing":false,"rawLabel":"Email","selected":false,"value":"email","parameters":{"name":"x_cpszo_spoke_reminder_log"}},{"label":"WhatsApp","used":false,"image":"","reference":false,"missing":false,"rawLabel":"WhatsApp","selected":false,"value":"whatsapp","parameters":{"name":"x_cpszo_spoke_reminder_log"}}],"usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["channel"],"487add12-9092-4034-a897-179030734198":["channel"],"33bacad7-9294-4723-9e86-3da2279e2bee":["channel"],"7e37269d-e99b-4fa8-af43-e0640655436f":["channel"],"ff0a5784-f752-4f36-867f-1a39695bcc38":["channel"]}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.number.number","label":"1 - Look Up Record➛Reminder Log Record➛Number➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_cpszo_spoke_customer_profile","column_name":"number","usedInstances":{"054ba464-6505-4b8f-8256-89cc6125c2dc":["number"],"487add12-9092-4034-a897-179030734198":["number"],"33bacad7-9294-4723-9e86-3da2279e2bee":["number"],"7e37269d-e99b-4fa8-af43-e0640655436f":["number"]}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record","label":"1 - Look Up Record➛Reminder Log Record","reference":"x_cpszo_spoke_reminder_log","reference_display":"Reminder Log","type":"reference","base_type":"reference","usedInstances":{"e70b25ec-1066-4e93-b257-415969126181":["record"],"d03d8d82-a750-4d74-ae11-a162aa507e19":["record"],"c6597820-709a-41cb-b6df-34a8327b277d":["record"],"49b8beed-48ce-4e05-91b2-fd8167e1a155":["record"],"fb185c49-f2ae-4bd0-8038-8f052083d634":["record"],"c14febb9-3eca-40f0-973b-fef87bf62ca5":["record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.reminder_sys_id","label":"Input➛Reminder Sys ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","usedInstances":{"bedd8be6-2553-4641-a871-f278401a0b22":["conditions"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2db75685-e4d8-4859-a494-b8fcaeccffde","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"bedd8be6-2553-4641-a871-f278401a0b22.Record.retry_count","label":"1 - Look Up Record➛Reminder Log Record➛Retry Count","reference":"","reference_display":"Retry Count","type":"integer","base_type":"integer","parent_table_name":"x_cpszo_spoke_reminder_log","column_name":"retry_count","usedInstances":{"61748c26-2a33-4867-a34e-8a014926735b":["condition"]}}]</label_cache>
+        <master>true</master>
+        <name>Scheduled Reminder</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4aaec12387d7e2d0b3fb021a0cbb3558</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:51</sys_updated_on>
+        <type>subflow</type>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_variable_value action="delete_multiple" query="document_key=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=4aaec12387d7e2d0b3fb021a0cbb3558^sys_idNOT INcaaec12387d7e2d0b3fb021a0cbb3559"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>4aaec12387d7e2d0b3fb021a0cbb3558</id>
+        <name>Scheduled Reminder</name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:26</sys_created_on>
+        <sys_id>caaec12387d7e2d0b3fb021a0cbb3559</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:26</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=caaec12387d7e2d0b3fb021a0cbb3559"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=4aaec12387d7e2d0b3fb021a0cbb3558^sys_idNOT IN42aec12387d7e2d0b3fb021a0cbb355b"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=2db75685-e4d8-4859-a494-b8fcaeccffde</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>reminder_sys_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Reminder Sys ID</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</model>
+        <model_id>4aaec12387d7e2d0b3fb021a0cbb3558</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_4aaec12387d7e2d0b3fb021a0cbb3558</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:26</sys_created_on>
+        <sys_id>42aec12387d7e2d0b3fb021a0cbb355b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:26</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=42aec12387d7e2d0b3fb021a0cbb355b"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=4aaec12387d7e2d0b3fb021a0cbb3558^sys_idNOT IN011d10b487632ed0b3fb021a0cbb35fe,06aec12387d7e2d0b3fb021a0cbb35f2,091d50b487632ed0b3fb021a0cbb3513,0d1d50b487632ed0b3fb021a0cbb3519,1eae052387d7e2d0b3fb021a0cbb350b,4fdaac818723aed0b3fb021a0cbb3579,511d50b487632ed0b3fb021a0cbb3546,97f545f487a72ed0b3fb021a0cbb3524,d6aec12387d7e2d0b3fb021a0cbb35fd"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>5</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>011d10b487632ed0b3fb021a0cbb35fe</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>f3818dee-490e-4649-8986-5a6afdd189da</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=011d10b487632ed0b3fb021a0cbb35fe"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>011d10b487632ed0b3fb021a0cbb35fe</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>011d50b487632ed0b3fb021a0cbb3500</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <value>x_cpszo_spoke_notification_preview</value>
+        <variable display_value="Table">d909f99587003300663ca1bb36cb0ba4</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=011d10b487632ed0b3fb021a0cbb35fe"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>011d10b487632ed0b3fb021a0cbb35fe</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>c91d10b487632ed0b3fb021a0cbb35ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value>sys_id={{054ba464-6505-4b8f-8256-89cc6125c2dc.notification_sys_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>011d10b487632ed0b3fb021a0cbb35fe</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>8d1d10b487632ed0b3fb021a0cbb35ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=011d10b487632ed0b3fb021a0cbb35fe"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=011d10b487632ed0b3fb021a0cbb35fe"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>06aec12387d7e2d0b3fb021a0cbb35f2</sys_id>
+        <sys_mod_count>46</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>bedd8be6-2553-4641-a871-f278401a0b22</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=06aec12387d7e2d0b3fb021a0cbb35f2"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>06aec12387d7e2d0b3fb021a0cbb35f2</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>5eaec12387d7e2d0b3fb021a0cbb35f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">d909f99587003300663ca1bb36cb0ba4</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=06aec12387d7e2d0b3fb021a0cbb35f2"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>06aec12387d7e2d0b3fb021a0cbb35f2</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>16aec12387d7e2d0b3fb021a0cbb35f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value>sys_id={{subflow.reminder_sys_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>06aec12387d7e2d0b3fb021a0cbb35f2</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>daaec12387d7e2d0b3fb021a0cbb35f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=06aec12387d7e2d0b3fb021a0cbb35f2"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=06aec12387d7e2d0b3fb021a0cbb35f2"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>7</order>
+        <parent_ui_id>d854a4b7-e8bf-465b-9669-e41f88d4b2a9</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>091d50b487632ed0b3fb021a0cbb3513</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>d03d8d82-a750-4d74-ae11-a162aa507e19</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=091d50b487632ed0b3fb021a0cbb3513"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>091d50b487632ed0b3fb021a0cbb3513</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>051d50b487632ed0b3fb021a0cbb3515</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=091d50b487632ed0b3fb021a0cbb3513"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>091d50b487632ed0b3fb021a0cbb3513</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>811d50b487632ed0b3fb021a0cbb3515</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>091d50b487632ed0b3fb021a0cbb3513</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>0d1d50b487632ed0b3fb021a0cbb3514</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>091d50b487632ed0b3fb021a0cbb3513</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>cd1d50b487632ed0b3fb021a0cbb3514</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>reminder_status=sent^notification_sys_id={{054ba464-6505-4b8f-8256-89cc6125c2dc.notification_sys_id}}^last_contact_date=fd-scripted</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=091d50b487632ed0b3fb021a0cbb3513^sys_idNOT IN091d50b487632ed0b3fb021a0cbb3514"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>values</input_name>
+        <instance>091d50b487632ed0b3fb021a0cbb3513</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"last_contact_date":{"scriptActive":true,"script":"/*\n**Access Flow/Action data using the fd_data object. Script must return a value. \n**Order number is offset by +1 in Error Handling Section.\n**Available options display upon pressing \".\" after fd_data\n**example: var shortDesc \u003d fd_data.trigger.current.short_description;\n**return shortDesc;\n*/\n\nreturn new GlideDateTime();","savedValue":""}}</script>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>091d50b487632ed0b3fb021a0cbb3514</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=091d50b487632ed0b3fb021a0cbb3513"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>9</order>
+        <parent_ui_id>ed3ae791-0cd9-456b-bad1-d2e7438fc937</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>0d1d50b487632ed0b3fb021a0cbb3519</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>49b8beed-48ce-4e05-91b2-fd8167e1a155</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=0d1d50b487632ed0b3fb021a0cbb3519"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>0d1d50b487632ed0b3fb021a0cbb3519</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>811d50b487632ed0b3fb021a0cbb3528</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:15</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>0d1d50b487632ed0b3fb021a0cbb3519</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>cd1d50b487632ed0b3fb021a0cbb3527</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:15</sys_updated_on>
+        <value>last_attempt_at=fd-scripted^retry_count=1</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=0d1d50b487632ed0b3fb021a0cbb3519"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>0d1d50b487632ed0b3fb021a0cbb3519</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>4d1d50b487632ed0b3fb021a0cbb3527</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>0d1d50b487632ed0b3fb021a0cbb3519</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>c51d50b487632ed0b3fb021a0cbb3527</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>0d1d50b487632ed0b3fb021a0cbb3519</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>891d50b487632ed0b3fb021a0cbb3527</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=0d1d50b487632ed0b3fb021a0cbb3519^sys_idNOT INc11d50b487632ed0b3fb021a0cbb3527"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>values</input_name>
+        <instance>0d1d50b487632ed0b3fb021a0cbb3519</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"last_attempt_at":{"scriptActive":true,"script":"/*\n**Access Flow/Action data using the fd_data object. Script must return a value. \n**Order number is offset by +1 in Error Handling Section.\n**Available options display upon pressing \".\" after fd_data\n**example: var shortDesc \u003d fd_data.trigger.current.short_description;\n**return shortDesc;\n*/\n\nreturn new GlideDateTime();","savedValue":""}}</script>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:14</sys_created_on>
+        <sys_id>c11d50b487632ed0b3fb021a0cbb3527</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:14</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0d1d50b487632ed0b3fb021a0cbb3519"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Mock Notification">a0a9fe69879b6690b3fb021a0cbb358b</action_type>
+        <action_type_parent display_value="Send Mock Notification">9d2fb5998797e290b3fb021a0cbb3583</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>4</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>1eae052387d7e2d0b3fb021a0cbb350b</sys_id>
+        <sys_mod_count>46</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>054ba464-6505-4b8f-8256-89cc6125c2dc</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=1eae052387d7e2d0b3fb021a0cbb350b"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>1eae052387d7e2d0b3fb021a0cbb350b</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>9eae052387d7e2d0b3fb021a0cbb350d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <value/>
+        <variable display_value="Channel">24a9fe69879b6690b3fb021a0cbb3595</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=1eae052387d7e2d0b3fb021a0cbb350b"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>channel</field>
+        <id>1eae052387d7e2d0b3fb021a0cbb350b</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>d2ae052387d7e2d0b3fb021a0cbb350d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.preferred_channel}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>message</field>
+        <id>1eae052387d7e2d0b3fb021a0cbb350b</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>1eae052387d7e2d0b3fb021a0cbb350d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-22 02:10:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.reminder_message}}{{ff0a5784-f752-4f36-867f-1a39695bcc38.message}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>number</field>
+        <id>1eae052387d7e2d0b3fb021a0cbb350b</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>96ae052387d7e2d0b3fb021a0cbb350d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.number.number}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>reminder_sys_id</field>
+        <id>1eae052387d7e2d0b3fb021a0cbb350b</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>5aae052387d7e2d0b3fb021a0cbb350d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=1eae052387d7e2d0b3fb021a0cbb350b"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1eae052387d7e2d0b3fb021a0cbb350b"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Render Notification Message">b47960018723aed0b3fb021a0cbb3525</action_type>
+        <action_type_parent display_value="Render Notification Message">1927e0c987ef6ed0b3fb021a0cbb35bf</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-22 02:10:56</sys_created_on>
+        <sys_id>4fdaac818723aed0b3fb021a0cbb3579</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>ff0a5784-f752-4f36-867f-1a39695bcc38</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=4fdaac818723aed0b3fb021a0cbb3579"/>
+    <sys_element_mapping action="delete_multiple" query="id=4fdaac818723aed0b3fb021a0cbb3579"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>channel</field>
+        <id>4fdaac818723aed0b3fb021a0cbb3579</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-22 02:10:56</sys_created_on>
+        <sys_id>0fdaac818723aed0b3fb021a0cbb35a0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-22 02:10:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_b47960018723aed0b3fb021a0cbb3525</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.preferred_channel}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>fallback_message</field>
+        <id>4fdaac818723aed0b3fb021a0cbb3579</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-22 02:10:56</sys_created_on>
+        <sys_id>87daac818723aed0b3fb021a0cbb35a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-22 02:10:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_b47960018723aed0b3fb021a0cbb3525</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.reminder_message}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>reminder_sys_id</field>
+        <id>4fdaac818723aed0b3fb021a0cbb3579</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-22 02:10:56</sys_created_on>
+        <sys_id>c3daac818723aed0b3fb021a0cbb35a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-22 02:10:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_b47960018723aed0b3fb021a0cbb3525</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=4fdaac818723aed0b3fb021a0cbb3579"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=4fdaac818723aed0b3fb021a0cbb3579"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>14</order>
+        <parent_ui_id>a23f9165-867d-4fa5-b145-76cf8064f576</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>511d50b487632ed0b3fb021a0cbb3546</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:51</sys_updated_on>
+        <ui_id>fb185c49-f2ae-4bd0-8038-8f052083d634</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=511d50b487632ed0b3fb021a0cbb3546"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>511d50b487632ed0b3fb021a0cbb3546</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>5d1d50b487632ed0b3fb021a0cbb3547</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:15</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>511d50b487632ed0b3fb021a0cbb3546</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>991d50b487632ed0b3fb021a0cbb3547</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:15</sys_updated_on>
+        <value>reminder_status=failed</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=511d50b487632ed0b3fb021a0cbb3546"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>511d50b487632ed0b3fb021a0cbb3546</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>191d50b487632ed0b3fb021a0cbb3547</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:15</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>511d50b487632ed0b3fb021a0cbb3546</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>911d50b487632ed0b3fb021a0cbb3547</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:15</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>511d50b487632ed0b3fb021a0cbb3546</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>551d50b487632ed0b3fb021a0cbb3547</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:15</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=511d50b487632ed0b3fb021a0cbb3546"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=511d50b487632ed0b3fb021a0cbb3546"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Mock Notification">a0a9fe69879b6690b3fb021a0cbb358b</action_type>
+        <action_type_parent display_value="Send Mock Notification">9d2fb5998797e290b3fb021a0cbb3583</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>12</order>
+        <parent_ui_id>61748c26-2a33-4867-a34e-8a014926735b</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:58</sys_created_on>
+        <sys_id>97f545f487a72ed0b3fb021a0cbb3524</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:51</sys_updated_on>
+        <ui_id>7e37269d-e99b-4fa8-af43-e0640655436f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=97f545f487a72ed0b3fb021a0cbb3524"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>97f545f487a72ed0b3fb021a0cbb3524</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:58</sys_created_on>
+        <sys_id>53f545f487a72ed0b3fb021a0cbb3527</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 09:30:58</sys_updated_on>
+        <value/>
+        <variable display_value="Channel">24a9fe69879b6690b3fb021a0cbb3595</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=97f545f487a72ed0b3fb021a0cbb3524"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>channel</field>
+        <id>97f545f487a72ed0b3fb021a0cbb3524</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:58</sys_created_on>
+        <sys_id>93f545f487a72ed0b3fb021a0cbb3526</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 09:30:58</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.preferred_channel}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>message</field>
+        <id>97f545f487a72ed0b3fb021a0cbb3524</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:58</sys_created_on>
+        <sys_id>dff545f487a72ed0b3fb021a0cbb3526</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 09:30:58</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.reminder_message}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>number</field>
+        <id>97f545f487a72ed0b3fb021a0cbb3524</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:58</sys_created_on>
+        <sys_id>5bf545f487a72ed0b3fb021a0cbb3526</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 09:30:58</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.number.number}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>reminder_sys_id</field>
+        <id>97f545f487a72ed0b3fb021a0cbb3524</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:58</sys_created_on>
+        <sys_id>1ff545f487a72ed0b3fb021a0cbb3526</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 09:30:58</sys_updated_on>
+        <table>var__m_sys_hub_action_input_a0a9fe69879b6690b3fb021a0cbb358b</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.sys_id}}</value>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=97f545f487a72ed0b3fb021a0cbb3524"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=97f545f487a72ed0b3fb021a0cbb3524"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Wait For Condition">89ce8a4187120010663ca1bb36cb0be3</action_type>
+        <action_type_parent display_value="Wait For Condition">8bb9a8160b10030085c083eb37673aec</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>d6aec12387d7e2d0b3fb021a0cbb35fd</sys_id>
+        <sys_mod_count>46</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>e70b25ec-1066-4e93-b257-415969126181</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=d6aec12387d7e2d0b3fb021a0cbb35fd"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>d6aec12387d7e2d0b3fb021a0cbb35fd</document_key>
+        <order>5</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 05:52:26</sys_created_on>
+        <sys_id>2e5d942787ffee90b3fb021a0cbb35b6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:26</sys_updated_on>
+        <value>1970-01-01 00:01:00</value>
+        <variable display_value="Duration">cdce8a4187120010663ca1bb36cb0bf9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>d6aec12387d7e2d0b3fb021a0cbb35fd</document_key>
+        <order>6</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-22 07:17:49</sys_created_on>
+        <sys_id>3c6a954f87003e14b3fb021a0cbb35d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:49</sys_updated_on>
+        <value>38fa64edc0a8016400f4a5724b0434b8</value>
+        <variable display_value="Schedule">81ce8a4187120010663ca1bb36cb0bff</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>d6aec12387d7e2d0b3fb021a0cbb35fd</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>5eaec12387d7e2d0b3fb021a0cbb35ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <value>x_cpszo_spoke_reminder_log</value>
+        <variable display_value="Table">45ce8a4187120010663ca1bb36cb0bea</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>d6aec12387d7e2d0b3fb021a0cbb35fd</document_key>
+        <order>4</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 05:52:26</sys_created_on>
+        <sys_id>6a5d942787ffee90b3fb021a0cbb35b6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:26</sys_updated_on>
+        <value>1</value>
+        <variable display_value="Enable timeout">0dce8a4187120010663ca1bb36cb0bf4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>d6aec12387d7e2d0b3fb021a0cbb35fd</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>9aaec12387d7e2d0b3fb021a0cbb35ff</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:26</sys_updated_on>
+        <value>reminder_schedule&lt;=javascript:gs.endOfCurrentMinute()</value>
+        <variable display_value="Conditions">49ce8a4187120010663ca1bb36cb0bef</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=d6aec12387d7e2d0b3fb021a0cbb35fd"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>d6aec12387d7e2d0b3fb021a0cbb35fd</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>56aec12387d7e2d0b3fb021a0cbb35ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>d6aec12387d7e2d0b3fb021a0cbb35fd</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>92aec12387d7e2d0b3fb021a0cbb35ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>d6aec12387d7e2d0b3fb021a0cbb35fd</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>1aaec12387d7e2d0b3fb021a0cbb35ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>timeout_duration</field>
+        <id>d6aec12387d7e2d0b3fb021a0cbb35fd</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 05:52:26</sys_created_on>
+        <sys_id>665d942787ffee90b3fb021a0cbb35b6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:26</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>timeout_flag</field>
+        <id>d6aec12387d7e2d0b3fb021a0cbb35fd</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-11 05:52:26</sys_created_on>
+        <sys_id>a25d942787ffee90b3fb021a0cbb35b6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-11 05:52:26</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>timeout_schedule</field>
+        <id>d6aec12387d7e2d0b3fb021a0cbb35fd</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-22 07:17:49</sys_created_on>
+        <sys_id>b46a954f87003e14b3fb021a0cbb35d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:49</sys_updated_on>
+        <table>var__m_sys_hub_action_input_89ce8a4187120010663ca1bb36cb0be3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=d6aec12387d7e2d0b3fb021a0cbb35fd"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=d6aec12387d7e2d0b3fb021a0cbb35fd"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=4aaec12387d7e2d0b3fb021a0cbb3558^sys_idNOT IN151d50b487632ed0b3fb021a0cbb3569,57f545f487a72ed0b3fb021a0cbb353d,691d50b487632ed0b3fb021a0cbb3575,991d50b487632ed0b3fb021a0cbb3548,e11d50b487632ed0b3fb021a0cbb356c"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">248d03738793a6d0b3fb021a0cbb35bc</block>
+        <comment/>
+        <connected_to>d854a4b7-e8bf-465b-9669-e41f88d4b2a9</connected_to>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>8</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>151d50b487632ed0b3fb021a0cbb3569</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>ed3ae791-0cd9-456b-bad1-d2e7438fc937</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=151d50b487632ed0b3fb021a0cbb3569"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=151d50b487632ed0b3fb021a0cbb3569"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=151d50b487632ed0b3fb021a0cbb3569"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">ff75acf887a32ed0b3fb021a0cbb3589</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <logic_definition display_value="Wait for a duration of time">fdb2541473031300b61e66476bf6a70e</logic_definition>
+        <order>11</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>61748c26-2a33-4867-a34e-8a014926735b</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:59</sys_created_on>
+        <sys_id>57f545f487a72ed0b3fb021a0cbb353d</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:51</sys_updated_on>
+        <ui_id>9157b2de-a2f5-4390-95f0-e4ef0e80efa7</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=57f545f487a72ed0b3fb021a0cbb353d"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>57f545f487a72ed0b3fb021a0cbb353d</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:59</sys_created_on>
+        <sys_id>27f545f487a72ed0b3fb021a0cbb3542</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 09:30:59</sys_updated_on>
+        <value/>
+        <variable display_value="Timer relative duration operator">dca4105473031300b61e66476bf6a726</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>57f545f487a72ed0b3fb021a0cbb353d</document_key>
+        <order>500</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-22 07:17:50</sys_created_on>
+        <sys_id>c16ad54f87003e14b3fb021a0cbb350c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <value>38fa64edc0a8016400f4a5724b0434b8</value>
+        <variable display_value="During the following schedule">fb55145473031300b61e66476bf6a762</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>57f545f487a72ed0b3fb021a0cbb353d</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 09:30:59</sys_created_on>
+        <sys_id>e7f545f487a72ed0b3fb021a0cbb3542</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-10 06:09:18</sys_updated_on>
+        <value>1970-01-01 00:05:00</value>
+        <variable display_value="Duration">ef145c1473031300b61e66476bf6a7be</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_logic_input_fdb2541473031300b61e66476bf6a70e^id=57f545f487a72ed0b3fb021a0cbb353d"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=57f545f487a72ed0b3fb021a0cbb353d"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=57f545f487a72ed0b3fb021a0cbb353d"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">d10d5c7487632ed0b3fb021a0cbb3560</block>
+        <comment/>
+        <connected_to>61748c26-2a33-4867-a34e-8a014926735b</connected_to>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>13</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>691d50b487632ed0b3fb021a0cbb3575</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:51</sys_updated_on>
+        <ui_id>a23f9165-867d-4fa5-b145-76cf8064f576</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=691d50b487632ed0b3fb021a0cbb3575"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=691d50b487632ed0b3fb021a0cbb3575"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=691d50b487632ed0b3fb021a0cbb3575"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">dc8d03738793a6d0b3fb021a0cbb35ab</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>6</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:15</sys_created_on>
+        <sys_id>991d50b487632ed0b3fb021a0cbb3548</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>d854a4b7-e8bf-465b-9669-e41f88d4b2a9</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=991d50b487632ed0b3fb021a0cbb3548"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>991d50b487632ed0b3fb021a0cbb3548</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>d51d50b487632ed0b3fb021a0cbb3568</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:16</sys_updated_on>
+        <value>Notification Sent</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=991d50b487632ed0b3fb021a0cbb3548"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>991d50b487632ed0b3fb021a0cbb3548</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>551d50b487632ed0b3fb021a0cbb3568</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:16</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{f3818dee-490e-4649-8986-5a6afdd189da.Record.status}}=sent</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>991d50b487632ed0b3fb021a0cbb3548</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>911d50b487632ed0b3fb021a0cbb3568</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:16</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=991d50b487632ed0b3fb021a0cbb3548"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=991d50b487632ed0b3fb021a0cbb3548"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">550d5c7487632ed0b3fb021a0cbb354a</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Scheduled Reminder">4aaec12387d7e2d0b3fb021a0cbb3558</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>10</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>e11d50b487632ed0b3fb021a0cbb356c</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:50</sys_updated_on>
+        <ui_id>61748c26-2a33-4867-a34e-8a014926735b</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=e11d50b487632ed0b3fb021a0cbb356c"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_flow_logic</document>
+        <document_key>e11d50b487632ed0b3fb021a0cbb356c</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>611d50b487632ed0b3fb021a0cbb356f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:16</sys_updated_on>
+        <value>Retry remaining?</value>
+        <variable display_value="Condition Label">f0af19c1c32632002841b63b12d3aea3</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=e11d50b487632ed0b3fb021a0cbb356c"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>e11d50b487632ed0b3fb021a0cbb356c</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>ed1d50b487632ed0b3fb021a0cbb356e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:16</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{bedd8be6-2553-4641-a871-f278401a0b22.Record.retry_count}}&lt;3</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition_name</field>
+        <id>e11d50b487632ed0b3fb021a0cbb356c</id>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-21 06:32:16</sys_created_on>
+        <sys_id>2d1d50b487632ed0b3fb021a0cbb356e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-21 06:32:16</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=e11d50b487632ed0b3fb021a0cbb356c"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=e11d50b487632ed0b3fb021a0cbb356c"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_4aaec12387d7e2d0b3fb021a0cbb3558^sys_idNOT INcaaec12387d7e2d0b3fb021a0cbb35e2"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>reminder_sys_id</element>
+        <help/>
+        <hint/>
+        <label>Reminder Sys ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_4aaec12387d7e2d0b3fb021a0cbb3558</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:27</sys_created_on>
+        <sys_id>caaec12387d7e2d0b3fb021a0cbb35e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-17 12:56:27</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_4aaec12387d7e2d0b3fb021a0cbb3558"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>907acfca87976a90b3fb021a0cbb35d4</sys_id>
+        <latest_snapshot>4aaec12387d7e2d0b3fb021a0cbb3558</latest_snapshot>
+        <compiler_build>glide-washingtondc-12-20-2023__patch10-hotfix3b-05-20-2025_05-23-2025_1940.zip</compiler_build>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=907acfca87976a90b3fb021a0cbb35d4"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=907acfca87976a90b3fb021a0cbb35d4^sys_idNOT IN52ae052387d7e2d0b3fb021a0cbb354e"/>
+    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
+        <plan>com.snc.process_flow.engine.ProcessPlan@4c44114e</plan>
+        <plan_id display_value="Scheduled Reminder">907acfca87976a90b3fb021a0cbb35d4</plan_id>
+        <snapshot>4aaec12387d7e2d0b3fb021a0cbb3558</snapshot>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-17 12:56:28</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>52ae052387d7e2d0b3fb021a0cbb354e</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:17:52</sys_updated_on>
+    </sys_flow_subflow_plan>
+</record_update>

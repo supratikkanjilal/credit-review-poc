@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=258638000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>customer_risk_details</internal_name>
+        <label_cache>[{"name":"subflow.customer_id","label":"Input➛Customer ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","choices":[{"order":0.0}],"usedInstances":{},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string"}},{"name":"b1cd03a5-daba-43b3-bc8e-1f6ea302d708.Records","label":"1 - Look Up Records➛Customer Profile Records","reference":"x_cpszo_spoke_customer_profile","reference_display":"Customer Profile","type":"records","base_type":"records","usedInstances":{"bd69c335-8c80-43a9-912a-e290dab65db7":["items"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"bd69c335-8c80-43a9-912a-e290dab65db7.item.risk_band","label":"2 - For Each➛Customer Profile Record➛Risk Band","reference":"","reference_display":"Risk Band","type":"choice","base_type":"choice","parent_table_name":"x_cpszo_spoke_customer_profile","column_name":"risk_band","choices":[{"label":"-- None --","used":false,"image":"","reference":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"used":false,"label":"Low","image":"","reference":false,"rawLabel":"Low","selected":false,"missing":false,"value":"low","parameters":{"name":"x_cpszo_spoke_customer_profile","dependent_values":[""]}},{"used":false,"label":"Medium","image":"","reference":false,"rawLabel":"Medium","selected":false,"missing":false,"value":"medium","parameters":{"name":"x_cpszo_spoke_customer_profile","dependent_values":[""]}},{"used":false,"label":"High","image":"","reference":false,"rawLabel":"High","selected":false,"missing":false,"value":"high","parameters":{"name":"x_cpszo_spoke_customer_profile","dependent_values":[""]}}],"usedInstances":{"534ed0ea-e704-46d2-b127-f41cd284beb3":["risk_band-0"]}}]</label_cache>
+        <master_snapshot>1682b8e88764b210b3fb021a0cbb3548</master_snapshot>
+        <master_snapshot_digest/>
+        <name>Customer Risk Details</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:36:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a0e4ad2b87dc321002fdeac73cbb3576</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_name>Customer Risk Details</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_hub_flow_a0e4ad2b87dc321002fdeac73cbb3576</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 07:27:01</sys_updated_on>
+        <type>subflow</type>
+        <updation_source/>
+        <version>2</version>
+        <version_record display_value="Created 2025-10-09 00:25:48">5b3f74a08728b210b3fb021a0cbb353f</version_record>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_variable_value action="delete_multiple" query="document_key=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576^id=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=a0e4ad2b87dc321002fdeac73cbb3576^sys_idNOT IN60e4ad2b87dc321002fdeac73cbb3577"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>a0e4ad2b87dc321002fdeac73cbb3576</id>
+        <name>Customer Risk Details</name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:36:20</sys_created_on>
+        <sys_id>60e4ad2b87dc321002fdeac73cbb3577</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-06 07:36:20</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=60e4ad2b87dc321002fdeac73cbb3577"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=a0e4ad2b87dc321002fdeac73cbb3576^sys_idNOT IN1406e5eb87dc321002fdeac73cbb3514"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=68b93a34-a963-431f-bdd8-98d6a2cdaa31</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>customer_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Customer ID</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</model>
+        <model_id>a0e4ad2b87dc321002fdeac73cbb3576</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0e4ad2b87dc321002fdeac73cbb3576</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:41:14</sys_created_on>
+        <sys_id>1406e5eb87dc321002fdeac73cbb3514</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:15</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=1406e5eb87dc321002fdeac73cbb3514"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=a0e4ad2b87dc321002fdeac73cbb3576^sys_idNOT IN7406212f87dc321002fdeac73cbb3593,7406212f87dc321002fdeac73cbb3596,c7e769238710721002fdeac73cbb35d1"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=integer,uiTypeLabel=Integer,uiUniqueId=84f0b02d-2292-4ac7-9839-a839807123b8</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>delinquency_count</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="Integer">integer</internal_type>
+        <label>Delinquency Count</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</model>
+        <model_id>a0e4ad2b87dc321002fdeac73cbb3576</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:41:16</sys_created_on>
+        <sys_id>7406212f87dc321002fdeac73cbb3593</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:16</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7406212f87dc321002fdeac73cbb3593"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=choice,uiTypeLabel=Choice,uiUniqueId=e7b6c3b7-ce23-4029-b3af-cb5315c83164</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice>3</choice>
+        <choice_field>risk_band</choice_field>
+        <choice_table>x_cpszo_spoke_customer_profile</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>risk_band</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="Choice">choice</internal_type>
+        <label>Risk Band</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</model>
+        <model_id>a0e4ad2b87dc321002fdeac73cbb3576</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:41:16</sys_created_on>
+        <sys_id>7406212f87dc321002fdeac73cbb3596</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:16</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7406212f87dc321002fdeac73cbb3596"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=choice,uiTypeLabel=Choice,uiUniqueId=b6a59e60-18f2-49be-87a2-f728153210fe</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice>3</choice>
+        <choice_field>credit_behaviour</choice_field>
+        <choice_table>x_cpszo_spoke_customer_profile</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>credit_behavior</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="Choice">choice</internal_type>
+        <label>Credit Behavior</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</model>
+        <model_id>a0e4ad2b87dc321002fdeac73cbb3576</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:49:37</sys_created_on>
+        <sys_id>c7e769238710721002fdeac73cbb35d1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:16</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=c7e769238710721002fdeac73cbb35d1"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=a0e4ad2b87dc321002fdeac73cbb3576^sys_idNOT INfa31f4288764b210b3fb021a0cbb3573"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>43400a1587003300663ca1bb36cb0b4b</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:24:36</sys_created_on>
+        <sys_id>fa31f4288764b210b3fb021a0cbb3573</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 07:26:57</sys_updated_on>
+        <ui_id>b1cd03a5-daba-43b3-bc8e-1f6ea302d708</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1W30/bMBD+V6o8R5VDS2F9m0BIe2BMgHhhyHJip7Vw7Mx2+lP932fHTlraUEIp0ybtqcr5zvfdd99d/bgMKA6GAUj7AKDo9PwMgF4PgMGgl6AojnuDJAbx6ZcgDDjKiPFUQmqo5zkxpgliRW1DKjEmTFXO0PzBn6COFp2FsSdjyrAkPBg+PoVBjqS5TRMZDJdbR/ZqyFBMmAm/GAua2ExtQVaBdwZR596hbABe/gxNZn+9kNhi6YUBmWnCMTHpUsQUCYMMcYy0kPPaIgnCN5ytDWPKtbktsM4zRRfm6t6J9UuJKSsh7qz+hJ4jZ3YYlCl+WaOvWWsg2EMFq3Dtv7D+aNsfk82AaGXIxSRFBdMXh+WM3pvzxOZ0Bd7kmgrT4qBn6Ucx86wkghUZ/+5aFNQIHxqU5U4uXxFYoQyxJLfNs93wrUnvxmJ6WzF/RXmJyx8ykSBWfyGtJY0LbXlZBimGKSUMQ8oZ5TaTloWVCmEkMxlghvKc8hHMpZjQ8lZTS9YdMfPRTZmYWi7oiHdRYivvGhGh7pWxX5bmBySpZeHaXGOCQ5twbEJ9PqgSSXMNpxSPiF5nr7yw0FPEnpvOvbrqGSrLC1alAOGvwlbsiPZcwbIt1sHl/GrwToinxXa8nL3kbO/snW7NmWvrhjp2V8PBS+HK9qVTSiZsDa4KvrHK7MTz1/D6zeB6z12OSs1H2w7n4H3boR6ed83O7lBYkXxgJj5R+k2z9pZkHRNv6La/9z9jEK11YLoDJVGGQLWh22hXuNHByv3GNRmVJbfFVkVeo1nntgbXiNgrl9Y5vGz7R5Nt/4/INgIAvLruo9CdHnnbf46yP7pzz/e/d8BaCYngmFpEm9LlRRYT+bMwwXi5VEVsC+gmhdIiIxJSvFrtirtd0IGvuU2UbStsDG4qu3rTbdqqh8sRRwD8393tFd5qRe8XQT9e99tdt1b4DCa5WgiocvFMYC1SU1tKS8ctcV94j86P2uMwJd9bIC+eIC2KeBG8W5TXb/m59fIA//zL4+9c0AYQZabb0JGuRCFLViYwYUYq9kAirtxdB6/zp99xQ99yZQ8AAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=fa31f4288764b210b3fb021a0cbb3573"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=a0e4ad2b87dc321002fdeac73cbb3576^sys_idNOT IN22fef8608728b210b3fb021a0cbb3535,4e3eb8ec87e4b210b3fb021a0cbb35e5"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">148f30e08728b210b3fb021a0cbb3517</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 07:24:39</sys_created_on>
+        <sys_id>22fef8608728b210b3fb021a0cbb3535</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 07:26:58</sys_updated_on>
+        <ui_id>bd69c335-8c80-43a9-912a-e290dab65db7</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/51TTU/jMBD9Lz63UT7Ybtsb0gqJA4sEiMsKRRN70lo4trGdlmyU/77jxi2IE9pTPG9m3rzncUZm+mD74J/Mtfdyp9n2z8uCSR0xOo9MCrZlxUa0myLf8KpcVWWel+urollVTVGKClCs2IJp6JAqZcDOU3gA1cd4HJuCi7yCH0sBDSyvqqZaNnyNy6JdIVR5KX7m6+wBuXHCTxO1CumtguH5/xn4XirhMJmx4EhbQMe245dUGCzWChpUNCgxUP93PZ87b5PpL3cQ2Sl0F176RBVlvmD4HlALpEEtKI8L1oEWEIwb2Da4ngCHIO61Gi4Ve6kD0bFY++7lX+Iu8jwWtkiOOM7JS1ini5xhvjeS470N0ugZCdCo1MON6jv9e5YfV4At9CqcV0BI74kPbdQcVSRJ7ePeHB/OA2+kPvlLSWU4qEsEITjZ9AF9XAMq7Iio7sBaqXe1deYgT82kpct2ioKsVeZIQ+OzzIBH4RldEWQ3hP86wc/gZHRxRzTUPJ3c1299nDv7SIrr2TQVeO6kDddEd8AkbnqJ73Vm8vPDEMilp4FPEbs9/w0xMdCSJf8MHY17jVI/sOkfvBuNh1cDAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">108f30e08728b210b3fb021a0cbb3564</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>3</order>
+        <outputs_assigned>risk_band</outputs_assigned>
+        <parent_ui_id>bd69c335-8c80-43a9-912a-e290dab65db7</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 07:21:21</sys_created_on>
+        <sys_id>4e3eb8ec87e4b210b3fb021a0cbb35e5</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 07:26:58</sys_updated_on>
+        <ui_id>534ed0ea-e704-46d2-b127-f41cd284beb3</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/6WPzW7DIBAG34VzHGGIf8gtx9yjXqqqWljcrkLAAuwosvzuxWrV5t7jjmY/aRYWpjxOOV3CKSX68Oz4ujBCdmTdgbeiFkPfoZGi5lwMaMF00mgtG9WyHfNws8WMlK7vGjwWNIObNrYsGltlpGyq3vS8OkhQlaoFVFYojqDbBnW3p2xv+9//dS0LSGl08Hj595D5JIfRbklvO5ZMpDGfTKa5zA7gkl0LJr/VfyszRALt7M+J1lCi4C8bOz95+CjhZJ7RPcTr4ML9j61fdQtb81sBAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>customer_id</element>
+        <help/>
+        <hint/>
+        <label>Customer ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0e4ad2b87dc321002fdeac73cbb3576</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:41:15</sys_created_on>
+        <sys_id>ac06212f87dc321002fdeac73cbb3549</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-06 07:41:15</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>credit_behavior</element>
+        <help/>
+        <hint/>
+        <label>Credit Behavior</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:49:37</sys_created_on>
+        <sys_id>5be769238710721002fdeac73cbb35fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-06 07:49:37</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>risk_band</element>
+        <help/>
+        <hint/>
+        <label>Risk Band</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:41:16</sys_created_on>
+        <sys_id>c106212f87dc321002fdeac73cbb359b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-06 07:41:16</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>delinquency_count</element>
+        <help/>
+        <hint/>
+        <label>Delinquency Count</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 07:41:16</sys_created_on>
+        <sys_id>f406212f87dc321002fdeac73cbb3595</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-06 07:41:16</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576^sys_idNOT IN0282b8e88764b210b3fb021a0cbb3523,1be7a9238710721002fdeac73cbb3503,53e7a9238710721002fdeac73cbb3501,5fe7a9238710721002fdeac73cbb3502,8682b8e88764b210b3fb021a0cbb3521,ca82b8e88764b210b3fb021a0cbb3523"/>
+    <sys_choice field="credit_behavior" table="var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>credit_behavior</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Average</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:16</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0282b8e88764b210b3fb021a0cbb3523</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:16</sys_updated_on>
+            <value>average</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>credit_behavior</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Good</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:16</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8682b8e88764b210b3fb021a0cbb3521</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:16</sys_updated_on>
+            <value>good</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>credit_behavior</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Bad</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:16</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ca82b8e88764b210b3fb021a0cbb3523</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:16</sys_updated_on>
+            <value>bad</value>
+        </sys_choice>
+    </sys_choice>
+    <sys_choice field="risk_band" table="var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>risk_band</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>High</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-06 07:49:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1be7a9238710721002fdeac73cbb3503</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-06 07:49:37</sys_updated_on>
+            <value>high</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>risk_band</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Low</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-06 07:49:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>53e7a9238710721002fdeac73cbb3501</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-06 07:49:37</sys_updated_on>
+            <value>low</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>risk_band</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Medium</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_a0e4ad2b87dc321002fdeac73cbb3576</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-06 07:49:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5fe7a9238710721002fdeac73cbb3502</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-06 07:49:37</sys_updated_on>
+            <value>medium</value>
+        </sys_choice>
+    </sys_choice>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>customer_risk_details</internal_name>
+        <label_cache>[{"name":"subflow.customer_id","label":"Input➛Customer ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","choices":[{"order":0.0}],"usedInstances":{},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string"}},{"name":"b1cd03a5-daba-43b3-bc8e-1f6ea302d708.Records","label":"1 - Look Up Records➛Customer Profile Records","reference":"x_cpszo_spoke_customer_profile","reference_display":"Customer Profile","type":"records","base_type":"records","usedInstances":{"bd69c335-8c80-43a9-912a-e290dab65db7":["items"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"bd69c335-8c80-43a9-912a-e290dab65db7.item.risk_band","label":"2 - For Each➛Customer Profile Record➛Risk Band","reference":"","reference_display":"Risk Band","type":"choice","base_type":"choice","parent_table_name":"x_cpszo_spoke_customer_profile","column_name":"risk_band","choices":[{"label":"-- None --","used":false,"image":"","reference":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"used":false,"label":"Low","image":"","reference":false,"rawLabel":"Low","selected":false,"missing":false,"value":"low","parameters":{"name":"x_cpszo_spoke_customer_profile","dependent_values":[""]}},{"used":false,"label":"Medium","image":"","reference":false,"rawLabel":"Medium","selected":false,"missing":false,"value":"medium","parameters":{"name":"x_cpszo_spoke_customer_profile","dependent_values":[""]}},{"used":false,"label":"High","image":"","reference":false,"rawLabel":"High","selected":false,"missing":false,"value":"high","parameters":{"name":"x_cpszo_spoke_customer_profile","dependent_values":[""]}}],"usedInstances":{"534ed0ea-e704-46d2-b127-f41cd284beb3":["risk_band-0"]}}]</label_cache>
+        <master>true</master>
+        <name>Customer Risk Details</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1682b8e88764b210b3fb021a0cbb3548</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 07:27:00</sys_updated_on>
+        <type>subflow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_variable_value action="delete_multiple" query="document_key=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548^id=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=1682b8e88764b210b3fb021a0cbb3548^sys_idNOT IN5682b8e88764b210b3fb021a0cbb3549"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>1682b8e88764b210b3fb021a0cbb3548</id>
+        <name>Customer Risk Details</name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:18</sys_created_on>
+        <sys_id>5682b8e88764b210b3fb021a0cbb3549</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:18</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=5682b8e88764b210b3fb021a0cbb3549"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=1682b8e88764b210b3fb021a0cbb3548^sys_idNOT INda82b8e88764b210b3fb021a0cbb354a"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=68b93a34-a963-431f-bdd8-98d6a2cdaa31</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>customer_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Customer ID</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Customer Risk Details">1682b8e88764b210b3fb021a0cbb3548</model>
+        <model_id>1682b8e88764b210b3fb021a0cbb3548</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_1682b8e88764b210b3fb021a0cbb3548</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:18</sys_created_on>
+        <sys_id>da82b8e88764b210b3fb021a0cbb354a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:18</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=da82b8e88764b210b3fb021a0cbb354a"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=1682b8e88764b210b3fb021a0cbb3548^sys_idNOT IN3a82b8e88764b210b3fb021a0cbb35d6,6a82b8e88764b210b3fb021a0cbb35ad,ea82b8e88764b210b3fb021a0cbb35a4"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=choice,uiTypeLabel=Choice,uiUniqueId=b6a59e60-18f2-49be-87a2-f728153210fe</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice>3</choice>
+        <choice_field>credit_behaviour</choice_field>
+        <choice_table>x_cpszo_spoke_customer_profile</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>credit_behavior</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="Choice">choice</internal_type>
+        <label>Credit Behavior</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Customer Risk Details">1682b8e88764b210b3fb021a0cbb3548</model>
+        <model_id>1682b8e88764b210b3fb021a0cbb3548</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+        <sys_id>3a82b8e88764b210b3fb021a0cbb35d6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:20</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=3a82b8e88764b210b3fb021a0cbb35d6"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=choice,uiTypeLabel=Choice,uiUniqueId=e7b6c3b7-ce23-4029-b3af-cb5315c83164</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice>3</choice>
+        <choice_field>risk_band</choice_field>
+        <choice_table>x_cpszo_spoke_customer_profile</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>risk_band</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="Choice">choice</internal_type>
+        <label>Risk Band</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Customer Risk Details">1682b8e88764b210b3fb021a0cbb3548</model>
+        <model_id>1682b8e88764b210b3fb021a0cbb3548</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+        <sys_id>6a82b8e88764b210b3fb021a0cbb35ad</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:19</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=6a82b8e88764b210b3fb021a0cbb35ad"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=integer,uiTypeLabel=Integer,uiUniqueId=84f0b02d-2292-4ac7-9839-a839807123b8</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>delinquency_count</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="Integer">integer</internal_type>
+        <label>Delinquency Count</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Customer Risk Details">1682b8e88764b210b3fb021a0cbb3548</model>
+        <model_id>1682b8e88764b210b3fb021a0cbb3548</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:18</sys_created_on>
+        <sys_id>ea82b8e88764b210b3fb021a0cbb35a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:18</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ea82b8e88764b210b3fb021a0cbb35a4"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=1682b8e88764b210b3fb021a0cbb3548^sys_idNOT IN7e82f8e88764b210b3fb021a0cbb354e"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>43400a1587003300663ca1bb36cb0b4b</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Customer Risk Details">1682b8e88764b210b3fb021a0cbb3548</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:20</sys_created_on>
+        <sys_id>7e82f8e88764b210b3fb021a0cbb354e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:20</sys_updated_on>
+        <ui_id>b1cd03a5-daba-43b3-bc8e-1f6ea302d708</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VW227bMAz9lcDPQWAvadrlbUhRYEAvQ1v0pSsE2ZYTobLlSXKuyL+PutjOEjdLNhfosCfDJCUekudIel57NPZGnp8MfB8HZxfnvt/v+/5w2I9wEIb9YRT64dlnr+tlOCUQKblQSC1zAqYZZkVlwzICU0xlzvDyyXlwR/HOCuzRlLJYkMwbPb90vRwL2E0R4Y3WO65j4TAcEgahD5C782jxNEA0nxHk4DQq/6/d0nFp5CLWUPpdjywUyWICGBLMJOl6Kc5irLhYVhZBcHyXsdowpZmC3TwdvJB0Bfn6n3RcQqCqiFhf9Ytci6w5ucQKPyhRRKoQLtSCldCPdVVm1ciGnjv4/qZbx690PN6Nj8n2gmAD/Y5Jggumxn+WMzg15yed0xZ4lyvKYepeX88Fh6wsn7MizW7tLL0K4VMD2azn8g3OFRKaTXI9UD0hN67kYcrn9+U0rmhmcDkn4xFm1R9WStCwULovay+JUUIJixHNGM10Jhibpg9hJIUMKMV5TrMJygWfUbMr1JL2Jgx+egnjc90LOsl6ONKV94BYuHcF9ktjfsKC6i7cwDawuKsTTmGpy4dkJGiu0JzGE6Lq7GVUzNUcs9cmv2McKgdlyvM2XU8u5ZhhKetmA03Rj0L3wLbedQ+ZQZklBsUXqGBGXKM0B4xso/ODsj3bkagd9BZf9s+Pk0+OIyCUXbjTjOyEy7dQuaPDztxE/Hp8XGlH59Y6Snq3doRc+O0cIU0S35fgSQrcl5am2l8o6x0F1KTY04lve/Mb9g8OXlrDoOYZDBkJIqGlcov9wT79g5P5fwSIkv83eNG5r1A0QnMSAHaSienoNv+/VlZH/kFr5B98XPIHvu+/efUEXett+eZ5H320f/5fHH62+TXNIp7FVGPcFkBWpCER3wtYHK/Xsgh1Sb2okIqnRCAabzb7Ejlu0WkiOqKOUkTj7UKaiisfoLu266YNyldVi0LyP66U/pF75J2ui8MkG4Q1n+x2tU4WKMrliiOZ81eCKqpDtQk1gTsSGbuIzrcqok09GKilHh4d1h3oTgXmt+ktZZbtvKX8//Mt9TEvCwBEGTAE2RFKXgjTyhmKGNBLOwTOpN2rxavl5SfJyibsohAAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=7e82f8e88764b210b3fb021a0cbb354e"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=1682b8e88764b210b3fb021a0cbb3548^sys_idNOT IN348f30e08728b210b3fb021a0cbb35d0,f48f30e08728b210b3fb021a0cbb35ce"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">108f30e08728b210b3fb021a0cbb3564</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Customer Risk Details">1682b8e88764b210b3fb021a0cbb3548</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>3</order>
+        <outputs_assigned>risk_band</outputs_assigned>
+        <parent_ui_id>bd69c335-8c80-43a9-912a-e290dab65db7</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 07:26:59</sys_created_on>
+        <sys_id>348f30e08728b210b3fb021a0cbb35d0</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 07:27:00</sys_updated_on>
+        <ui_id>534ed0ea-e704-46d2-b127-f41cd284beb3</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/6VU207jMBD9lZWfmyiJe39jQWiRYJGA5QWtIseetFadOPhSKFX/fce5lGrZB9C+ZU6OPWfOmWRPtHeNd/ZBn1krVzVZPu2JFGRJZuNkmqVZOZ8JTrM0SbJSAOMzyouCThZTMiI1qwCZRtpNXrBaILRlygdsvy/EdMEpnURzPk+iMWWLaJFmLIJskQhWTCeimMXSQRUfzx8OeIOQtlFs9/jfF/G1VMJAGOn3iDTMoFoHhixxwBofaqauZb3BHh/InzVAsQIUUu+w8bfvnQP/MMXtmgDxtZYc+vq6P3o+gNqIIC4bEXh1UAtADSVTFkakwmuY02Z3RAwwcVurd2CNI3WTVOzVyjfsR7PAKwGn4tC9O5Z573IHlxfMsXtnPHfewGBI0GXbfRjGvNYvJxGrtuplJ4fRO+8GhPTVCbUagJ6dnrJ/yNX6hLvuysGOA8YhoGReufOvSUq/JCn7tCQaJHX23DZOatwZQkOqrFCB/Zrzxr7p3DZ6Azn31ukKTN4YXUoVkuZa+ar++XFP+jmH1UfEW4wKmrAOId8+7PJ+rV/uhiwvZd3q6l8qzZk6Vsw5Iwvvgm174uXDX6vYIR+WERRU2DGvWNPIehXEb2XbBdVX8UphEZdoN6oLv42Y8eBEjGvK4kvEL1r4kRkZXLnBa/BwaPerls8ersIHBrNiymkxizhkNBon2SIqKCsjXkxoOuFzmk7H5DAidmfPFbO2d6zb4/zZhzFJa1tvUN5m0R7hRjbuDEVtofcipCbr8K/rvvFtr60vBXBpcYSHgF2d8MQOv2jJT6EXbTZh+Hfs8Ae4umMoSQUAAA==</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">148f30e08728b210b3fb021a0cbb3517</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Customer Risk Details">1682b8e88764b210b3fb021a0cbb3548</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 07:26:59</sys_created_on>
+        <sys_id>f48f30e08728b210b3fb021a0cbb35ce</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 07:27:00</sys_updated_on>
+        <ui_id>bd69c335-8c80-43a9-912a-e290dab65db7</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/51Ty27bMBD8F55lQY/UtX0LEgQIkDaAE+RSBMaKXNlEKJIlKTuqoH/v0pKVIKeiJ2lnXzOjVc9MG2wb/LO59l7uNdv8ek2Y1BGj955JwTYsX4t6nWdrXhbLssiyYnWVV8uyygtRAoolS5iGBqlSBmw8hUdQbYz7vsq5yEr4thBQweKqrMpFxVe4yOslQpkV4nu2SrfIjRN+GKhVSG8VdC//P4EfpBIOJzEWHHEL6Nim/5L6V3EKKlRUej+p+yI2dDaGbqQwAQ9Tz3ZG6RFJFFnC8D2gFkjra1AeE9aAFhCM69gmuJYAhyAetermioPUgcaxWPvu5R/amGdZLKyRBHEck3O4m3wc4foWAjzRaB5aN5Xyg5Ec/WiFwBpaFW4+Y2PBow3S6LElQKUu3Ua1jf45OsHmAZfPRkjriQTaKDRSn3TUTwdz2l5Y3kl9NmVKKsNBzRGE4GTVhsinZ6iwoUG7BqyVer+zzhzluZm4NOleUZDWypxoaTzlFHgknpKvkN4RfnuGX8DJqOIHjaHmIWG+8zcKvP/QQibufreRyahs0rAbbYgt3EkbrmnBESe6w2u8+nH27CmXnig8R+z+8k/FREcXJPln6GTcWyT/gQ1/AYum2+SdAwAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>customer_id</element>
+        <help/>
+        <hint/>
+        <label>Customer ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_1682b8e88764b210b3fb021a0cbb3548</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:18</sys_created_on>
+        <sys_id>6682b8e88764b210b3fb021a0cbb359f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:18</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_1682b8e88764b210b3fb021a0cbb3548"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>delinquency_count</element>
+        <help/>
+        <hint/>
+        <label>Delinquency Count</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+        <sys_id>e682b8e88764b210b3fb021a0cbb35aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:19</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>credit_behavior</element>
+        <help/>
+        <hint/>
+        <label>Credit Behavior</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:20</sys_created_on>
+        <sys_id>f282f8e88764b210b3fb021a0cbb3547</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:20</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>risk_band</element>
+        <help/>
+        <hint/>
+        <label>Risk Band</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+        <sys_id>fe82b8e88764b210b3fb021a0cbb35c6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 06:30:19</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548^sys_idNOT IN6a82b8e88764b210b3fb021a0cbb35c0,7682b8e88764b210b3fb021a0cbb35dc,7a82b8e88764b210b3fb021a0cbb35da,ea82b8e88764b210b3fb021a0cbb35bf,ee82b8e88764b210b3fb021a0cbb35bd,f282b8e88764b210b3fb021a0cbb35dd"/>
+    <sys_choice field="credit_behavior" table="var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>credit_behavior</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Average</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7682b8e88764b210b3fb021a0cbb35dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:19</sys_updated_on>
+            <value>average</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>credit_behavior</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Good</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7a82b8e88764b210b3fb021a0cbb35da</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:19</sys_updated_on>
+            <value>good</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>credit_behavior</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Bad</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:20</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f282b8e88764b210b3fb021a0cbb35dd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:20</sys_updated_on>
+            <value>bad</value>
+        </sys_choice>
+    </sys_choice>
+    <sys_choice field="risk_band" table="var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>risk_band</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>High</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6a82b8e88764b210b3fb021a0cbb35c0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:19</sys_updated_on>
+            <value>high</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>risk_band</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Medium</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ea82b8e88764b210b3fb021a0cbb35bf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:19</sys_updated_on>
+            <value>medium</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>risk_band</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Low</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_output_1682b8e88764b210b3fb021a0cbb3548</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>brijesh.banerjee</sys_created_by>
+            <sys_created_on>2025-10-09 06:30:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ee82b8e88764b210b3fb021a0cbb35bd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>brijesh.banerjee</sys_updated_by>
+            <sys_updated_on>2025-10-09 06:30:19</sys_updated_on>
+            <value>low</value>
+        </sys_choice>
+    </sys_choice>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>a0e4ad2b87dc321002fdeac73cbb3576</sys_id>
+        <latest_snapshot>1682b8e88764b210b3fb021a0cbb3548</latest_snapshot>
+        <compiler_build>glide-zurich-07-01-2025__patch1-08-20-2025_09-08-2025_1328.zip</compiler_build>
+        <version_record/>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=a0e4ad2b87dc321002fdeac73cbb3576"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=a0e4ad2b87dc321002fdeac73cbb3576^sys_idNOT IN4b82f8e88764b210b3fb021a0cbb357d"/>
+    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
+        <plan>com.snc.process_flow.engine.ProcessPlan@3fb94507</plan>
+        <plan_id display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</plan_id>
+        <snapshot>1682b8e88764b210b3fb021a0cbb3548</snapshot>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 06:30:21</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4b82f8e88764b210b3fb021a0cbb357d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 07:27:01</sys_updated_on>
+    </sys_flow_subflow_plan>
+</record_update>

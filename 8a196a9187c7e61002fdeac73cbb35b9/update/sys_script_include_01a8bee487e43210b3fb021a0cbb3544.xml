@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_cpszo_spoke.OfferTypeHelper</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>OfferTypeHelper</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var OfferTypeHelper = Class.create();
+OfferTypeHelper.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	// getDateTime: function(){
+	// 		return new GlideDateTime();
+	// 	},
+    getOfferDefaults: function() {
+        // var customerNumber = this.getParameter('sysparm_customer_number');
+        var customerNumber = this.getParameter('sys_parm_cust');
+        var response = {};
+		//gs.addInfoMessage("At line number 8" + customerNumber);
+
+        if (!customerNumber) {
+            response.error = 'Missing customer number';
+            return JSON.stringify(response);
+        }
+
+        var cust = new GlideRecord('x_cpszo_spoke_customer_profile');
+        // cust.addQuery('number', customerNumber);
+        cust.addQuery('sys_id', customerNumber);
+        cust.query();
+
+        if (cust.next()) {
+            response.customer_number = cust.getValue('number');
+            response.delinquency_count = cust.getValue('delinquency_count');
+
+            var riskBand = cust.getValue('risk_band');
+            response.risk_band = riskBand;
+
+            // Set offer type based on Risk Band
+            if (riskBand === 'low') {
+                response.offer_type = 'waiver';
+                response.delinquency_status = 'low';
+				response.installment_amount = '300';
+            } else if (riskBand === 'medium') {
+                response.offer_type = 'emi adjustment';
+                response.delinquency_status = 'medium';
+				response.installment_amount = '500';
+            } else if (riskBand === 'high') {
+                response.offer_type = 'extension';
+                response.delinquency_status = 'high';
+				response.installment_amount = '700';
+            }
+
+			//Credit Card Upsell
+			// Build dynamic list of offer types
+            // var offerOptions = [
+            //     { label: 'Waiver', value: 'waiver' },
+            //     { label: 'EMI Adjustment', value: 'emi adjustment' },
+            //     { label: 'Extension', value: 'extension' }
+            // ];
+
+            
+			var offerOptions = [];
+
+            if (riskBand === 'low') {
+                response.offer_type = 'waiver'; // default selection
+                response.delinquency_status = 'low';
+				offerOptions.push({ label: 'Waiver', value: 'waiver' });
+                offerOptions.push({ label: 'Credit Card 1', value: 'credit_card_1' });
+                offerOptions.push({ label: 'Credit Card 2', value: 'credit_card_2' });
+            } else if (riskBand === 'medium') {
+                response.offer_type = 'emi adjustment';
+                response.delinquency_status = 'medium';
+                offerOptions.push({ label: 'EMI Adjustment', value: 'emi adjustment' });
+            } else if (riskBand === 'high') {
+                response.offer_type = 'extension';
+                response.delinquency_status = 'high';
+                offerOptions.push({ label: 'Extension', value: 'extension' });
+            } else {
+                response.offer_type = 'no offer';
+                response.delinquency_status = 'unknown';
+            }
+
+            response.valid_offer_types = offerOptions;
+
+			// Credit Card Upsell ends here
+        } else {
+            response.error = 'Customer not found';
+        }
+
+		//gs.addInfoMessage(response.offer_type + response.delinquency_status);
+		
+
+        return JSON.stringify(response);
+    }
+	// getDateTime: function(){
+	// 		return new GlideDateTime();
+	// 	}
+
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 16:16:42</sys_created_on>
+        <sys_id>01a8bee487e43210b3fb021a0cbb3544</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>OfferTypeHelper</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_include_01a8bee487e43210b3fb021a0cbb3544</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-29 12:14:05</sys_updated_on>
+    </sys_script_include>
+</record_update>

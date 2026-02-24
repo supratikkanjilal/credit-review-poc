@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description/>
+        <dialog_acts_enabled>true</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{"graph_api_version":"1.0.82","variables":{},"goals":{"primary":{"id":"primary","trigger":{"type":"primary"},"name":"primary","applicability":"","description":"","nodes":{"bb7976afd9644926965671b7077592eb":{"id":"bb7976afd9644926965671b7077592eb","stepType":"Start","name":"Start","greetingResponse":{"mode":"simple","value":""}},"84e175bf06354d82aa5462c928def0e9":{"id":"84e175bf06354d82aa5462c928def0e9","stepType":"TerminateGoal","name":"End","confirmationMessage":{"mode":"simple","value":""}}},"edges":[{"id":"49d3217318cb461abc26392d462ffac4","edgeType":"Edge","source":"bb7976afd9644926965671b7077592eb","target":"84e175bf06354d82aa5462c928def0e9","sourcePort":"","targetPort":""}]}}}</graph>
+        <key_phrases>Customer Risk Band Greeting.2</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>true</modify_confirmation_enabled>
+        <name>Customer Risk Band Greeting.2</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-08 09:08:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>713dcc548728321002fdeac73cbb35d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Customer Risk Band Greeting.2</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_cb_topic_713dcc548728321002fdeac73cbb35d4</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-08 09:08:46</sys_updated_on>
+        <title>Customer Risk Band Greeting.2</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+        <variables/>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=713dcc548728321002fdeac73cbb35d4"/>
+    <sys_variable_value action="delete_multiple" query="document_key=713dcc548728321002fdeac73cbb35d4"/>
+</record_update>

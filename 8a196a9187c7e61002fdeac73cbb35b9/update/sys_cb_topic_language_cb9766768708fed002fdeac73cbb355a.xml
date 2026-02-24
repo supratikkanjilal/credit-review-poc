@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic_language">
+    <sys_cb_topic_language action="INSERT_OR_UPDATE">
+        <cb_topic_id display_value="Agentic Browsing Chat">7a97e2768708fed002fdeac73cbb35f6</cb_topic_id>
+        <language_code>en</language_code>
+        <nlu_entities>[{"node_id":"ae3de7b246e24429ba7edd5884f6985c","variable_name":"customer_number","nlu_entity":"","nlu_entity_label":""},{"node_id":"86f1afcc0d52401588f20d962145d3d3","variable_name":"customer_choice","nlu_entity":"","nlu_entity_label":""},{"node_id":"c8d24b43ae404e0ebc730df998d01eb9","variable_name":"offer_choose","nlu_entity":"","nlu_entity_label":""},{"node_id":"b53812675c5f48eaa926e46fb8a51c64","variable_name":"do_you_want_to_check_anything_else_","nlu_entity":"","nlu_entity_label":""}]</nlu_entities>
+        <nlu_intent>Check Reminder and Update Profile </nlu_intent>
+        <nlu_intent_label>Check Reminder and Update Profile </nlu_intent_label>
+        <nlu_model>ml_x_cpszo_x_cpszo_spoke_global_9195aa728708fed002fdeac73cbb357e</nlu_model>
+        <nlu_model_label>Agentic Browsing Model</nlu_model_label>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <sys_class_name>sys_cb_topic_language</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-21 18:16:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>cb9766768708fed002fdeac73cbb355a</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_cb_topic_language_cb9766768708fed002fdeac73cbb355a</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-22 07:53:22</sys_updated_on>
+    </sys_cb_topic_language>
+</record_update>

@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="INSERT_OR_UPDATE">
+        <associated_types/>
+        <bundles>[
+    {
+        "definitionId": "d6c0f4f531825510f8773d3775164e01",
+        "instanceId": "form_1",
+        "name": "Form 1",
+        "useByReference": false
+    }
+]</bundles>
+        <category>page</category>
+        <component_dependencies/>
+        <composition>[
+    {
+        "definition": {
+            "id": "1f6e0643eca7a637e36bd7833549ec9e",
+            "type": "MACROPONENT"
+        },
+        "elementId": "heading_1",
+        "elementLabel": "Heading 1",
+        "eventMappings": [],
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "preset": null,
+        "propertyValues": {
+            "align": {
+                "type": "JSON_LITERAL",
+                "value": "center"
+            },
+            "hasNoMargin": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "label": {
+                "type": "TRANSLATION_LITERAL",
+                "value": {
+                    "code": null,
+                    "comment": "",
+                    "message": "Customer Offer"
+                }
+            },
+            "level": {
+                "type": "JSON_LITERAL",
+                "value": "1"
+            },
+            "variant": {
+                "type": "JSON_LITERAL",
+                "value": "header-primary"
+            },
+            "wontWrap": {
+                "type": "JSON_LITERAL",
+                "value": false
+            }
+        },
+        "slot": null,
+        "styles": {}
+    },
+    {
+        "definition": {
+            "id": "e772e788e32ce32b8daa2ac7b092d2c6",
+            "type": "MACROPONENT"
+        },
+        "elementId": "card_base_container_1",
+        "elementLabel": "Card Base Container 1",
+        "eventMappings": [],
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "overrides": {
+            "composition": [
+                {
+                    "definition": {
+                        "id": "bb63b710d208796b7ceaab7812bddef1",
+                        "type": "MACROPONENT"
+                    },
+                    "elementId": "label_value_1",
+                    "elementLabel": "Label value 1",
+                    "eventMappings": [],
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": null
+                    },
+                    "preset": null,
+                    "propertyValues": {
+                        "label": {
+                            "type": "TRANSLATION_LITERAL",
+                            "value": {
+                                "code": null,
+                                "comment": "",
+                                "message": "Risk Score - "
+                            }
+                        },
+                        "reversed": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "truncated": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "value": {
+                            "binding": {
+                                "address": [
+                                    "look_up_a_single_record_1",
+                                    "result",
+                                    "risk_score",
+                                    "displayValue"
+                                ]
+                            },
+                            "type": "DATA_OUTPUT_BINDING"
+                        }
+                    },
+                    "slot": null,
+                    "styles": null
+                },
+                {
+                    "definition": {
+                        "id": "bb63b710d208796b7ceaab7812bddef1",
+                        "type": "MACROPONENT"
+                    },
+                    "elementId": "label_value_2",
+                    "elementLabel": "Label value 2",
+                    "eventMappings": [],
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": null
+                    },
+                    "preset": null,
+                    "propertyValues": {
+                        "label": {
+                            "type": "TRANSLATION_LITERAL",
+                            "value": {
+                                "code": null,
+                                "comment": "",
+                                "message": "Credit Behavior - "
+                            }
+                        },
+                        "reversed": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "truncated": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "value": {
+                            "binding": {
+                                "address": [
+                                    "look_up_a_single_record_1",
+                                    "result",
+                                    "credit_behaviour",
+                                    "displayValue"
+                                ]
+                            },
+                            "type": "DATA_OUTPUT_BINDING"
+                        }
+                    },
+                    "slot": null,
+                    "styles": null
+                },
+                {
+                    "definition": {
+                        "id": "bb63b710d208796b7ceaab7812bddef1",
+                        "type": "MACROPONENT"
+                    },
+                    "elementId": "label_value_3",
+                    "elementLabel": "Label value 3",
+                    "eventMappings": [],
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": null
+                    },
+                    "preset": null,
+                    "propertyValues": {
+                        "label": {
+                            "type": "TRANSLATION_LITERAL",
+                            "value": {
+                                "code": null,
+                                "comment": "",
+                                "message": "Last Payment Date - "
+                            }
+                        },
+                        "reversed": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "truncated": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "value": {
+                            "binding": {
+                                "address": [
+                                    "look_up_a_single_record_1",
+                                    "result",
+                                    "last_payment_date",
+                                    "displayValue"
+                                ]
+                            },
+                            "type": "DATA_OUTPUT_BINDING"
+                        }
+                    },
+                    "slot": null,
+                    "styles": null
+                },
+                {
+                    "definition": {
+                        "id": "bb63b710d208796b7ceaab7812bddef1",
+                        "type": "MACROPONENT"
+                    },
+                    "elementId": "label_value_4",
+                    "elementLabel": "Label value 4",
+                    "eventMappings": [],
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": null
+                    },
+                    "preset": null,
+                    "propertyValues": {
+                        "label": {
+                            "type": "TRANSLATION_LITERAL",
+                            "value": {
+                                "code": null,
+                                "comment": "",
+                                "message": "Day Since Last Payment - "
+                            }
+                        },
+                        "reversed": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "truncated": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "value": {
+                            "binding": {
+                                "address": [
+                                    "look_up_a_single_record_1",
+                                    "result",
+                                    "days_since_last_payment",
+                                    "displayValue"
+                                ]
+                            },
+                            "type": "DATA_OUTPUT_BINDING"
+                        }
+                    },
+                    "slot": null,
+                    "styles": null
+                }
+            ],
+            "layout": {
+                "default": {
+                    "children": null,
+                    "items": [
+                        {
+                            "element_id": "label_value_1",
+                            "styles": {}
+                        },
+                        {
+                            "element_id": "label_value_2",
+                            "styles": {}
+                        },
+                        {
+                            "element_id": "label_value_3",
+                            "styles": {}
+                        },
+                        {
+                            "element_id": "label_value_4",
+                            "styles": {}
+                        }
+                    ],
+                    "root": null,
+                    "rules": null,
+                    "styles": {
+                        "display": "flex",
+                        "flex-direction": "column"
+                    },
+                    "templateId": "5832fd4d53c31010e6bcddeeff7b12db",
+                    "type": "flex"
+                },
+                "version": "3.0.0"
+            }
+        },
+        "preset": null,
+        "propertyValues": {
+            "configAria": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "hideShadow": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "interaction": {
+                "type": "JSON_LITERAL",
+                "value": "none"
+            },
+            "manageSelected": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "selected": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "sidebar": {
+                "type": "JSON_LITERAL",
+                "value": {}
+            },
+            "size": {
+                "type": "JSON_LITERAL",
+                "value": "lg"
+            }
+        },
+        "slot": null,
+        "styles": null
+    },
+    {
+        "bundleLink": {
+            "bundleInstanceId": "form_1",
+            "elementType": "root",
+            "originalElementId": "form_default"
+        },
+        "definition": {
+            "id": "cdf8d604a3fda59e69ccd6dd407263d6",
+            "type": "MACROPONENT"
+        },
+        "elementId": "form_default",
+        "elementLabel": "Form Default",
+        "eventMappings": [],
+        "extensionPoints": [],
+        "isHero": false,
+        "isNonDestructive": false,
+        "items": [],
+        "overrides": null,
+        "preset": null,
+        "propertyValues": {
+            "config": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "disableCollapse": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "enableUnsavedFieldIndicator": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "encodedRecord": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "fields": {
+                "type": "JSON_LITERAL",
+                "value": {
+                    "caller_id": {
+                        "declarativeUiActions": [
+                            {
+                                "actionAttributes": "",
+                                "actionComponent": "",
+                                "actionDispatch": "REFERENCE_INFO_CLICK",
+                                "actionPayload": "",
+                                "actionType": "uxf_client_action",
+                                "assignmentId": "172e2043534310108135ddeeff7b12dd",
+                                "conditions": "",
+                                "confirmationMessage": "",
+                                "confirmationRequired": false,
+                                "dependency": "",
+                                "group": "",
+                                "groupBy": false,
+                                "icon": "circle-info-outline",
+                                "label": "Open Record",
+                                "modelConditions": [
+                                    {
+                                        "field": "value",
+                                        "newQuery": false,
+                                        "operator": "ISNOTEMPTY",
+                                        "or": false,
+                                        "value": ""
+                                    },
+                                    {
+                                        "field": null,
+                                        "newQuery": false,
+                                        "operator": "=",
+                                        "or": false,
+                                        "value": null
+                                    }
+                                ],
+                                "name": "open_record",
+                                "order": 0,
+                                "payloadMap": [
+                                    {
+                                        "name": "referenceInfoClick@referencetable",
+                                        "value": "{{referenceTable}}"
+                                    },
+                                    {
+                                        "name": "referenceInfoClick@sys_id",
+                                        "value": "{{value}}"
+                                    },
+                                    {
+                                        "name": "referenceInfoClick@field",
+                                        "value": "{{fieldName}}"
+                                    },
+                                    {
+                                        "name": "referenceInfoClick@table",
+                                        "value": "{{tableName}}"
+                                    },
+                                    {
+                                        "name": "referenceInfoClick@name",
+                                        "value": "{{name}}"
+                                    }
+                                ],
+                                "requiresValue": true,
+                                "tooltip": "Open Record"
+                            },
+                            {
+                                "actionAttributes": "",
+                                "actionComponent": "",
+                                "actionDispatch": "REF_SEARCH_REQUESTED",
+                                "actionPayload": "",
+                                "actionType": "uxf_client_action",
+                                "assignmentId": "c6542741ff13101035be517f793bf1bb",
+                                "conditions": "",
+                                "confirmationMessage": "",
+                                "confirmationRequired": false,
+                                "dependency": "",
+                                "group": "",
+                                "groupBy": false,
+                                "icon": "magnifying-glass-outline",
+                                "label": "Search For Record",
+                                "modelConditions": [
+                                    {
+                                        "field": "readonly",
+                                        "newQuery": false,
+                                        "operator": "=",
+                                        "or": false,
+                                        "value": "false"
+                                    },
+                                    {
+                                        "field": null,
+                                        "newQuery": false,
+                                        "operator": "=",
+                                        "or": false,
+                                        "value": null
+                                    }
+                                ],
+                                "name": "ref_search",
+                                "order": 0,
+                                "payloadMap": [
+                                    {
+                                        "name": "parentSysId",
+                                        "value": "{{recordSysId}}"
+                                    },
+                                    {
+                                        "name": "encodedRecord",
+                                        "value": "{{encodedRecord}}"
+                                    },
+                                    {
+                                        "name": "referenceField",
+                                        "value": "{{fieldName}}"
+                                    },
+                                    {
+                                        "name": "fieldLabel",
+                                        "value": "{{label}}"
+                                    },
+                                    {
+                                        "name": "serializedChanges",
+                                        "value": "{{serializedChanges}}"
+                                    },
+                                    {
+                                        "name": "parentTable",
+                                        "value": "{{tableName}}"
+                                    }
+                                ],
+                                "requiresValue": false,
+                                "tooltip": "Search for record"
+                            }
+                        ],
+                        "dependent": "company",
+                        "dependentField": "company",
+                        "dependentOnField": "company",
+                        "dependentTable": "core_company",
+                        "dictionary": {
+                            "attributes": [
+                                {
+                                    "name": "encode_utf8",
+                                    "value": "false"
+                                },
+                                {
+                                    "name": "ref_contributions",
+                                    "value": "user_show_incidents"
+                                }
+                            ],
+                            "canCreate": true,
+                            "canRead": true,
+                            "canWrite": true,
+                            "dependentField": "company",
+                            "dependentFieldLabel": "Company",
+                            "dependentTable": "core_company",
+                            "encryptionContext": "",
+                            "fieldHint": "Personwhoreportedorisaffectedbythisincident",
+                            "internalType": "reference",
+                            "isEncrypted": false,
+                            "isMandatory": false,
+                            "label": "Caller",
+                            "name": "caller_id",
+                            "sys_readonly": false,
+                            "type": "reference"
+                        },
+                        "displayValue": null,
+                        "display_value_list": [],
+                        "internalType": "reference",
+                        "isDynamicCreate": false,
+                        "isReferenceScriptableTable": false,
+                        "label": "Caller",
+                        "mandatory": true,
+                        "messages": [],
+                        "name": "caller_id",
+                        "originalValue": "",
+                        "readonly": false,
+                        "refAcColumns": null,
+                        "refAcColumnsSearch": false,
+                        "refAcDisplayValue": false,
+                        "refAcOrderBy": null,
+                        "refAutoCompleter": null,
+                        "refContributions": "user_show_incidents",
+                        "refQualElements": null,
+                        "reference": "sys_user",
+                        "referenceError": null,
+                        "referenceKey": null,
+                        "referenceQualifier": null,
+                        "referringRecordId": "2bf7f3b4c7132010840c625788c260c9",
+                        "referringTable": "incident",
+                        "sys_readonly": false,
+                        "type": "reference",
+                        "useReferenceQualifier": "simple",
+                        "value": "",
+                        "valuesList": [],
+                        "visible": true
+                    },
+                    "number": {
+                        "defaultRows": null,
+                        "dependentField": null,
+                        "dependentTable": null,
+                        "dictionary": {
+                            "attributes": [
+                                {
+                                    "name": "edge_encryption_enabled",
+                                    "value": "true"
+                                },
+                                {
+                                    "name": "ignore_filter_on_new",
+                                    "value": "true"
+                                },
+                                {
+                                    "name": "ts_weight",
+                                    "value": "50"
+                                }
+                            ],
+                            "canCreate": true,
+                            "canRead": true,
+                            "canWrite": true,
+                            "dependentField": null,
+                            "dependentFieldLabel": null,
+                            "dependentTable": null,
+                            "encryptionContext": "",
+                            "fieldHint": "",
+                            "internalType": "string",
+                            "isEncrypted": false,
+                            "isMandatory": false,
+                            "label": "Number",
+                            "name": "number",
+                            "sys_readonly": false,
+                            "type": "string"
+                        },
+                        "displayValue": "EXAMPLE007",
+                        "display_value_list": [],
+                        "encryptionContext": "",
+                        "internalType": "string",
+                        "isEncrypted": false,
+                        "label": "Number",
+                        "mandatory": false,
+                        "maxLength": 40,
+                        "name": "number",
+                        "originalValue": "INC0010059",
+                        "readonly": false,
+                        "referringRecordId": "2bf7f3b4c7132010840c625788c260c9",
+                        "referringTable": "incident",
+                        "sys_readonly": false,
+                        "type": "string",
+                        "value": "EXAMPLE007",
+                        "valuesList": [],
+                        "visible": true
+                    },
+                    "short_description": {
+                        "defaultRows": null,
+                        "dependentField": null,
+                        "dependentTable": null,
+                        "dictionary": {
+                            "attributes": [
+                                {
+                                    "name": "edge_encryption_enabled",
+                                    "value": "true"
+                                },
+                                {
+                                    "name": "knowledge_search",
+                                    "value": "true"
+                                },
+                                {
+                                    "name": "no_truncate",
+                                    "value": "true"
+                                },
+                                {
+                                    "name": "ts_weight",
+                                    "value": "10"
+                                }
+                            ],
+                            "canCreate": true,
+                            "canRead": true,
+                            "canWrite": true,
+                            "dependentField": null,
+                            "dependentFieldLabel": null,
+                            "dependentTable": null,
+                            "encryptionContext": "",
+                            "fieldHint": "",
+                            "internalType": "string",
+                            "isEncrypted": false,
+                            "isMandatory": false,
+                            "label": "Short Description",
+                            "name": "short_description",
+                            "sys_readonly": false,
+                            "type": "string"
+                        },
+                        "displayValue": null,
+                        "display_value_list": [],
+                        "encryptionContext": "",
+                        "internalType": "string",
+                        "isEncrypted": false,
+                        "label": "Short Description",
+                        "mandatory": true,
+                        "maxLength": 160,
+                        "name": "short_description",
+                        "originalValue": "",
+                        "readonly": false,
+                        "referringRecordId": "2bf7f3b4c7132010840c625788c260c9",
+                        "referringTable": "incident",
+                        "sys_readonly": false,
+                        "type": "string",
+                        "value": "",
+                        "valuesList": [],
+                        "visible": true
+                    }
+                }
+            },
+            "formMessages": {
+                "type": "JSON_LITERAL",
+                "value": []
+            },
+            "inRecordPageTab": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "inUiBuilder": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "isContextMenuHidden": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "isFieldContextMenuHidden": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "isFirstSectionTitleHidden": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "isFormOptionsHidden": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "isRemovePaddingLeft": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "isSectionMenuHidden": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "isSectionTitleHidden": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "isViewSectionHidden": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "labelWrappingLimit": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "landmark": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "nowDsDomainId": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "nowDsDomainScope": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "nowDsRecordId": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "nowDsRecordTable": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "recordMembers": {
+                "type": "JSON_LITERAL",
+                "value": []
+            },
+            "relatedLists": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "scrollableHost": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "sectionHeadingLevel": {
+                "type": "JSON_LITERAL",
+                "value": "2"
+            },
+            "sections": {
+                "type": "JSON_LITERAL",
+                "value": [
+                    {
+                        "caption": "example",
+                        "captionDisplay": "Example Section",
+                        "defaultSection": false,
+                        "expanded": true,
+                        "id": 0,
+                        "label": "Example Section",
+                        "rows": [
+                            [
+                                {
+                                    "fields": [
+                                        "number",
+                                        "caller_id",
+                                        "category",
+                                        "subcategory",
+                                        "business_service",
+                                        "service_offering",
+                                        "cmdb_ci",
+                                        "universal_request",
+                                        "route_reason"
+                                    ]
+                                },
+                                {
+                                    "fields": [
+                                        "contact_type",
+                                        "state",
+                                        "hold_reason",
+                                        "impact",
+                                        "urgency",
+                                        "priority",
+                                        "assignment_group",
+                                        "assigned_to"
+                                    ]
+                                }
+                            ],
+                            [
+                                {
+                                    "fields": [
+                                        "short_description",
+                                        "description"
+                                    ]
+                                }
+                            ]
+                        ],
+                        "sysId": "bf1d96e3c0a801640190725e63f8ac80"
+                    }
+                ]
+            },
+            "serializedChanges": {
+                "type": "JSON_LITERAL",
+                "value": []
+            },
+            "sysId": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "table": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "userSession": {
+                "binding": {
+                    "address": [
+                        "user"
+                    ],
+                    "category": "session"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "view": {
+                "type": "JSON_LITERAL",
+                "value": null
+            }
+        },
+        "slot": null,
+        "styles": null
+    }
+]</composition>
+        <da_relay_models/>
+        <data>[
+    {
+        "definition": {
+            "id": "dc6e87a5232200100e4bc50947bf654b",
+            "type": "CLIENT_STATE"
+        },
+        "elementId": "glide_form_1",
+        "elementLabel": "Glide Form 1",
+        "eventMappings": [],
+        "inputValues": {
+            "actionConfigId": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "actionLayoutId": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "delayRecommendationFetching": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "detailsContext": {
+                "binding": {
+                    "address": [
+                        "activityLogs"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "forcedViewName": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "formGQLDataBrokerOutput": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "formParams": {
+                "type": "JSON_LITERAL",
+                "value": "{}"
+            },
+            "headerConfigId": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "highlightedValueConfigId": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "inFormController": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "isLfpEnabled": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "oneExtendConfig": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "query": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "requireExplicitEventMapping": {
+                "type": "JSON_LITERAL",
+                "value": "false"
+            },
+            "ribbonConfigId": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "shouldDisplayFormErrorsAsPageAlerts": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "shouldSuppressGlobalEvents": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "showActivityStreamInDetails": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "skipRelatedListEval": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "sysId": {
+                "binding": {
+                    "address": [
+                        "custnumber"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "table": {
+                "type": "JSON_LITERAL",
+                "value": "x_cpszo_spoke_offer_tracker"
+            },
+            "view": {
+                "type": "JSON_LITERAL",
+                "value": "Default view"
+            },
+            "viewRuleConfigId": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            }
+        },
+        "readEvaluationMode": "EAGER"
+    },
+    {
+        "definition": {
+            "id": "9664d48053461010cbc2ddeeff7b128e",
+            "type": "COMPOSITE"
+        },
+        "elementId": "look_up_a_single_record_1",
+        "elementLabel": "Look up a single record 1",
+        "eventMappings": [],
+        "inputValues": {
+            "recordId": {
+                "binding": {
+                    "address": [
+                        "custnumber"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "returnFieldMetadata": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "returnFields": {
+                "type": "JSON_LITERAL",
+                "value": "credit_behaviour,days_since_last_payment,last_payment_date,risk_score"
+            },
+            "returnTableMetadata": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "table": {
+                "type": "JSON_LITERAL",
+                "value": "x_cpszo_spoke_customer_profile"
+            }
+        },
+        "readEvaluationMode": "EAGER"
+    }
+]</data>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <dispatched_events/>
+        <ext_controller_dep/>
+        <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <extension_point/>
+        <form_factors>{}</form_factors>
+        <handled_events/>
+        <interactions/>
+        <interfaces/>
+        <internal_event_mappings>{}</internal_event_mappings>
+        <layout>{
+    "default": {
+        "children": null,
+        "items": [
+            {
+                "element_id": "heading_1",
+                "styles": {}
+            },
+            {
+                "element_id": "card_base_container_1",
+                "styles": {}
+            },
+            {
+                "element_id": "form_default",
+                "styles": {}
+            }
+        ],
+        "root": null,
+        "rules": null,
+        "styles": {
+            "flex-direction": "column"
+        },
+        "templateId": "5832fd4d53c31010e6bcddeeff7b12db",
+        "type": "flex"
+    },
+    "version": "3.0.0"
+}</layout>
+        <macroponent_dependencies/>
+        <name>offers</name>
+        <output_prop_mapping/>
+        <props>[
+    {
+        "description": "",
+        "fieldType": "string",
+        "id": "pyZWTQBhCaaLsjjeeddcPBeeddAsUKSj",
+        "inherited": false,
+        "label": "custnumber",
+        "mandatory": false,
+        "name": "custnumber",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    }
+]</props>
+        <required_translations>[ {
+  "message" : "Caller",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Credit Behavior - ",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Customer Offer",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Day Since Last Payment - ",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Example Section",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Last Payment Date - ",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Number",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Open Record",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Risk Score - ",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Search For Record",
+  "code" : "",
+  "comment" : ""
+}, {
+  "message" : "Short Description",
+  "code" : "",
+  "comment" : ""
+} ]</required_translations>
+        <root_component/>
+        <root_component_config/>
+        <root_component_definition/>
+        <schema_version>1.0.0</schema_version>
+        <state_persistence_config/>
+        <state_properties>[]</state_properties>
+        <style_config>{}</style_config>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-09 05:00:38</sys_created_on>
+        <sys_id>7c0e9c2887a0b210b3fb021a0cbb3553</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>offers</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ux_macroponent_7c0e9c2887a0b210b3fb021a0cbb3553</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 05:09:01</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_translated_text action="delete_multiple" query="documentkey=7c0e9c2887a0b210b3fb021a0cbb3553"/>
+</record_update>

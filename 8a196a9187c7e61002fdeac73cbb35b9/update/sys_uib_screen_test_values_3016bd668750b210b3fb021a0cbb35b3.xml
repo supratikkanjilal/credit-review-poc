@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_screen_test_values">
+    <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
+        <macroponent/>
+        <macroponent_config>{
+    "5865e308432021105571609dc7b8f23b": {
+        "allRecordsSelected": false,
+        "columnFilteringPopoverDisplay": "",
+        "columnLimit": 0,
+        "columnPreferenceKey": "",
+        "columns": "number,name,risk_band",
+        "currentPage": 0,
+        "enableCellFiltering": true,
+        "enableColumnFiltering": true,
+        "enableColumnGrouping": true,
+        "enableColumnSorting": true,
+        "enableDeclarativeActions": true,
+        "enableDotWalk": true,
+        "enableInfiniteScroll": false,
+        "enableLiveList": false,
+        "enableQuickEdit": false,
+        "enableQuickFormNavigation": false,
+        "enableReferenceLinks": true,
+        "enforceViewRulesForQuickForm": false,
+        "fetchHighlightedValues": true,
+        "filter": "",
+        "fixedFilter": "",
+        "groupBy": "",
+        "listControllerId": "dXclgwCMC09F9nsMm0CtuYU47",
+        "listId": null,
+        "listType": "simple",
+        "liveUpdates": "off",
+        "nestBy": "",
+        "onlyEnableSelectionWhenRequiredByActions": true,
+        "pageSysId": "318d52548790b210b3fb021a0cbb35e8",
+        "recordCountLimit": 100,
+        "rowLimit": 10,
+        "showListOpenedByLinkSection": null,
+        "table": "x_cpszo_spoke_customer_profile",
+        "view": "",
+        "enableCardClickOpen": false,
+        "enableOnlySingleSelection": false
+    },
+    "table": "task"
+}</macroponent_config>
+        <screen display_value="Default">7c16bd668750b210b3fb021a0cbb35ae</screen>
+        <sys_class_name>sys_uib_screen_test_values</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-03 06:17:32</sys_created_on>
+        <sys_id>3016bd668750b210b3fb021a0cbb35b3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_uib_screen_test_values_3016bd668750b210b3fb021a0cbb35b3</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-03 06:23:05</sys_updated_on>
+    </sys_uib_screen_test_values>
+</record_update>

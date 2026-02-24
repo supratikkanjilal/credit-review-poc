@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>va:topic:7a97e2768708fed002fdeac73cbb35f6:node:f0a5e732a4f5486dad2dee0e3f85ed66:field:0 {0} {1} {2}</key>
+        <language>en</language>
+        <message>Dear {0},
+Based on your {1} credit behavior and {2} risk profile, we are pleased to inform you that you qualify for exclusive offers tailored to your financial standing.</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-03 09:48:39</sys_created_on>
+        <sys_id>99666ae28758b210b3fb021a0cbb354f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>va:topic:7a97e2768708fed002fdeac73cbb35f6:node:f0a5e732a4f5486dad2dee0e3f85ed66:field:0 {0} {1} {2}</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ui_message_99666ae28758b210b3fb021a0cbb354f</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-03 09:48:39</sys_updated_on>
+    </sys_ui_message>
+</record_update>

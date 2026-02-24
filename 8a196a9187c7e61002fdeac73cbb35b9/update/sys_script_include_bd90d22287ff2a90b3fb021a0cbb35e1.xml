@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_cpszo_spoke.GetCustomerProfileSysId</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>GetCustomerProfileSysId</name>
+        <sandbox_callable>true</sandbox_callable>
+        <script><![CDATA[var GetCustomerProfileSysId = Class.create();
+GetCustomerProfileSysId.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+  getSysIdFromNumber: function() {
+    var number = this.getParameter('sysparm_number');
+    if (!number) return '';
+
+    var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+    gr.addQuery('number', number); // ✅ Replace with actual field name
+    gr.query();
+
+    if (gr.next()) {
+      return gr.getUniqueValue(); // Return sys_id
+    }
+
+    return ''; // Not found
+  }
+});
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-08 11:44:02</sys_created_on>
+        <sys_id>bd90d22287ff2a90b3fb021a0cbb35e1</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>GetCustomerProfileSysId</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_include_bd90d22287ff2a90b3fb021a0cbb35e1</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-09 15:54:43</sys_updated_on>
+    </sys_script_include>
+</record_update>
