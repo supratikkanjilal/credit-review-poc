@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_cpszo_spoke.test dummy</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>test dummy</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var test_dummy = Class.create();
+test_dummy.prototype = {
+    initialize: function() {
+    },
+
+    type: 'test_dummy'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2026-03-11 14:38:19</sys_created_on>
+        <sys_id>396d1271876f7e90b3fb021a0cbb35b9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test dummy</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_include_396d1271876f7e90b3fb021a0cbb35b9</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2026-03-11 14:38:19</sys_updated_on>
+    </sys_script_include>
+</record_update>
