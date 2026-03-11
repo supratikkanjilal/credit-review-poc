@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="pa_m2m_dashboard_tabs">
+    <pa_m2m_dashboard_tabs action="INSERT_OR_UPDATE">
+        <dashboard display_value="Risk &amp; Offers Overview">1602e35487af6ad0b3fb021a0cbb3556</dashboard>
+        <home>false</home>
+        <homepage/>
+        <order>1</order>
+        <sys_class_name>pa_m2m_dashboard_tabs</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-20 07:37:27</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2a626f5487af6ad0b3fb021a0cbb3548</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1602e35487af6ad0b3fb021a0cbb3556</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>pa_m2m_dashboard_tabs_2a626f5487af6ad0b3fb021a0cbb3548</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-20 07:37:27</sys_updated_on>
+        <tab display_value="New Tab 1">6a622b5487af6ad0b3fb021a0cbb354a</tab>
+    </pa_m2m_dashboard_tabs>
+</record_update>

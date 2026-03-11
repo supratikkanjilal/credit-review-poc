@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_cpszo_spoke.RelatedListData</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>RelatedListData</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var RelatedListData = Class.create();
+RelatedListData.prototype = {
+    initialize: function() {},
+
+    getRelatedData: function(number) {
+        var result = {
+            offers: [],
+            reminders: [],
+            notifications: [],
+            integrationLogs: []
+        };
+
+        function queryTable(tableName, numberField) {
+            var gr = new GlideRecord(tableName);
+            gr.addQuery(numberField, number);
+            gr.query();
+            var records = [];
+            while (gr.next()) {
+                records.push({
+                    sys_id: gr.getValue('sys_id'),
+                    name: gr.getDisplayValue('name') || gr.getDisplayValue('number'),
+                    short_description: gr.getDisplayValue('short_description')
+                });
+            }
+            return records;
+        }
+
+        result.offers = queryTable('x_cpszo_spoke_offer_tracker', 'number');
+        result.reminders = queryTable('x_cpszo_spoke_reminder_log', 'number');
+        result.notifications = queryTable('x_cpszo_spoke_notification_preview', 'number');
+        result.integrationLogs = queryTable('x_cpszo_spoke_integration_log', 'number');
+
+        return result;
+    },
+
+    type: 'RelatedListData'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-05 05:13:20</sys_created_on>
+        <sys_id>e28a5169873b2290b3fb021a0cbb353b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RelatedListData</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_include_e28a5169873b2290b3fb021a0cbb353b</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-05 05:13:20</sys_updated_on>
+    </sys_script_include>
+</record_update>

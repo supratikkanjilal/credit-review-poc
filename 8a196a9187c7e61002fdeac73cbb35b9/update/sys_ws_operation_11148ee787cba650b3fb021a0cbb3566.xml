@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Create Reminder Log</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    var body = request.body.data;
+
+    // Lookup customer profile by customer_id
+    var customerGR = new GlideRecord('x_cpszo_spoke_customer_profile');
+    customerGR.addQuery('number', body.number); // body.number = 'CUST-1001'
+    customerGR.query();
+
+    if (!customerGR.next()) {
+        response.setStatus(400);
+        response.setBody({ error: 'Invalid customer_id: ' + body.number });
+        return;
+    }
+
+    // Create Offer Tracker record
+
+    var gr = new GlideRecord('x_cpszo_spoke_reminder_log');
+    gr.initialize();
+
+	gr.number = customerGR.getUniqueValue(); // Set reference using Sys ID
+    gr.preferred_channel = body.preferred_channel; // SMS, Email, WhatsApp
+    gr.reminder_type = body.reminder_type; // Payment Due, Overdue
+    gr.last_contact_date = body.last_contact_date; // Date-Time format
+    gr.reminder_message = body.reminder_message;
+    gr.reminder_schedule = body.reminder_schedule; // Date-Time format
+
+    var newSysId = gr.insert();
+
+    response.setStatus(201);
+    response.setBody({
+        message: 'Reminder Log created successfully',
+        sys_id: newSysId
+    });
+})(request, response);
+
+]]></operation_script>
+        <operation_uri>/api/x_cpszo_spoke/reminder_log_api/createreminderlog</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/createreminderlog</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-05 06:36:01</sys_created_on>
+        <sys_id>11148ee787cba650b3fb021a0cbb3566</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create Reminder Log</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ws_operation_11148ee787cba650b3fb021a0cbb3566</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-05 06:36:01</sys_updated_on>
+        <web_service_definition display_value="Reminder Log API">89ccbd6b878ba650b3fb021a0cbb35d2</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

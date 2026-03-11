@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="INSERT_OR_UPDATE">
+        <controller_preset/>
+        <includes/>
+        <macroponent display_value="Landing Page">b3e8869f31e7ea10b42b3c04a25ec11a</macroponent>
+        <name>data_row_3_data</name>
+        <preset/>
+        <required_translations>[ {
+  "code" : null,
+  "message" : "{0} out of 5",
+  "comment" : ""
+} ]</required_translations>
+        <script><![CDATA[/**
+ * @param {params} params
+ * @param {api} params.api
+ * @param {TransformApiHelpers} params.helpers
+ */
+function evaluateProperty({
+    api,
+    helpers
+}) {
+    const input = api.data.evam_popular_articles.compositeDataViews;
+    for (var i = 0; i < input.items.length; i++) {
+        var model = input.items[i].propValues;
+        if (model.model.rating != "") {
+            model.detailValueTwo = helpers.translateSync("{0} out of 5", model.model.rating);
+        }
+    }
+    return input;
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-08-29 08:48:19</sys_created_on>
+        <sys_id>7be8869f74e7ea10cc26276bfb7b410d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>data_row_3_data</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ux_client_script_7be8869f74e7ea10cc26276bfb7b410d</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-08-29 08:48:19</sys_updated_on>
+        <target/>
+        <type>transform</type>
+    </sys_ux_client_script>
+</record_update>

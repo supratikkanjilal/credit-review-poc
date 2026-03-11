@@ -4,6 +4,7 @@
         <app_config/>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
+        <disable_interoperable>false</disable_interoperable>
         <event_mappings/>
         <macroponent display_value="Default">a428dd3987403ad002fdeac73cbb3569</macroponent>
         <macroponent_config/>

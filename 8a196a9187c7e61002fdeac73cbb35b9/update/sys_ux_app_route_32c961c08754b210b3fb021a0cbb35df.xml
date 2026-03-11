@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_app_route">
     <sys_ux_app_route action="INSERT_OR_UPDATE">
-        <app_config display_value="demo workspace">5b8c9efe87ffaa90b3fb021a0cbb35d7</app_config>
+        <app_config/>
         <description/>
         <extension_point/>
         <fields/>

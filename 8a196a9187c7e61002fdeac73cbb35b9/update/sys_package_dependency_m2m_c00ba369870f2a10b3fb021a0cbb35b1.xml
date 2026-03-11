@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="System Import Sets" source="com.glide.system_import_set">ba79ff9287302110b3fb021a0cbb3573</dependency>
+        <min_version>1.0.0</min_version>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-07-30 08:55:58</sys_created_on>
+        <sys_id>c00ba369870f2a10b3fb021a0cbb35b1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-07-30 08:55:58</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>

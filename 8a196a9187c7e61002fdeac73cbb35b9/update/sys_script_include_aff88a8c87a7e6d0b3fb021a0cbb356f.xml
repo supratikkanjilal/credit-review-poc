@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_cpszo_spoke.RuleBasedScoring</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>RuleBasedScoring</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[
+
+// var RuleBasedScoring = Class.create();
+
+// RuleBasedScoring.prototype = {
+
+//     initialize: function() {},
+
+
+
+//     computeScoreForCustomer: function(customerSysId) {
+
+//         var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+
+//         if (!gr.get(customerSysId)) return null;
+
+
+
+//         // feature extraction 
+
+//         var daysSinceLastPayment = 9999;
+
+//         if (gr.last_payment_date) {
+
+//             var gdt = new GlideDateTime(gr.last_payment_date);
+
+//             daysSinceLastPayment = GlideDateTime.subtract(new GlideDateTime(), gdt).getNumericValue() / (1000 * 60 * 60 * 24);
+
+//             daysSinceLastPayment = Math.floor(daysSinceLastPayment);
+
+//         }
+
+//         var delinquency = parseInt(gr.u_delinquency_count || 0, 10);
+
+//         var creditBehaviour = (gr.u_credit_behaviour || '').toLowerCase(); // Good, Average, Bad 
+
+
+
+//         // mapping 
+
+//         var cbScore = 0;
+
+//         if (creditBehaviour.indexOf('good') != -1) cbScore = 0;
+
+//         else if (creditBehaviour.indexOf('average') != -1) cbScore = 10;
+
+//         else if (creditBehaviour.indexOf('bad') != -1) cbScore = 30;
+
+
+
+//         // sample formula: lower is better 
+
+//         var score = 50; // base 
+
+//         score += Math.min(60, Math.max(0, delinquency * 12)); // each delinquency adds weight 
+
+//         score += Math.max(0, (30 - daysSinceLastPayment) * -1); // if days large, risk increases? adjust as needed 
+
+//         score += cbScore;
+
+
+
+//         // clamp 0-100 
+
+//         score = Math.max(0, Math.min(100, parseInt(score, 10)));
+
+
+
+//         // determine band 
+
+//         var band = 'Low';
+
+//         if (score >= 80) band = 'High';
+
+//         else if (score >= 50) band = 'Medium';
+
+//         else band = 'Low';
+
+
+
+//         return {
+
+//             score: score,
+
+//             band: band,
+
+//             computed_at: new GlideDateTime().getDisplayValue()
+
+//         };
+
+//     },
+
+
+
+//     updateCustomerRisk: function(customerSysId) {
+
+//         var res = this.computeScoreForCustomer(customerSysId);
+
+//         if (!res) return false;
+
+//         var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+
+//         if (gr.get('sys_id', customerSysId)) {
+
+//             gr.u_risk_score = res.score;
+
+//             gr.u_risk_band = res.band;
+
+//             gr.update();
+
+//             var dh = new DemoHelpers();
+
+//             dh.logIntegration('RuleBasedScoring', {
+//                 customer: gr.number + '',
+//                 score: res.score,
+//                 band: res.band
+//             }, {
+//                 ok: true
+//             }, 'OK');
+
+//             return true;
+
+//         }
+
+//         return false;
+
+//     },
+
+
+
+//     type: 'RuleBasedScoring'
+
+// };
+
+var RuleBasedScoring = Class.create();
+
+RuleBasedScoring.prototype = {
+
+    initialize: function() {},
+
+    computeScoreForCustomer: function(customerSysId) {
+        var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+        if (!gr.get(customerSysId)) {
+            gs.info('[RBS] No customer found with sys_id: ' + customerSysId);
+            return null;
+        }
+
+        // Feature extraction
+        var daysSinceLastPayment = 9999;
+        if (gr.last_payment_date) {
+            var gdt = new GlideDateTime(gr.last_payment_date);
+            daysSinceLastPayment = GlideDateTime.subtract(new GlideDateTime(), gdt).getNumericValue() / (1000 * 60 * 60 * 24);
+            daysSinceLastPayment = Math.floor(daysSinceLastPayment);
+        }
+
+        var delinquency = parseInt(gr.u_delinquency_count || 0, 10);
+        var creditBehaviour = (gr.u_credit_behaviour || '').toLowerCase();
+
+        // Mapping
+        var cbScore = 0;
+        if (creditBehaviour.indexOf('good') !== -1) cbScore = 0;
+        else if (creditBehaviour.indexOf('average') !== -1) cbScore = 10;
+        else if (creditBehaviour.indexOf('bad') !== -1) cbScore = 30;
+
+        // Score calculation
+        var score = 50;
+        score += Math.min(60, Math.max(0, delinquency * 12));
+        score += Math.max(0, (30 - daysSinceLastPayment) * -1);
+        score += cbScore;
+
+        score = Math.max(0, Math.min(100, parseInt(score, 10)));
+
+        // Determine band
+        var band = 'Low';
+        if (score >= 80) band = 'High';
+        else if (score >= 50) band = 'Medium';
+
+        // Debug log
+        gs.info('[RBS] Computed score: ' + score + ', Band: ' + band);
+
+        return {
+            score: score,
+            band: band,
+            computed_at: new GlideDateTime().getDisplayValue()
+        };
+    },
+
+    updateCustomerRisk: function(customerSysId) {
+        var res = this.computeScoreForCustomer(customerSysId);
+        if (!res || typeof res.score === 'undefined' || typeof res.band === 'undefined') {
+            gs.info('[RBS] Invalid result from computeScoreForCustomer');
+            return false;
+        }
+
+        var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+        if (gr.get(customerSysId)) {
+            gr.u_risk_score = res.score;
+            gr.u_risk_band = res.band;
+            gr.update();
+
+            gs.info('[RBS] Updated record: ' + gr.name + ', Score: ' + gr.u_risk_score + ', Band: ' + gr.u_risk_band);
+
+            var dh = new DemoHelpers();
+            dh.logIntegration('RuleBasedScoring', {
+                customer: gr.number + '',
+                score: res.score,
+                band: res.band
+            }, {
+                ok: true
+            }, 'OK');
+
+            return true;
+        }
+
+        gs.info('[RBS] Failed to retrieve record for update: ' + customerSysId);
+        return false;
+    },
+
+    type: 'RuleBasedScoring'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-19 06:31:16</sys_created_on>
+        <sys_id>aff88a8c87a7e6d0b3fb021a0cbb356f</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>RuleBasedScoring</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_include_aff88a8c87a7e6d0b3fb021a0cbb356f</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-19 10:12:02</sys_updated_on>
+    </sys_script_include>
+</record_update>

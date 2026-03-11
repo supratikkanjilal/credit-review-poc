@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="35ac037387436a50b3fb021a0cbb3519" label="Notification Preview" max_length="40" name="x_cpszo_spoke_notification_preview" type="collection">
+        <element choice="1" label="Channel" max_length="40" name="channel" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="WhatsApp" sequence="2" value="whatsapp"/>
+                <element inactive_on_update="false" label="SMS" sequence="0" value="sms"/>
+                <element inactive_on_update="false" label="Email" sequence="1" value="email"/>
+            </choice>
+        </element>
+        <element label="Sent At" max_length="40" name="sent_at" type="glide_date_time"/>
+        <element label="Number" max_length="32" name="number" reference="x_cpszo_spoke_customer_profile" type="reference"/>
+        <element label="Message" max_length="80" name="message" type="string"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Sent" sequence="0" value="sent"/>
+                <element inactive_on_update="false" label="Failed" sequence="2" value="failed"/>
+                <element inactive_on_update="false" label="Pending" sequence="1" value="pending"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="number"/>
+        </index>
+    </element>
+</database>

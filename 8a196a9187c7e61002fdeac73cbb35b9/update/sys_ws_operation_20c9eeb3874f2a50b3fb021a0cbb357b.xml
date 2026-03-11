@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>GET Uniq Customer Details</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+var queryParams = request.queryParams;
+   var tableName = queryParams.tableName;
+   var sys_id  = queryParams.sys_id;
+
+   var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+   gr.query();
+
+while(gr.next()){
+	var customerData ={};
+	if(sys_id == gr.sys_id){
+		customerData.number = gr.getValue('number');
+		customerData.name = gr.getValue('name');
+		customerData.mobile_number = gr.getValue('mobile_number');
+		customerData.risk_score = gr.getValue('risk_score');
+		customerData.last_payment_date = gr.getValue('last_payment_date');
+		customerData.credit_behaviour = gr.getValue('credit_behaviour');
+
+		response.setBody(customerData);
+	}
+   }
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_cpszo_spoke/customer_profile_api/getuniqcustomerdetails</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/getuniqcustomerdetails</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-06 04:03:19</sys_created_on>
+        <sys_id>20c9eeb3874f2a50b3fb021a0cbb357b</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>GET Uniq Customer Details</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ws_operation_20c9eeb3874f2a50b3fb021a0cbb357b</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-06 04:36:00</sys_updated_on>
+        <web_service_definition display_value="Customer Profile API">959c3d6b878ba650b3fb021a0cbb35ff</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

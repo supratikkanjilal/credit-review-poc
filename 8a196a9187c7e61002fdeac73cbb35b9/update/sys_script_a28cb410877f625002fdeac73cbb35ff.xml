@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_cpszo_spoke_customer_profile</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Compute Days Since Last Payment</name>
+        <order>200</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current /*, previous*/) {
+  g_scratchpad.days_since_last_payment = '';
+
+  if (!current.last_payment_date.nil()) {
+    var last = new GlideDateTime(current.last_payment_date);
+    var now  = new GlideDateTime();
+
+    // getNumericValue() returns milliseconds since epoch for each GlideDateTime
+    // so you can do accurate math regardless of user display formats
+    var diffMs = now.getNumericValue() - last.getNumericValue();
+    var days   = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    g_scratchpad.days_since_last_payment = days;
+  }
+})(current);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-01 05:51:41</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a28cb410877f625002fdeac73cbb35ff</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Compute Days Since Last Payment</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_a28cb410877f625002fdeac73cbb35ff</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-01 07:27:55</sys_updated_on>
+        <template/>
+        <when>before_display</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=a28cb410877f625002fdeac73cbb35ff"/>
+</record_update>

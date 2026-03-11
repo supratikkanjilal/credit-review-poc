@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="8d30f22187876a1002fdeac73cbb3586" label="Customer Profile" max_length="40" name="x_cpszo_spoke_customer_profile" type="collection">
+        <element label="Name" max_length="40" name="name" type="string"/>
+        <element choice="1" label="Risk Band" max_length="40" name="risk_band" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+            </choice>
+        </element>
+        <element attributes="encode_utf8=false" label="Integration Log" max_length="32" name="integration_log" reference="x_cpszo_spoke_integration_log" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Reminder Log" max_length="32" name="reminder_log" reference="x_cpszo_spoke_reminder_log" type="reference"/>
+        <element label="Installment Amount" max_length="20" name="installment_amount" type="decimal"/>
+        <element label="Delinquency Count" max_length="40" name="u_delinquency_count" type="integer"/>
+        <element label="Payment Ratio" max_length="20" name="payment_ratio" type="decimal"/>
+        <element label="Mobile Number" max_length="40" name="mobile_number" type="phone_number_e164"/>
+        <element label="Last Payment Date" max_length="40" name="last_payment_date" type="glide_date"/>
+        <element label="Risk Score" max_length="40" name="risk_score" type="integer"/>
+        <element label="Income" max_length="15" name="u_income" type="decimal"/>
+        <element label="Total Outstanding" max_length="15" name="u_total_outstanding" type="decimal"/>
+        <element label="Email" max_length="40" name="email" type="string"/>
+        <element label="Offer Tracker" max_length="32" name="offer_tracker" reference="x_cpszo_spoke_offer_tracker" type="reference"/>
+        <element choice="1" label="Credit Behaviour" max_length="40" name="credit_behaviour" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Average" sequence="1" value="average"/>
+                <element inactive_on_update="false" label="Bad" sequence="2" value="bad"/>
+                <element inactive_on_update="false" label="Good" sequence="0" value="good"/>
+            </choice>
+        </element>
+        <element label="Days Since Last Payment" max_length="255" name="days_since_last_payment" read_only="true" type="integer"/>
+        <index name="index">
+            <element name="integration_log"/>
+        </index>
+        <index name="index2">
+            <element name="offer_tracker"/>
+        </index>
+        <index name="index3">
+            <element name="reminder_log"/>
+        </index>
+    </element>
+</database>

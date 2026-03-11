@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $location, $timeout) {
+  // Read number/customer_id from the URL
+  function getFilterFromUrl() {
+    var q = $location.search() || {};
+    return q.number || q.customer_id || null;
+  }
+
+  function refresh(filterVal) {
+    $scope.data.loading = true;
+    var payload = {};
+    // Keep sending via "number" for backward-compat, but you can also send customer_id
+    if (filterVal) payload.number = filterVal;
+
+    $scope.server.update(payload)
+      .finally(function() {
+        $scope.data.loading = false;
+      });
+  }
+
+  var lastVal = null;
+  function maybeRefresh(newVal) {
+    if (newVal === lastVal) return;
+    lastVal = newVal || null;
+    refresh(lastVal);
+  }
+
+  // Initial load
+  maybeRefresh(getFilterFromUrl());
+
+  // React to URL changes (e.g., user navigates or you update query string)
+  $scope.$watch(function() { return getFilterFromUrl(); }, function(nv, ov) {
+    if (nv !== ov) {
+      $timeout(function() { maybeRefresh(nv); }, 50);
+    }
+  });
+	
+
+  // Optional: listen to an event from other widgets
+  // payload can have { number: 'CUST001' } or { customer_id: 'CUST001' }
+  $scope.$on('customer.selected', function(evt, payload) {
+    if (payload && (payload.number || payload.customer_id)) {
+      var v = payload.number || payload.customer_id;
+      // Reflect in URL (choose which param you prefer to standardize on)
+      $location.search('number', v);
+      maybeRefresh(v);
+    }
+  });
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* ====== Theming (scoped to widget) ====== */
+.risk-score-widget {
+  --rs-bg: #ffffff;
+  --rs-surface: #f8fafc;
+  --rs-border: #e6e8eb;
+  --rs-shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
+
+  --rs-text: #1f2937;
+  --rs-muted: #6b7280;
+
+  --rs-low: #2e7d32;
+  --rs-med: #f57c00;
+  --rs-high: #c62828;
+
+  --rs-track: #e8eef4;
+  --rs-track-dark: #d8e1ea;
+
+  --rs-grad: linear-gradient(135deg, #ffffff 0%, #f7faff 100%);
+}
+
+/* If your portal has a dark scheme and you still want light widget, keep this commented out.
+@media (prefers-color-scheme: dark) {
+  .risk-score-widget {
+    --rs-bg: #0f172a;
+    --rs-surface: #111827;
+    --rs-border: #263142;
+    --rs-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --rs-text: #e5e7eb;
+    --rs-muted: #9ca3af;
+    --rs-track: #1f2a38;
+    --rs-track-dark: #263041;
+    --rs-grad: linear-gradient(135deg, #0f172a 0%, #111827 100%);
+  }
+}
+*/
+
+/* ====== Card ====== */
+.risk-score-widget .rs-card {
+  background: var(--rs-grad);
+  border: 1px solid var(--rs-border);
+  border-radius: 16px;
+  box-shadow: var(--rs-shadow);
+  padding: 18px 18px 16px;
+  max-width: 460px;
+  margin: 0 auto;
+  transition: transform .2s ease, box-shadow .2s ease;
+  color: var(--rs-text);
+}
+.risk-score-widget .rs-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 40px rgba(16,24,40,.12);
+}
+
+/* Header */
+.risk-score-widget .rs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.risk-score-widget .rs-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--rs-text);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .02em;
+}
+.risk-score-widget .rs-title .fa {
+  color: #2563eb;
+}
+
+/* Badge */
+.risk-score-widget .rs-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: #e5e7eb;
+  color: #374151;
+}
+.risk-score-widget .rs-badge-low   { background: rgba(46,125,50,.12); color: #1b5e20; }
+.risk-score-widget .rs-badge-medium{ background: rgba(245,124,0,.12); color: #8a4500; }
+.risk-score-widget .rs-badge-high  { background: rgba(198,40,40,.12); color: #7f1d1d; }
+
+/* Body */
+.risk-score-widget .rs-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Gauge */
+.risk-score-widget .rs-gauge {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: grid;
+  place-items: center;
+  margin: 4px 0 10px;
+}
+.risk-score-widget .rs-gauge-svg {
+  width: 140px;
+  height: 140px;
+}
+.risk-score-widget .rs-gauge-track,
+.risk-score-widget .rs-gauge-progress {
+  fill: none;
+  stroke-width: 10;
+  transform: rotate(-90deg);
+  transform-origin: 60px 60px;
+  stroke-linecap: round;
+}
+.risk-score-widget .rs-gauge-track {
+  stroke: var(--rs-track);
+}
+
+/* ✅ Fix: color the progress stroke based on zone on the CARD (not the container) */
+.risk-score-widget .rs-card.zone-low   .rs-gauge-progress { stroke: var(--rs-low); }
+.risk-score-widget .rs-card.zone-medium .rs-gauge-progress { stroke: var(--rs-med); }
+.risk-score-widget .rs-card.zone-high  .rs-gauge-progress { stroke: var(--rs-high); }
+
+/* KPI text */
+.risk-score-widget .rs-kpi {
+  position: absolute;
+  text-align: center;
+  line-height: 1;
+}
+.risk-score-widget .rs-kpi-value {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--rs-text);
+}
+.risk-score-widget .rs-kpi-denom {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--rs-muted);
+}
+.risk-score-widget .kpi-low   .rs-kpi-value { color: var(--rs-low); }
+.risk-score-widget .kpi-medium .rs-kpi-value { color: var(--rs-med); }
+.risk-score-widget .kpi-high  .rs-kpi-value { color: var(--rs-high); }
+
+/* Subtitle */
+.risk-score-widget .rs-subtitle {
+  font-size: 12px;
+  color: var(--rs-muted);
+  margin: 6px 0 8px;
+}
+
+/* Meter */
+.risk-score-widget .rs-meter {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: var(--rs-track);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.risk-score-widget .rs-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rs-low) 0%, var(--rs-med) 50%, var(--rs-high) 100%);
+  border-radius: 999px;
+  transition: width .4s ease;
+}
+.risk-score-widget .rs-meter-zones {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+  opacity: .18;
+}
+.risk-score-widget .rs-meter-zones .z { display: block; }
+.risk-score-widget .z-low { background: var(--rs-low); }
+.risk-score-widget .z-med { background: var(--rs-med); }
+.risk-score-widget .z-high{ background: var(--rs-high); }
+
+/* Legend */
+.risk-score-widget .rs-legend {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--rs-muted);
+}
+.risk-score-widget .rs-legend .dot {
+  display: inline-block;
+  width: 9px; height: 9px; border-radius: 50%; margin-right: 6px;
+}
+.risk-score-widget .dot-low  { background: var(--rs-low); }
+.risk-score-widget .dot-med  { background: var(--rs-med); }
+.risk-score-widget .dot-high { background: var(--rs-high); }
+
+/* Loading skeleton */
+.risk-score-widget .rs-loading {
+  padding: 16px;
+}
+.risk-score-widget .rs-skeleton {
+  background: var(--rs-bg);
+  border: 1px solid var(--rs-border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--rs-shadow);
+  max-width: 460px;
+  margin: 0 auto;
+}
+.risk-score-widget .skeleton-badge,
+.risk-score-widget .skeleton-line,
+.risk-score-widget .skeleton-gauge {
+  background: linear-gradient(90deg, #e9eef5 25%, #f4f7fb 37%, #e9eef5 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 8px;
+}
+.risk-score-widget .skeleton-badge { width: 90px; height: 22px; margin-left: auto; }
+.risk-score-widget .skeleton-gauge { width: 140px; height: 140px; margin: 12px auto; border-radius: 16px; }
+.risk-score-widget .skeleton-line  { width: 80%; height: 10px; margin: 8px auto 0; }
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>risk_score_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Risk Score Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  data.loading = true;
+  data.customer = null;
+  data.error = null;
+
+  try {
+    // Accept number/customer_id from: client payload > URL > widget options
+    var numberOrId = (input && (input.number || input.customer_id)) ||
+                     $sp.getParameter('number') ||
+                     $sp.getParameter('customer_id') ||
+                     (options && (options.number || options.customer_id));
+
+    var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+
+    if (numberOrId) {
+      // ⬇️ CHANGE THIS COLUMN if you actually filter by "customer_id" instead of "number"
+      gr.addQuery('number', numberOrId);
+      gr.query();
+
+      if (gr.next()) {
+        data.customer = {
+          risk_score_display: gr.getDisplayValue('risk_score'),
+          risk_score: gr.getValue('risk_score')
+        };
+      } else {
+        data.error = 'Record not found for: ' + numberOrId;
+      }
+    } else {
+      // Fallback: latest record
+      gr.orderByDesc('sys_updated_on');
+      gr.setLimit(1);
+      gr.query();
+
+      if (gr.next()) {
+        data.customer = {
+          risk_score_display: gr.getDisplayValue('risk_score'),
+          risk_score: gr.getValue('risk_score')
+        };
+      } else {
+        data.error = 'No records found in x_cpszo_spoke_customer_profile';
+      }
+    }
+  } catch (e) {
+    data.error = (e && e.message) ? e.message : (e + '');
+  } finally {
+    data.loading = false;
+  }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-04 10:56:18</sys_created_on>
+        <sys_id>6dcf1d5d877bae50b3fb021a0cbb3555</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Risk Score Widget</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sp_widget_6dcf1d5d877bae50b3fb021a0cbb3555</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-07 18:47:00</sys_updated_on>
+        <template><![CDATA[<div class="risk-score-widget">
+  <!-- Loading -->
+  <div ng-if="data.loading" class="rs-loading">
+    <div class="rs-skeleton">
+      <div class="skeleton-badge"></div>
+      <div class="skeleton-gauge"></div>
+      <div class="skeleton-line"></div>
+    </div>
+  </div>
+
+  <!-- Loaded -->
+  <div ng-if="!data.loading">
+
+    <!-- Error -->
+    <div ng-if="data.error" class="alert alert-danger m-0">
+      {{::data.error}}
+    </div>
+
+    <!-- Single Score Card -->
+    <div ng-if="!data.error && data.customer"
+         class="rs-card"
+         role="group"
+         aria-label="Risk score summary"
+         ng-init="
+           score   = +(data.customer.risk_score || 0);
+           clamped = (score < 0 ? 0 : (score > 10 ? 10 : score));
+           pct     = clamped / 10;                            /* 0..1 */
+           circ    = 226.194;                                 /* 2πr, r=36 */
+           dash    = (pct * circ).toFixed(2) + ',' + circ;    /* stroke-dasharray */
+           zone    = (clamped <= 3) ? 'low' : ((clamped <= 7) ? 'medium' : 'high');
+         "
+         ng-class="'zone-' + zone">
+
+      <!-- Header -->
+      <div class="rs-header">
+        <div class="rs-title">
+          <i class="fa fa-shield" aria-hidden="true"></i>
+          <span>Risk Score</span>
+        </div>
+        <div class="rs-badge" ng-class="'rs-badge-' + zone"
+             role="status"
+             aria-live="polite"
+             title="Classification based on score">
+          {{ zone | uppercase }}
+        </div>
+      </div>
+
+      <!-- Body with Gauge & KPI -->
+      <div class="rs-body">
+        <div class="rs-gauge" aria-hidden="true">
+          <svg class="rs-gauge-svg" viewBox="0 0 120 120" focusable="false">
+            <!-- Track -->
+            <circle class="rs-gauge-track" cx="60" cy="60" r="36"></circle>
+            <!-- Progress -->
+            <circle class="rs-gauge-progress"
+                    cx="60" cy="60" r="36"
+                    ng-attr-stroke-dasharray="{{dash}}"></circle>
+          </svg>
+
+          <!-- KPI (center) -->
+          <div class="rs-kpi"
+               ng-class="'kpi-' + zone"
+               role="status"
+               aria-live="polite"
+               title="Lower is better">
+            <span class="rs-kpi-value">
+              {{ (data.customer.risk_score_display || clamped) }}
+            </span>
+            
+          </div>
+        </div>
+
+        <!-- Subtitle -->
+        <div class="rs-subtitle">
+          Lower is better • Thresholds: ≤10 Low, 20–50 Medium, >50 High
+        </div>
+
+        <!-- Meter -->
+        <div class="rs-meter" role="progressbar"
+             aria-valuemin="0" aria-valuemax="10"
+             ng-attr-aria-valuenow="{{clamped}}">
+          <div class="rs-meter-fill" ng-style="{ width: (pct * 100) + '%' }"></div>
+          <div class="rs-meter-zones" aria-hidden="true">
+            <span class="z z-low"></span>
+            <span class="z z-med"></span>
+            <span class="z z-high"></span>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="rs-legend" aria-hidden="true">
+          <span><i class="dot dot-low"></i> Low (0–20)</span>
+          <span><i class="dot dot-med"></i> Medium (20–50)</span>
+          <span><i class="dot dot-high"></i> High (50–99)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

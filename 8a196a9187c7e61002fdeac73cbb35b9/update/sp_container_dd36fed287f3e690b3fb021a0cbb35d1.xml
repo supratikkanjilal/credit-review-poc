@@ -9,7 +9,7 @@
         <name>Borrower 360 page - Container 1</name>
         <order>1</order>
         <semantic_tag/>
-        <sp_page display_value="borrower_360">012466538727ee10b3fb021a0cbb3531</sp_page>
+        <sp_page display_value="borrower_360_page">012466538727ee10b3fb021a0cbb3531</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>
         <sys_created_by>brijesh.banerjee</sys_created_by>

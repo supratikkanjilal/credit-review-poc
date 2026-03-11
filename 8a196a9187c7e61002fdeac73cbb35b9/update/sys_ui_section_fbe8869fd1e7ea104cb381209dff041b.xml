@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="fbe8869fd1e7ea104cb381209dff041b" sys_domain="global" table="sys_user" version="3" view="custom_portal_settings_x_cpszo_spoke">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>time_zone</element>
+            <position>0</position>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2025-08-29 08:48:21</sys_created_on>
+            <sys_id>73e8869fd1e7ea103779d88b86b0381c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_user" sys_domain="global" view="bfe8869ffde7ea10d83d9098f6670f1b">fbe8869fd1e7ea104cb381209dff041b</sys_ui_section>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2025-08-29 08:48:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>1</position>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2025-08-29 08:48:21</sys_created_on>
+            <sys_id>37e8869f17e7ea10d7b159f6ad76561c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_user" sys_domain="global" view="bfe8869ffde7ea10d83d9098f6670f1b">fbe8869fd1e7ea104cb381209dff041b</sys_ui_section>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2025-08-29 08:48:21</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>preferred_language</element>
+            <position>2</position>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2025-08-29 08:48:21</sys_created_on>
+            <sys_id>77e8869f76e7ea102edbeb9b213f621a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_user" sys_domain="global" view="bfe8869ffde7ea10d83d9098f6670f1b">fbe8869fd1e7ea104cb381209dff041b</sys_ui_section>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2025-08-29 08:48:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>sys_user</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2025-08-29 08:48:21</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fbe8869fd1e7ea104cb381209dff041b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_user</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+            <sys_update_name>sys_ui_section_fbe8869fd1e7ea104cb381209dff041b</sys_update_name>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2025-08-29 08:48:21</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Custom portal settings (x_cpszo_spoke)" name="custom_portal_settings_x_cpszo_spoke">bfe8869ffde7ea10d83d9098f6670f1b</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

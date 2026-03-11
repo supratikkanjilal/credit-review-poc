@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="ea850fe5870b6a1002fdeac73cbb3528" label="Reminder Log" max_length="40" name="x_cpszo_spoke_reminder_log" type="collection">
+        <element label="First Attempt At" max_length="40" name="first_attempt_at" type="glide_date_time"/>
+        <element label="Reminder Message" max_length="40" name="reminder_message" type="string"/>
+        <element choice="1" default="pending" label="Reminder Status" max_length="40" name="reminder_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Sent" sequence="0" value="sent"/>
+                <element inactive_on_update="false" label="Failed" value="failed"/>
+                <element inactive_on_update="false" label="Pending" sequence="1" value="pending"/>
+            </choice>
+        </element>
+        <element choice="1" label="Level" max_length="40" name="level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Warning" sequence="1" value="warning"/>
+                <element inactive_on_update="false" label="Info" sequence="0" value="info"/>
+                <element inactive_on_update="false" label="Error" sequence="2" value="error"/>
+            </choice>
+        </element>
+        <element choice="1" label="Preferred Channel" max_length="40" name="preferred_channel" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="WhatsApp" sequence="2" value="whatsapp"/>
+                <element inactive_on_update="false" label="Email" sequence="1" value="email"/>
+                <element inactive_on_update="false" label="SMS" sequence="0" value="sms"/>
+            </choice>
+        </element>
+        <element choice="1" label="Context" max_length="40" name="context" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Reminder" sequence="0" value="reminder"/>
+                <element inactive_on_update="false" label="Notification" sequence="1" value="notification"/>
+                <element inactive_on_update="false" label="Predictive" sequence="2" value="predictive"/>
+            </choice>
+        </element>
+        <element choice="1" label="Reminder Type" max_length="40" name="reminder_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Overdue" sequence="0" value="Overdue"/>
+                <element inactive_on_update="false" label="Payment Due" sequence="0" value="Payment Due"/>
+            </choice>
+        </element>
+        <element label="Notification Sys ID" max_length="32" name="notification_sys_id" reference="x_cpszo_spoke_notification_preview" type="reference"/>
+        <element display="true" label="Number" max_length="32" name="number" reference="x_cpszo_spoke_customer_profile" type="reference"/>
+        <element label="Retry Count" max_length="40" name="retry_count" type="integer"/>
+        <element label="Last Contact Date" max_length="40" name="last_contact_date" type="glide_date_time"/>
+        <element label="Reminder Schedule" max_length="40" name="reminder_schedule" type="glide_date_time"/>
+        <element label="Last Attempt At" max_length="40" name="last_attempt_at" type="glide_date_time"/>
+        <index name="index">
+            <element name="notification_sys_id"/>
+        </index>
+        <index name="index2">
+            <element name="number"/>
+        </index>
+    </element>
+</database>

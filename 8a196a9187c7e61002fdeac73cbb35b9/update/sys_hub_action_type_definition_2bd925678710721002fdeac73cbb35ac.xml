@@ -1249,7 +1249,22 @@ outputs.delinquecy_count = parseInt(inputs.delinquency_count);&#13;
             <value>Medium</value>
         </sys_choice>
     </sys_choice>
-    <sys_hub_action_plan action="delete_multiple" query="action_id=2bd925678710721002fdeac73cbb35ac"/>
+    <sys_hub_action_plan action="delete_multiple" query="action_id=2bd925678710721002fdeac73cbb35ac^sys_idNOT IN084f2da38750721002fdeac73cbb35a9"/>
+    <sys_hub_action_plan action="INSERT_OR_UPDATE">
+        <action_id display_value="Map customer risk data">2bd925678710721002fdeac73cbb35ac</action_id>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"084f2da38750721002fdeac73cbb35a9","name":"plan","plan_signature":null}}</plan>
+        <snapshot>1b3f2da38750721002fdeac73cbb354d</snapshot>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-10-06 08:21:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>084f2da38750721002fdeac73cbb35a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-10-06 08:21:38</sys_updated_on>
+    </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
         <acls/>

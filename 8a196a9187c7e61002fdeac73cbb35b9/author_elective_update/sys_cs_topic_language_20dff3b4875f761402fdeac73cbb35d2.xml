@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_topic_language">
+    <sys_cs_topic_language action="DELETE">
+        <cs_topic_id display_value="_PRVW__12be422b8548432294f5c43d2337ce84">d0dff3b4875f761402fdeac73cbb3529</cs_topic_id>
+        <language_code>en</language_code>
+        <nlu_entities>[{"variable_name":"customer_number","nlu_entity":"","nlu_entity_label":""},{"variable_name":"customer_choice","nlu_entity":"","nlu_entity_label":""},{"variable_name":"offer_choose","nlu_entity":"","nlu_entity_label":""},{"variable_name":"do_you_want_to_check_anything_else_","nlu_entity":"","nlu_entity_label":""}]</nlu_entities>
+        <nlu_intent>Check Reminder and Update Profile </nlu_intent>
+        <nlu_intent_label>Check Reminder and Update Profile </nlu_intent_label>
+        <nlu_model>ml_x_cpszo_x_cpszo_spoke_global_9195aa728708fed002fdeac73cbb357e</nlu_model>
+        <nlu_model_label>Agentic Browsing Model</nlu_model_label>
+        <nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider>
+        <sys_class_name>sys_cs_topic_language</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2026-02-24 08:58:21</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>20dff3b4875f761402fdeac73cbb35d2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_cs_topic_language_20dff3b4875f761402fdeac73cbb35d2</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2026-02-24 08:58:21</sys_updated_on>
+    </sys_cs_topic_language>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</application>
+        <file_path/>
+        <instance_id>2baf7f71db9a0d1007072f17d496195c</instance_id>
+        <instance_name>capgeminipolskaspzoodemo11</instance_name>
+        <name>sys_cs_topic_language_20dff3b4875f761402fdeac73cbb35d2</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_topic_language"><sys_cs_topic_language action="INSERT_OR_UPDATE"><cs_topic_id display_value="_PRVW__12be422b8548432294f5c43d2337ce84">d0dff3b4875f761402fdeac73cbb3529</cs_topic_id><language_code>en</language_code><nlu_entities>[{"variable_name":"customer_number","nlu_entity":"","nlu_entity_label":""},{"variable_name":"customer_choice","nlu_entity":"","nlu_entity_label":""},{"variable_name":"offer_choose","nlu_entity":"","nlu_entity_label":""},{"variable_name":"do_you_want_to_check_anything_else_","nlu_entity":"","nlu_entity_label":""}]</nlu_entities><nlu_intent>Check Reminder and Update Profile </nlu_intent><nlu_intent_label>Check Reminder and Update Profile </nlu_intent_label><nlu_model>ml_x_cpszo_x_cpszo_spoke_global_9195aa728708fed002fdeac73cbb357e</nlu_model><nlu_model_label>Agentic Browsing Model</nlu_model_label><nlu_provider>64c023c17300330021a044764df6a70e</nlu_provider><sys_class_name>sys_cs_topic_language</sys_class_name><sys_created_by>brijesh.banerjee</sys_created_by><sys_created_on>2026-02-24 08:58:21</sys_created_on><sys_domain>global</sys_domain><sys_id>20dff3b4875f761402fdeac73cbb35d2</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package><sys_policy/><sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope><sys_update_name>sys_cs_topic_language_20dff3b4875f761402fdeac73cbb35d2</sys_update_name><sys_updated_by>brijesh.banerjee</sys_updated_by><sys_updated_on>2026-02-24 08:58:21</sys_updated_on></sys_cs_topic_language></record_update>]]></payload>
+        <payload_hash>1352465171</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>9a0c392b878ba650b3fb021a0cbb3575</source>
+        <source_table>sys_update_set</source_table>
+        <state>current</state>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2026-02-24 08:58:21</sys_created_on>
+        <sys_id>64dff3b4875f761402fdeac73cbb35d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19c8edef0350000001</sys_recorded_at>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2026-02-24 08:58:21</sys_updated_on>
+        <type>CS Topic Language</type>
+        <update_guid>a0dff3b4e45f7614d96199281fad0ad5</update_guid>
+        <update_guid_history>a0dff3b4e45f7614d96199281fad0ad5:1352465171</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2026-02-24 21:23:40</sys_created_on>
+        <sys_db_object display_value="" name="sys_cs_topic_language">sys_cs_topic_language</sys_db_object>
+        <sys_id>44a0fafeb7014a5a9601197fc1ac38d9</sys_id>
+        <sys_metadata>20dff3b4875f761402fdeac73cbb35d2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_scope_delete display_value="">244a12c00e714612af9745888ca7e024</sys_scope_delete>
+        <sys_update_name>sys_cs_topic_language_20dff3b4875f761402fdeac73cbb35d2</sys_update_name>
+        <sys_update_version display_value="sys_cs_topic_language_20dff3b4875f761402fdeac73cbb35d2">64dff3b4875f761402fdeac73cbb35d6</sys_update_version>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2026-02-24 21:23:40</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

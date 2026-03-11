@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="fe4a8ba1874b6a1002fdeac73cbb3534" label="Offer Tracker" max_length="40" name="x_cpszo_spoke_offer_tracker" type="collection">
+        <element choice="1" label="Offer Type" max_length="40" name="offer_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Credit Card 2" sequence="4" value="credit_card_2"/>
+                <element inactive_on_update="false" label="Extension" sequence="2" value="extension"/>
+                <element inactive_on_update="false" label="Credit Card 1" sequence="3" value="credit_card_1"/>
+                <element inactive_on_update="false" label="Waiver" sequence="1" value="waiver"/>
+                <element inactive_on_update="false" label="EMI Adjustment" sequence="0" value="emi adjustment"/>
+            </choice>
+        </element>
+        <element choice="1" default="Pending" label="Offer Status" max_length="40" name="offer_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Pending" sequence="1" value="Pending"/>
+                <element inactive_on_update="false" label="Rejected" sequence="2" value="Rejected"/>
+                <element inactive_on_update="false" label="Accepted" sequence="0" value="Accepted"/>
+            </choice>
+        </element>
+        <element label="Acceptance Date" max_length="40" name="acceptance_date" type="glide_date_time"/>
+        <element label="Installment Amount" max_length="20" name="installment_amount" type="currency"/>
+        <element default="javascript:current.getTableName();" dynamic_default_value="b5cb83a85f220100a9ad2572f2b4773c" label="Class" max_length="80" name="sys_class_name" type="sys_class_name" use_dynamic_default="true"/>
+        <element display="true" label="Number" max_length="32" name="number" reference="x_cpszo_spoke_customer_profile" reference_qual="answer = '';&#13;&#10;if (current &amp;&amp; current.number)&#13;&#10;  answer = 'number=' + current.number;&#13;&#10;" reference_qual_condition="answer = '';&#13;&#10;if (current &amp;&amp; current.number)&#13;&#10;  answer = 'number=' + current.number;" type="reference" use_dynamic_default="true"/>
+        <element choice="1" label="Delinquency Status" max_length="40" name="delinquency_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="number"/>
+        </index>
+        <index name="index2">
+            <element name="sys_class_name"/>
+        </index>
+    </element>
+</database>

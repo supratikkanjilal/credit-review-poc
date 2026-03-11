@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="0ea7818887efa6d0b3fb021a0cbb3510" label="Notification Config" max_length="40" name="x_cpszo_spoke_notification_config" type="collection">
+        <element label="Template" max_length="8000" name="template" type="html"/>
+        <element label="Name" max_length="80" name="name" type="string"/>
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Language" max_length="40" name="language" type="string"/>
+        <element label="Priority" max_length="40" name="priority" type="integer"/>
+        <element choice="1" label="Channel" max_length="40" name="channel" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="SMS" sequence="0" value="sms"/>
+                <element inactive_on_update="false" label="WhatsApp" sequence="2" value="whatsapp"/>
+                <element inactive_on_update="false" label="Email" sequence="1" value="email"/>
+            </choice>
+        </element>
+    </element>
+</database>

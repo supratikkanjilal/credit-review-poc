@@ -52,7 +52,6 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>brijesh.banerjee</sys_created_by>
         <sys_created_on>2025-07-30 06:36:09</sys_created_on>
-        <sys_id>2c8a8be1874b6a1002fdeac73cbb35e9</sys_id>
         <sys_name>Offer Type</sys_name>
         <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
         <sys_policy/>

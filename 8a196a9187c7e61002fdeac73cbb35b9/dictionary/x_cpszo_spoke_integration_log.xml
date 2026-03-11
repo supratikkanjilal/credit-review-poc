@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="fa8b037f87036a50b3fb021a0cbb35de" label="Integration Log" max_length="40" name="x_cpszo_spoke_integration_log" type="collection">
+        <element label="Status" max_length="40" name="status" type="string"/>
+        <element label="Number" max_length="32" name="number" reference="x_cpszo_spoke_customer_profile" type="reference"/>
+        <element label="Payload" max_length="4000" name="payload" type="journal"/>
+        <element label="Timestamp" max_length="40" name="timestamp" type="glide_date_time"/>
+        <element label="Interface" max_length="40" name="interface" type="string"/>
+        <element label="Response" max_length="4000" name="response" type="journal"/>
+        <index name="index">
+            <element name="number"/>
+        </index>
+    </element>
+</database>

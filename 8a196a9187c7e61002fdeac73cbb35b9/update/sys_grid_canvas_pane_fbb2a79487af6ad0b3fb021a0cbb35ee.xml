@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_grid_canvas_pane">
+    <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
+        <grid_canvas display_value="New Tab 1">26622b5487af6ad0b3fb021a0cbb3547</grid_canvas>
+        <height>10</height>
+        <portal_widget display_value="Created 2025-08-20 00:38:54">bfb2a39487af6ad0b3fb021a0cbb3541</portal_widget>
+        <posx>0</posx>
+        <posy>30</posy>
+        <sys_class_name>sys_grid_canvas_pane</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-20 07:38:54</sys_created_on>
+        <sys_id>fbb2a79487af6ad0b3fb021a0cbb35ee</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>26622b5487af6ad0b3fb021a0cbb3547</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_grid_canvas_pane_fbb2a79487af6ad0b3fb021a0cbb35ee</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-27 08:01:07</sys_updated_on>
+        <width>12</width>
+    </sys_grid_canvas_pane>
+</record_update>

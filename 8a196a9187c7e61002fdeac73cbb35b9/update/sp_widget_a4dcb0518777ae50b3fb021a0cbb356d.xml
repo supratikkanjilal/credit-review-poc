@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $location) {
+	var c = this;
+  $scope.selectedCustomer = null;
+  $scope.sortColumn = 'number';
+  $scope.reverseSort = false;
+
+  $scope.currentPage = 1;
+  $scope.pageSize = 10;
+  $scope.selectCustomer = function(customer) {
+		if(!customer) return;
+    $scope.selectedCustomer = customer;
+    $location.search('table', 'CustomerProfile');
+    $location.search('number', customer.number);
+		$location.search('sys_id', customer.sys_id);
+
+  };
+
+  $scope.getRiskStyle = function(risk) {
+    switch (risk.toLowerCase()) {
+      case 'high':
+        return { 'color': 'red', 'font-weight': 'bold' };
+      case 'medium':
+        return { 'color': 'orange', 'font-weight': 'bold' };
+      case 'low':
+        return { 'color': 'green', 'font-weight': 'bold' };
+      default:
+        return {};
+    }
+  };
+	 c.createCustProfile = function() {
+    window.open('/x_cpszo_spoke_customer_profile.do', '_blank');
+  };
+	if (window.opener) {
+  window.opener.location.href = '/credit_ops'; // Redirect original tab
+  window.close(); // Close current tab
+}
+
+
+}
+
+
+
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+.table-title {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.table-title h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  font-weight: 600;
+  margin: 0;
+  padding: 10px;
+  border-bottom: 2px solid #3498db;
+  display: inline-block;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+}
+
+.table tbody tr {
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #eaf2f8;
+  cursor: pointer;
+}
+
+.table td[ng-style] {
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+/* Panel styling */
+.panel-default {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* Base button style */
+.btn {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #3b3fc1;
+  transform: translateY(-1px);
+}
+
+
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>clone_custom_data_table</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>clone custom data table</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  var gr = new GlideRecord('x_cpszo_spoke_customer_profile'); // Replace with your actual table name
+  if (gr.isValid()) {
+    gr.setLimit(10); // Limit to 10 records
+		gr.orderByDesc('sys_created_on');
+    gr.query();
+
+    data.customers = [];
+
+    while (gr.next()) {
+      data.customers.push({
+				sys_id:gr.getUniqueValue(),
+        name: gr.getValue('name'),
+        number: gr.getValue('number'),
+        risk_bond: gr.getValue('risk_band') // Ensure field name is correct
+      });
+    }
+  } else {
+    data.error = "Invalid table name: x_cpszo_spoke_customer_profile";
+  }
+})();
+
+
+
+
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-04 08:23:34</sys_created_on>
+        <sys_id>a4dcb0518777ae50b3fb021a0cbb356d</sys_id>
+        <sys_mod_count>61</sys_mod_count>
+        <sys_name>clone custom data table</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sp_widget_a4dcb0518777ae50b3fb021a0cbb356d</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-12 13:06:39</sys_updated_on>
+        <template><![CDATA[<table class="table table-bordered table-hover">
+  
+  <div class="table-title">
+    <h2>Customer Profile</h2>
+     <button class="btn btn-primary m-1" ng-click="c.createCustProfile()">Create Customer</button>
+  </div>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Risk Bond</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="customer in data.customers" ng-click="selectCustomer(customer)">
+      
+      
+      <td>{{customer.number}}</td>
+      <td>{{customer.name}}</td>
+      <td ng-style="getRiskStyle(customer.risk_bond)">
+        {{customer.risk_bond}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+]]></template>
+    </sp_widget>
+</record_update>

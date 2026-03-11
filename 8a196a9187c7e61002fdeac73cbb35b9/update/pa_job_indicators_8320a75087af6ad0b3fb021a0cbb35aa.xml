@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="pa_job_indicators">
+    <pa_job_indicators action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <collect>1</collect>
+        <collect_indicator>true</collect_indicator>
+        <display>Collect Reminders Sent - Reminder Sent</display>
+        <indicator display_value="Reminder Sent">5ff61b94872f6ad0b3fb021a0cbb35d7</indicator>
+        <job display_value="Collect Reminders Sent">663e9b5c876f6ad0b3fb021a0cbb3595</job>
+        <sys_class_name>pa_job_indicators</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-20 07:27:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>8320a75087af6ad0b3fb021a0cbb35aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Reminder Sent.Collect Reminders Sent</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>pa_job_indicators_8320a75087af6ad0b3fb021a0cbb35aa</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-20 07:27:39</sys_updated_on>
+    </pa_job_indicators>
+</record_update>

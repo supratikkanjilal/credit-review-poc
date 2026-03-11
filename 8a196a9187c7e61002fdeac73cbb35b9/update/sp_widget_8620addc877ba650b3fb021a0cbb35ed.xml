@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $location, $timeout) {
+  // Helper: fetch the 'number' from URL query params
+  function getNumberFromUrl() {
+    var q = $location.search() || {};
+    return q.number || null;
+  }
+
+  // Call Server Script to refresh with the given number (or show latest if null)
+  function refresh(number) {
+    $scope.data.loading = true;
+    var payload = {};
+    if (number) payload.number = number;
+
+    $scope.server.update(payload)
+      .finally(function() {
+        $scope.data.loading = false;
+      });
+  }
+
+  // Track the last value to avoid redundant calls
+  var lastNumber = null;
+  function maybeRefresh(newNumber) {
+    if (newNumber === lastNumber) return;
+    lastNumber = newNumber || null;
+    refresh(lastNumber);
+  }
+
+  // Initial load from current URL
+  maybeRefresh(getNumberFromUrl());
+
+  // Watch the URL for changes
+  $scope.$watch(function() { return getNumberFromUrl(); }, function(nv, ov) {
+    if (nv !== ov) {
+      $timeout(function() { maybeRefresh(nv); }, 50);
+    }
+  });
+
+  // Optional: support event-based updates
+  $scope.$on('customer.selected', function(evt, payload) {
+    if (payload && payload.number) {
+      $location.search('number', payload.number);
+      maybeRefresh(payload.number);
+    }
+  });
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+.panel {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  max-width: 400px;
+  margin: 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.panel-heading {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  text-align: center;
+}
+
+.panel-heading h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.panel-body {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.panel-body strong {
+  font-size: 24px;
+  color: #e74c3c;
+}
+
+.panel &gt; div:not(.panel-body) p {
+  padding: 10px;
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>kpi_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>KPI Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  data.loading = true;
+  data.customer = null;
+  data.error = null;
+
+  try {
+    // Priority: input.number (from client update) > URL ?number > option
+    var number = (input && input.number) ||
+                 $sp.getParameter('number') ||
+                 (options && options.number);
+
+    var gr = new GlideRecord('x_cpszo_spoke_customer_profile');
+    if (number) {
+      gr.addQuery('number', number);
+      gr.query();
+      if (gr.next()) {
+        data.customer = {
+          days_since_last_payment_display: gr.getDisplayValue('days_since_last_payment'),
+          days_since_last_payment: gr.getValue('days_since_last_payment')
+        };
+      } else {
+        data.error = 'Record not found for number: ' + number;
+      }
+    } else {
+      // Fallback: latest record
+      gr.orderByDesc('sys_updated_on');
+      gr.setLimit(1);
+      gr.query();
+      if (gr.next()) {
+        data.customer = {
+          days_since_last_payment_display: gr.getDisplayValue('days_since_last_payment'),
+          days_since_last_payment: gr.getValue('days_since_last_payment')
+        };
+      }
+    }
+  } catch (e) {
+    data.error = (e && e.message) ? e.message : (e + '');
+  } finally {
+    data.loading = false;
+  }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-01 08:24:02</sys_created_on>
+        <sys_id>8620addc877ba650b3fb021a0cbb35ed</sys_id>
+        <sys_mod_count>46</sys_mod_count>
+        <sys_name>KPI Widget</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sp_widget_8620addc877ba650b3fb021a0cbb35ed</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-05 04:04:46</sys_updated_on>
+        <template><![CDATA[
+<div class="panel panel-default">
+  <style>
+p {text-align: center;}
+</style>
+  <div class="panel-heading">
+    <h4>Days Since Last Payment</h4>
+  </div>
+  <div class="panel-body" ng-if="data.customer">
+    <p><strong>{{data.customer.days_since_last_payment}}</strong> </p>
+  </div>
+  <div ng-if="!data.customer">
+    <p>No customer data found.</p>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

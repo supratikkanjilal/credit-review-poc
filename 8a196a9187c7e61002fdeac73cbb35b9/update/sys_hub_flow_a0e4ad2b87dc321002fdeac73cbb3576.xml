@@ -36,7 +36,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a0e4ad2b87dc321002fdeac73cbb3576</sys_id>
-        <sys_mod_count>50</sys_mod_count>
+        <sys_mod_count>51</sys_mod_count>
         <sys_name>Customer Risk Details</sys_name>
         <sys_overrides/>
         <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
@@ -44,11 +44,11 @@
         <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
         <sys_update_name>sys_hub_flow_a0e4ad2b87dc321002fdeac73cbb3576</sys_update_name>
         <sys_updated_by>brijesh.banerjee</sys_updated_by>
-        <sys_updated_on>2025-10-09 07:27:01</sys_updated_on>
+        <sys_updated_on>2025-10-09 07:27:03</sys_updated_on>
         <type>subflow</type>
         <updation_source/>
         <version>2</version>
-        <version_record display_value="Created 2025-10-09 00:25:48">5b3f74a08728b210b3fb021a0cbb353f</version_record>
+        <version_record display_value="Created 2025-10-09 00:27:03">e98f70e08728b210b3fb021a0cbb35b7</version_record>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=a0e4ad2b87dc321002fdeac73cbb3576"/>
     <sys_variable_value action="delete_multiple" query="document_key=a0e4ad2b87dc321002fdeac73cbb3576"/>
@@ -426,13 +426,13 @@
         <sys_created_by>brijesh.banerjee</sys_created_by>
         <sys_created_on>2025-10-09 06:24:36</sys_created_on>
         <sys_id>fa31f4288764b210b3fb021a0cbb3573</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
         <sys_updated_by>brijesh.banerjee</sys_updated_by>
-        <sys_updated_on>2025-10-09 07:26:57</sys_updated_on>
+        <sys_updated_on>2025-10-09 07:27:57</sys_updated_on>
         <ui_id>b1cd03a5-daba-43b3-bc8e-1f6ea302d708</ui_id>
         <updation_source/>
-        <values>H4sIAAAAAAAA/+1W30/bMBD+V6o8R5VDS2F9m0BIe2BMgHhhyHJip7Vw7Mx2+lP932fHTlraUEIp0ybtqcr5zvfdd99d/bgMKA6GAUj7AKDo9PwMgF4PgMGgl6AojnuDJAbx6ZcgDDjKiPFUQmqo5zkxpgliRW1DKjEmTFXO0PzBn6COFp2FsSdjyrAkPBg+PoVBjqS5TRMZDJdbR/ZqyFBMmAm/GAua2ExtQVaBdwZR596hbABe/gxNZn+9kNhi6YUBmWnCMTHpUsQUCYMMcYy0kPPaIgnCN5ytDWPKtbktsM4zRRfm6t6J9UuJKSsh7qz+hJ4jZ3YYlCl+WaOvWWsg2EMFq3Dtv7D+aNsfk82AaGXIxSRFBdMXh+WM3pvzxOZ0Bd7kmgrT4qBn6Ucx86wkghUZ/+5aFNQIHxqU5U4uXxFYoQyxJLfNs93wrUnvxmJ6WzF/RXmJyx8ykSBWfyGtJY0LbXlZBimGKSUMQ8oZ5TaTloWVCmEkMxlghvKc8hHMpZjQ8lZTS9YdMfPRTZmYWi7oiHdRYivvGhGh7pWxX5bmBySpZeHaXGOCQ5twbEJ9PqgSSXMNpxSPiF5nr7yw0FPEnpvOvbrqGSrLC1alAOGvwlbsiPZcwbIt1sHl/GrwToinxXa8nL3kbO/snW7NmWvrhjp2V8PBS+HK9qVTSiZsDa4KvrHK7MTz1/D6zeB6z12OSs1H2w7n4H3boR6ed83O7lBYkXxgJj5R+k2z9pZkHRNv6La/9z9jEK11YLoDJVGGQLWh22hXuNHByv3GNRmVJbfFVkVeo1nntgbXiNgrl9Y5vGz7R5Nt/4/INgIAvLruo9CdHnnbf46yP7pzz/e/d8BaCYngmFpEm9LlRRYT+bMwwXi5VEVsC+gmhdIiIxJSvFrtirtd0IGvuU2UbStsDG4qu3rTbdqqh8sRRwD8393tFd5qRe8XQT9e99tdt1b4DCa5WgiocvFMYC1SU1tKS8ctcV94j86P2uMwJd9bIC+eIC2KeBG8W5TXb/m59fIA//zL4+9c0AYQZabb0JGuRCFLViYwYUYq9kAirtxdB6/zp99xQ99yZQ8AAA==</values>
+        <values>H4sIAAAAAAAA/+VW227bMAz9lcDPQWAvadrlbUhRYEAvQ1v0pSsE2ZYTobLlSXKuyL+PutjOEjdLNhfosCfDJCUekudIel57NPZGnp8MfB8HZxfnvt/v+/5w2I9wEIb9YRT64dlnr+tlOCUQKblQSC1zAqYZZkVlwzICU0xlzvDyyXlwR/HOCuzRlLJYkMwbPb90vRwL2E0R4Y3WO65j4TAcEgahD5C782jxNEA0nxHk4DQq/6/d0nFp5CLWUPpdjywUyWICGBLMJOl6Kc5irLhYVhZBcHyXsdowpZmC3TwdvJB0Bfn6n3RcQqCqiFhf9Ytci6w5ucQKPyhRRKoQLtSCldCPdVVm1ciGnjv4/qZbx690PN6Nj8n2gmAD/Y5Jggumxn+WMzg15yed0xZ4lyvKYepeX88Fh6wsn7MizW7tLL0K4VMD2azn8g3OFRKaTXI9UD0hN67kYcrn9+U0rmhmcDkn4xFm1R9WStCwULovay+JUUIJixHNGM10Jhibpg9hJIUMKMV5TrMJygWfUbMr1JL2Jgx+egnjc90LOsl6ONKV94BYuHcF9ktjfsKC6i7cwDawuKsTTmGpy4dkJGiu0JzGE6Lq7GVUzNUcs9cmv2McKgdlyvM2XU8u5ZhhKetmA03Rj0L3wLbedQ+ZQZklBsUXqGBGXKM0B4xso/ODsj3bkagd9BZf9s+Pk0+OIyCUXbjTjOyEy7dQuaPDztxE/Hp8XGlH59Y6Snq3doRc+O0cIU0S35fgSQrcl5am2l8o6x0F1KTY04lve/Mb9g8OXlrDoOYZDBkJIqGlcov9wT79g5P5fwSIkv83eNG5r1A0QnMSAHaSienoNv+/VlZH/kFr5B98XPIHvu+/efUEXett+eZ5H320f/5fHH62+TXNIp7FVGPcFkBWpCER3wtYHK/Xsgh1Sb2okIqnRCAabzb7Ejlu0WkiOqKOUkTj7UKaiisfoLu266YNyldVi0LyP66U/pF75J2ui8MkG4Q1n+x2tU4WKMrliiOZ81eCKqpDtQk1gTsSGbuIzrcqok09GKilHh4d1h3oTgXmt+ktZZbtvKX8//Mt9TEvCwBEGTAE2RFKXgjTyhmKGNBLOwTOpN2rxavl5SfJyibsohAAAA==</values>
     </sys_hub_action_instance_v2>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=fa31f4288764b210b3fb021a0cbb3573"/>
     <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=a0e4ad2b87dc321002fdeac73cbb3576"/>
@@ -1418,15 +1418,15 @@
     <sys_hub_flow action="UPDATE">
         <sys_id>a0e4ad2b87dc321002fdeac73cbb3576</sys_id>
         <latest_snapshot>1682b8e88764b210b3fb021a0cbb3548</latest_snapshot>
-        <compiler_build>glide-zurich-07-01-2025__patch1-08-20-2025_09-08-2025_1328.zip</compiler_build>
+        <compiler_build>glide-zurich-07-01-2025__patch4-hotfix3a-12-29-2025_01-12-2026_0637.zip</compiler_build>
         <version_record/>
     </sys_hub_flow>
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=a0e4ad2b87dc321002fdeac73cbb3576"/>
     <sys_flow_subflow_plan action="delete_multiple" query="plan_id=a0e4ad2b87dc321002fdeac73cbb3576^sys_idNOT IN4b82f8e88764b210b3fb021a0cbb357d"/>
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
-        <plan>com.snc.process_flow.engine.ProcessPlan@3fb94507</plan>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"4b82f8e88764b210b3fb021a0cbb357d","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Customer Risk Details">a0e4ad2b87dc321002fdeac73cbb3576</plan_id>
-        <snapshot>1682b8e88764b210b3fb021a0cbb3548</snapshot>
+        <snapshot>857466a887973ed0b3fb021a0cbb353b</snapshot>
         <sys_created_by>brijesh.banerjee</sys_created_by>
         <sys_created_on>2025-10-09 06:30:21</sys_created_on>
         <sys_domain>global</sys_domain>

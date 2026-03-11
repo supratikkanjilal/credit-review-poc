@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>va:topic:c66d503787876a5002fdeac73cbb3574:node:4c6a094bd9ec4a07b7757089778172d1:field:0 {0}</key>
+        <language>en</language>
+        <message>{0}
+Here are the details:</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-13 05:55:39</sys_created_on>
+        <sys_id>83f707ca87d7ea9002fdeac73cbb35a3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>va:topic:c66d503787876a5002fdeac73cbb3574:node:4c6a094bd9ec4a07b7757089778172d1:field:0 {0}</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ui_message_83f707ca87d7ea9002fdeac73cbb35a3</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-13 05:55:39</sys_updated_on>
+    </sys_ui_message>
+</record_update>

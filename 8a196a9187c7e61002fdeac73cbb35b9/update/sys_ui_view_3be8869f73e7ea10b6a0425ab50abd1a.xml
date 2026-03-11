@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>custom_portal_approval_x_cpszo_spoke</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-08-29 08:48:20</sys_created_on>
+        <sys_id>3be8869f73e7ea10b6a0425ab50abd1a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Custom portal (x_cpszo_spoke)</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ui_view_3be8869f73e7ea10b6a0425ab50abd1a</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-08-29 08:48:20</sys_updated_on>
+        <title>Custom portal (x_cpszo_spoke)</title>
+        <user/>
+    </sys_ui_view>
+</record_update>

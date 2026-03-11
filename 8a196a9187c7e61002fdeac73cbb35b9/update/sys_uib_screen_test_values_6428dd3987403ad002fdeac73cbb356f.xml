@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_screen_test_values">
     <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
+        <macroponent/>
         <macroponent_config/>
         <screen display_value="Default">e028dd3987403ad002fdeac73cbb356c</screen>
         <sys_class_name>sys_uib_screen_test_values</sys_class_name>

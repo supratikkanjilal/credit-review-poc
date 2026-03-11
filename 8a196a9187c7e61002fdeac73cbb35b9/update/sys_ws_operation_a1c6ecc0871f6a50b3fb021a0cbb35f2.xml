@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>Get CRM</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // implement resource here
+	var customerId = request.pathParams.number; 
+
+    // Try Offer Tracker as source 
+    var gr = new GlideRecord('x_cpszo_spoke_offer_tracker'); 
+
+    if (gr.get('number', customerId)) { 
+        var resp = { 
+            number: customerId, 
+            income: (gr.income || Math.floor(Math.random()*100000)).toString(), 
+            eligible: gr.offer_type ? true : (Math.random() > 0.5) 
+
+        }; 
+
+        var il = new GlideRecord('x_cpszo_spoke_integration_log'); 
+        il.initialize(); 
+        il.timestamp = new GlideDateTime(); 
+        il.interface = 'Mock CRM GET'; 
+        il.payload = JSON.stringify({number: customerId}); 
+        il.status = 'OK'; 
+        il.response = JSON.stringify(resp); 
+        il.insert(); 
+
+        response.setStatus(200); 
+        response.setBody(resp); 
+
+    } else { 
+
+        var resp2 = { 
+            number: customerId, 
+            income: (20000 + Math.floor(Math.random()*80000)).toString(), 
+            eligible: Math.random() > 0.3 
+        }; 
+
+        var il2 = new GlideRecord('x_cpszo_spoke_integration_log'); 
+        il2.initialize(); 
+        il2.timestamp = new GlideDateTime(); 
+        il2.interface = 'Mock CRM GET'; 
+        il2.payload = JSON.stringify({number: customerId}); 
+        il2.status = 'Simulated'; 
+        il2.response = JSON.stringify(resp2); 
+        il2.insert(); 
+
+        response.setStatus(200); 
+        response.setBody(resp2); 
+    } 
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_cpszo_spoke/x_demo_mock/crm/{number}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/crm/{number}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-06 13:44:35</sys_created_on>
+        <sys_id>a1c6ecc0871f6a50b3fb021a0cbb35f2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get CRM</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_ws_operation_a1c6ecc0871f6a50b3fb021a0cbb35f2</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-06 13:44:35</sys_updated_on>
+        <web_service_definition display_value="Mock External Systems">8d2f3bb787c76a50b3fb021a0cbb35e1</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

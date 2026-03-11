@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_screen">
     <sys_ux_screen action="INSERT_OR_UPDATE">
         <active>true</active>
-        <app_config display_value="demo workspace">5b8c9efe87ffaa90b3fb021a0cbb35d7</app_config>
+        <app_config/>
         <description/>
         <disable_auto_reflow>true</disable_auto_reflow>
         <disable_interoperable>false</disable_interoperable>

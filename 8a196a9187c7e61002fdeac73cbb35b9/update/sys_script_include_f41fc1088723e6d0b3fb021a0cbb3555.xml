@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_cpszo_spoke.NotificationUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>NotificationUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var NotificationUtils = Class.create();
+NotificationUtils.prototype = {
+    initialize: function() {
+    },
+	renderTemplate: function(template, data) { 
+
+        var result = template + ''; 
+
+        for (var k in data) { 
+
+            var re = new RegExp('\\$\\{' + k + '\\}', 'g'); 
+
+            result = result.replace(re, data[k] !== undefined ? data[k] : ''); 
+
+        } 
+
+        return result; 
+
+    }, 
+    type: 'NotificationUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-08-19 02:17:26</sys_created_on>
+        <sys_id>f41fc1088723e6d0b3fb021a0cbb3555</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>NotificationUtils</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_include_f41fc1088723e6d0b3fb021a0cbb3555</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-08-19 02:17:26</sys_updated_on>
+    </sys_script_include>
+</record_update>

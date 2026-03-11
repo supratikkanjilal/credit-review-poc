@@ -2,7 +2,7 @@
     <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
         <macroponent/>
         <macroponent_config/>
-        <screen display_value="Home">3d8f21508794f21002fdeac73cbb35e4</screen>
+        <screen/>
         <sys_class_name>sys_uib_screen_test_values</sys_class_name>
         <sys_created_by>brijesh.banerjee</sys_created_by>
         <sys_created_on>2025-09-26 06:02:36</sys_created_on>

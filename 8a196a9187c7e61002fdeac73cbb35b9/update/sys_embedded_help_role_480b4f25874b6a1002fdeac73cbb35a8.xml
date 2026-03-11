@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_cpszo_spoke.offer_tracker_user" name="x_cpszo_spoke.offer_tracker_user">c00b03a1874b6a1002fdeac73cbb3521</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-07-30 06:36:09</sys_created_on>
+        <sys_id>480b4f25874b6a1002fdeac73cbb35a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>c00b03a1874b6a1002fdeac73cbb3521</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_embedded_help_role_480b4f25874b6a1002fdeac73cbb35a8</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-07-30 06:36:09</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

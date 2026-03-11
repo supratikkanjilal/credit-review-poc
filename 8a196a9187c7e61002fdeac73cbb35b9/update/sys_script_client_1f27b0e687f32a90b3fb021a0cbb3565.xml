@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Validate Installment Amount</name>
+        <order>100</order>
+        <script><![CDATA[function onSubmit() {
+    var amt = g_form.getValue('installment_amount');
+    if (!amt || parseFloat(amt) <= 0) {
+        g_form.addErrorMessage('Installment amount must be greater than 0.');
+        return false;
+    }
+    return true;
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-08 05:12:35</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1f27b0e687f32a90b3fb021a0cbb3565</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Validate Installment Amount</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sys_script_client_1f27b0e687f32a90b3fb021a0cbb3565</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-08 06:42:21</sys_updated_on>
+        <table>x_cpszo_spoke_offer_tracker</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

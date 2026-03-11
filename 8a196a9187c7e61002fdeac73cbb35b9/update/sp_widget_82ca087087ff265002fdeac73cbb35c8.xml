@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script/>
+        <controller_as>c</controller_as>
+        <css>/* Tabs Navigation */
+.nav-tabs {
+  border-bottom: 2px solid #3498db;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.nav-tabs &gt; li {
+  margin: 0 10px;
+}
+
+.nav-tabs &gt; li &gt; a {
+  background-color: #ecf0f1;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  padding: 10px 20px;
+  color: #2c3e50;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.nav-tabs &gt; li.active &gt; a,
+.nav-tabs &gt; li &gt; a:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Tab Content */
+.tab-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Headings */
+.tab-content h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-striped tbody tr:hover {
+  background-color: #eaf2f8;
+  cursor: pointer;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data>
+
+
+
+
+
+
+
+  </demo_data>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>copy_of_customer_activity_related_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Copy of Customer Activity Related List</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    data.offerTracker = [];
+    data.reminderLog = [];
+
+    var offerGR = new GlideRecord('x_cpszo_spoke_offer_tracker');
+    offerGR.orderByDesc('sys_created_on');
+    //offerGR.setLimit(10); // Set limit before query
+    offerGR.query();
+    while (offerGR.next()) {
+        data.offerTracker.push({
+            sys_id: offerGR.getValue('sys_id'),
+            number: offerGR.getDisplayValue('number'),
+            acceptance_date: offerGR.getDisplayValue('acceptance_date'),
+            offer_status: offerGR.getValue('offer_status'),
+            delinquency_status: offerGR.getValue('delinquency_status'),
+            installment_amount: offerGR.getDisplayValue('installment_amount')
+        });
+    }
+
+    var reminderGR = new GlideRecord('x_cpszo_spoke_reminder_log');
+    reminderGR.orderByDesc('sys_created_on');
+   // reminderGR.setLimit(10); // Set limit before query
+    reminderGR.query();
+    while (reminderGR.next()) {
+        data.reminderLog.push({
+            sys_id: reminderGR.getValue('sys_id'),
+            number: reminderGR.getDisplayValue('number'),
+            preferred_channel: reminderGR.getValue('preferred_channel'),
+            reminder_type: reminderGR.getValue('reminder_type'),
+            reminder_schedule: reminderGR.getDisplayValue('reminder_schedule'),
+            reminder_message: reminderGR.getValue('reminder_message'),
+            last_contact_date: reminderGR.getDisplayValue('last_contact_date')
+        });
+    }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>brijesh.banerjee</sys_created_by>
+        <sys_created_on>2025-09-02 15:27:59</sys_created_on>
+        <sys_id>82ca087087ff265002fdeac73cbb35c8</sys_id>
+        <sys_mod_count>79</sys_mod_count>
+        <sys_name>Copy of Customer Activity Related List</sys_name>
+        <sys_package display_value="Spoke" source="x_cpszo_spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
+        <sys_update_name>sp_widget_82ca087087ff265002fdeac73cbb35c8</sys_update_name>
+        <sys_updated_by>brijesh.banerjee</sys_updated_by>
+        <sys_updated_on>2025-09-09 08:40:30</sys_updated_on>
+        <template><![CDATA[<div>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#offers">Offers</a></li>
+    <li><a data-toggle="tab" href="#reminders">Reminders</a></li>
+  </ul>
+ 
+  <div class="tab-content">
+    <div id="offers" class="tab-pane fade in active">
+      <h4>Offers</h4>
+      <table class="table table-striped">
+       
+<tr>
+  			<th>Number</th>
+        <th>Acceptance Date</th>
+        <th>Offer Status</th>
+        <th>Delinquency Status</th>
+        <th>Installment Amount</th>
+      </tr>
+
+<tr ng-repeat="offer in data.offerTracker">
+  			<td>{{offer.number}}</td>
+        <td>{{offer.acceptance_date}}</td>
+        <td>{{offer.offer_status}}</td>
+        <td>{{offer.delinquency_status}}</td>
+        <td>{{offer.installment_amount}}</td>
+      </tr>
+
+
+      </table>
+    </div>    
+    <div id="reminders" class="tab-pane fade">
+      <h4>Reminders</h4>
+      <table class="table table-striped">
+       
+<tr>
+  			<th>Number</th>
+        <th>Preferred Channel</th>
+        <th>Reminder Type</th>
+        <th>Reminder Schedule</th>
+        <th>Reminder Message</th>
+        <th>Last Contact Date</th>
+      </tr>
+
+              
+<tr ng-repeat="reminder in data.reminderLog">
+  			<td>{{reminder.number}}</td>
+        <td>{{reminder.preferred_channel}}</td>
+        <td>{{reminder.reminder_type}}</td>
+        <td>{{reminder.reminder_schedule}}</td>
+        <td>{{reminder.reminder_message}}</td>
+        <td>{{reminder.last_contact_date}}</td>
+      </tr>
+
+
+      </table>
+    </div>
+
+    </div>
+  </div>]]></template>
+    </sp_widget>
+</record_update>

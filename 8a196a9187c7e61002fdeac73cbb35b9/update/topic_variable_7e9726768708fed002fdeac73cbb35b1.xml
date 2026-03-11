@@ -13,7 +13,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label/>
+        <column_label>User</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -69,7 +69,7 @@
         <sys_scope display_value="Spoke">8a196a9187c7e61002fdeac73cbb35b9</sys_scope>
         <sys_update_name>topic_variable_7e9726768708fed002fdeac73cbb35b1</sys_update_name>
         <sys_updated_by>brijesh.banerjee</sys_updated_by>
-        <sys_updated_on>2025-09-21 18:16:42</sys_updated_on>
+        <sys_updated_on>2025-09-21 18:16:43</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
